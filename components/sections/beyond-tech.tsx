@@ -28,7 +28,7 @@ export default function BeyondTech() {
 
       <div className="highlighted-section mb-6">
         <blockquote className="text-lg italic">
-          "It's like having multiple browser tabs open in my brain—somehow it all works together."
+          "I engage with a diverse set of disciplines, approaching problems through a multidimensional lens."
         </blockquote>
       </div>
 

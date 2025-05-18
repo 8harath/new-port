@@ -57,6 +57,27 @@ export default function EducationExperience() {
         ],
       },
     },
+    {
+      id: "alvas-central-school",
+      institution: "Alvas Central School",
+      degree: "High School",
+      specialization: "Science",
+      period: "2011–2021",
+      details: {
+        description:
+          "Completed high school education with a focus on science, participating in various academic and extracurricular activities.",
+        courses: ["Mathematics", "Science", "English", "Social Studies", "Computer Science"],
+        achievements: [
+          "Graduated with distinction",
+          "Winner of the School Science Quiz",
+          "Active member of the School Science Club",
+        ],
+        activities: [
+          "Participated in inter-school science exhibitions",
+          "Volunteered for school events and community outreach programs",
+        ],
+      },
+    },
   ]
 
   const experience = [
@@ -256,19 +277,22 @@ export default function EducationExperience() {
     <section>
       <h2 className="section-header">EDUCATION & EXPERIENCE</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div>
           <h3 className="font-bold text-xl mb-4 border-b border-gray-400 pb-1">Education</h3>
 
           <div className="space-y-4">
-            {education.map((edu, index) => (
-              <div key={index} className="card">
-                <h4 className="font-bold text-lg">{edu.institution}</h4>
-                <p>{edu.degree}</p>
-                {edu.specialization && <p>Specialization: {edu.specialization}</p>}
-                <p className="text-sm mt-1">{edu.period}</p>
-                <div className="mt-3">
-                  <button onClick={() => openModal(edu.id)} className="retro-button flex items-center text-sm">
+            {education.map((edu) => (
+              <div key={edu.id} className="card flex flex-col h-full">
+                <h3 className="font-bold text-lg mb-1">{edu.institution}</h3>
+                <p className="mb-1">{edu.degree}{edu.specialization && `, ${edu.specialization}`}</p>
+                <p className="mb-2 text-sm text-gray-600">{edu.period}</p>
+                <div className="flex-grow" />
+                <div className="flex justify-center mt-4">
+                  <button
+                    onClick={() => openModal(edu.id)}
+                    className="retro-button flex items-center justify-center"
+                  >
                     <Info className="w-4 h-4 mr-1" />
                     More Details
                   </button>
