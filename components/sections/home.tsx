@@ -5,7 +5,7 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center text-center">
       <div className="highlighted-section mb-8 inline-block">
-        <h1 className="text-4xl font-bold mb-4">NOT JUST A CODER — AN EXPLORER OF INTELLIGENCE</h1>
+        <h1 className="text-4xl font-bold mb-4">Exploring Intelligence Through Code and Theory</h1>
         <h2 className="text-xl mb-2">BHARATH K</h2>
       </div>
 

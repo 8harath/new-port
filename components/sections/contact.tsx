@@ -76,9 +76,9 @@ export default function Contact() {
     { name: "X (Twitter)", icon: <Twitter className="w-5 h-5" />, url: "https://twitter.com/8harath_k" },
     { name: "Instagram", icon: <Instagram className="w-5 h-5" />, url: "https://www.instagram.com/8harath.k/" },
     { name: "LinkedIn", icon: <Linkedin className="w-5 h-5" />, url: "https://www.linkedin.com/in/8harath/" },
-    { name: "GitHub", icon: <Github className="w-5 h-5" />, url: "https://github.com/yourusername" },
-    { name: "Hugging Face", icon: <ExternalLink className="w-5 h-5" />, url: "https://huggingface.co/yourusername" },
-    { name: "Bento", icon: <ExternalLink className="w-5 h-5" />, url: "https://bento.me/yourusername" },
+    { name: "GitHub", icon: <Github className="w-5 h-5" />, url: "https://github.com/8harath" },
+    { name: "Hugging Face", icon: <ExternalLink className="w-5 h-5" />, url: "https://huggingface.co/8harath" },
+    { name: "Bento", icon: <ExternalLink className="w-5 h-5" />, url: "https://bento.me/8harath" },
   ]
 
   return (

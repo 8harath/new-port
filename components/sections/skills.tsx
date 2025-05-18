@@ -6,7 +6,7 @@ export default function Skills() {
     },
     {
       title: "Frameworks & Libraries",
-      skills: ["TensorFlow", "PyTorch", "React", "Node.js"],
+      skills: ["TensorFlow", "OpenCV", "Numpy", "Pandass"],
     },
     {
       title: "Tools & Technologies",
