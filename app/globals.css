@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-amber-50 text-gray-900;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 48 100% 97%; /* #FFFAEB */
+    --foreground: 0 0% 10%;
+    --card: 48 100% 95%; /* #FFF0C2 as surface */
+    --card-foreground: 0 0% 10%;
+    --popover: 48 100% 95%; /* #FFF0C2 as surface */
+    --popover-foreground: 0 0% 10%;
+    --primary: 2 100% 44%; /* #E00400 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 22 97% 52%; /* #FA520F */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 36 100% 82%; /* fallback muted */
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 32 100% 52%; /* #FF8205 */
+    --accent-foreground: 0 0% 10%;
+    --accent2: 45 100% 50%; /* #FFAE00 */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 100% 50%; /* #FFAE00 as border */
+    --input: 45 100% 50%; /* #FFAE00 as input border */
+    --ring: 2 100% 44%; /* #E00400 as ring */
+    --highlight: 52 100% 50%; /* #FFD900 */
+    --surface: 48 100% 95%; /* #FFF0C2 */
+    --radius: 0.5rem;
+    --sidebar-background: 48 100% 97%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 2 100% 44%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 32 100% 52%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 45 100% 50%;
+    --sidebar-ring: 2 100% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-amber-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .retro-button {
+    @apply font-mono border-2 border-gray-800 bg-gray-200 hover:bg-amber-200 px-4 py-2 
+           transition-colors active:bg-amber-300 active:translate-y-1 inline-block text-center;
+  }
+
+  .section-header {
+    @apply font-bold text-2xl uppercase border-b-2 border-gray-400 pb-2 mb-6;
+  }
+
+  .card {
+    @apply border-2 border-gray-800 bg-gray-100 p-4;
+  }
+
+  .highlighted-section {
+    @apply bg-amber-100 border-2 border-amber-600 p-4;
+  }
+}

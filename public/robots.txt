@@ -1,0 +1,28 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://8harath.me/sitemap.xml
+
+# Crawl-delay for all bots
+Crawl-delay: 10
+
+# Disallow admin and private routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow specific bots to crawl everything
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block specific bots
+User-agent: BadBot
+Disallow: / 
