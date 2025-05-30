@@ -17,7 +17,7 @@ export default function Projects() {
       title: "Online Voting System",
       image: "/ovs.png",
       description:
-        "A secure and intuitive web application developed to enable digital voting in a university setting. The system supports user registration, authentication, and vote casting, with each vote encrypted prior to storage to ensure confidentiality and integrity. Built with SQLite as the backend database, the platform includes candidate profile management and implements robust access control mechanisms to prevent duplicate or unauthorized voting—ensuring a transparent and fair electoral process.",
+        "The Online Voting System is a secure, web-based voting platform designed primarily for college elections. Users can register and log in with unique credentials, view candidate profiles, and cast a single vote. Each vote is confirmed with a unique reference number, and users can log out securely. The system enforces one-person-one-vote using a database flag, and all passwords are securely hashed. The project is structured with clear separation of concerns: Flask handles the backend logic, SQLite is used for persistent storage, and Jinja2 templates render the frontend. The main files include app logic (app.py), database setup (database.py), data models (models.py), HTML templates, and static assets. Security is prioritized through session management, hashed passwords, and prevention of duplicate voting. The platform is easy to set up and extend, making it suitable for academic or small-scale organizational elections.",
       stack: ["Python", "Flask", "SQLite", "HTML/CSS", "JavaScript"],
       github: "https://github.com/yourusername/online-voting-system",
       category: "Full Stack",
@@ -34,15 +34,33 @@ export default function Projects() {
       title: "Automated Student Evaluation Portal",
       image: "/Automated-student-portal.png",
       description:
-        "A web-based assessment platform designed to automate and streamline the student evaluation process. Faculty members can upload questions, marking schemes, and key answers, while students submit their responses directly through the interface. The system automatically evaluates the submissions by comparing them against the provided keys, assigning scores based on predefined benchmarks. It also compiles total marks and generates rank lists, enabling consistent, objective, and efficient academic evaluation.",
-      stack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "jQuery"],
+        "The Academic Essay Evaluation Platform is a web application designed to automate and enhance the essay grading process, primarily for academic institutions like Jain University. It replaces manual essay grading with an AI-powered system that evaluates student essays for relevance, coverage, and structure. Faculty can create essay questions with reference answers, set word/mark limits, review submissions, and generate detailed PDF reports. Students can browse available questions, submit essays with real-time word count feedback, and view AI-generated feedback and scores. The platform uses Google’s Gemini 1.5 Pro AI model for evaluation, supports role-based authentication, and features interactive dashboards, dynamic charts, and responsive design. It works with SQLite for development and PostgreSQL for production, and generates comprehensive PDF reports. The backend is built with Python (Flask), SQLAlchemy ORM, and integrates the Gemini API; the frontend uses HTML, CSS, JavaScript, Bootstrap 5, and Chart.js for data visualization.",
+      stack: [
+        "Python",
+        "Flask",
+        "SQLite/PostgreSQL",
+        "SQLAlchemy",
+        "Flask-Login",
+        "Flask-WTF",
+        "Gemini API",
+        "HTML/CSS",
+        "JavaScript",
+        "Bootstrap 5",
+        "Chart.js",
+        "AOS",
+        "ReportLab"
+      ],
       github: "https://github.com/8harath/Essay-Evaluation-001",
       category: "Web Development",
       demo: "https://demo-link.com",
       features: [
-        "Automated evaluation",
-        "Real-time results",
-        "Admin dashboard"
+        "AI-based essay evaluation (Gemini 1.5 Pro)",
+        "Role-based authentication for faculty and students",
+        "Faculty dashboard for question creation and report generation",
+        "Student interface with real-time word count and feedback",
+        "Dynamic charts and animated UI",
+        "PDF report generation",
+        "Database flexibility (SQLite/PostgreSQL)"
       ]
     },
     {
@@ -50,9 +68,9 @@ export default function Projects() {
       title: "Webpage Summarizer Extension",
       image: "/web-page-sum.png",
       description:
-        "A browser extension powered by the Gemini API that enables real-time summarization and contextual question answering for any active web page. Users can generate summaries in different formats and word limits, and interact with the extension to extract answers directly from the page content. Operated locally using a user-provided Gemini API key, the extension ensures data privacy without relying on external servers, offering a flexible, responsive, and private browsing assistant.",
+        "A Chrome browser extension that brings AI-powered summarization and question-answering to any web page using Google’s Gemini API. The extension injects a content script to intelligently extract the main content of the current page, removing navigation, ads, and irrelevant elements. Through its popup UI, users can generate concise summaries (in 50, 100, or 200 words), ask natural language questions about the page, and highlight answers directly on the page. The extension communicates with Gemini to generate summaries, answer questions, and suggest follow-up queries. Answers can be located and highlighted on the original page for context. The UI supports light/dark themes, and users securely set their Gemini API key in the extension. Main files include popup.js (UI logic and API calls), content.js (content extraction and highlighting), and popup.html (UI markup). The extension is designed for privacy (all processing is local except for Gemini API calls) and a seamless, interactive user experience.",
       stack: ["JavaScript", "HTML/CSS", "Chrome Extension API", "Gemini API"],
-      github: "https://github.com/yourusername/webpage-summarizer",
+      github: "https://github.com/8harath/sum-extention",
       category: "Extensions",
       demo: "https://demo-link.com",
       features: [
@@ -62,45 +80,13 @@ export default function Projects() {
       ]
     },
     {
-      id: "image-recognition",
-      title: "Image Recognition Interface",
-      image: "/image-recognition.png",
-      description:
-        "A web application that allows users to upload images and receive accurate, AI-generated classifications or descriptive insights. The interface is built with a focus on smooth transitions, responsiveness, and user experience. Leveraging Gemini's image analysis capabilities, the application provides fast, reliable results entirely within the browser, making it a convenient tool for lightweight image recognition and analysis tasks.",
-      stack: ["React", "Tailwind CSS", "Gemini API", "Firebase"],
-      github: "https://github.com/yourusername/image-recognition-interface",
-      category: "AI/ML",
-      demo: "https://demo-link.com",
-      features: [
-        "AI-generated classifications",
-        "Descriptive insights",
-        "Fast, reliable results"
-      ]
-    },
-    {
-      id: "resume-analyzer",
-      title: "Resume Analyzer Using LLM",
-      image: "/resume-llm.png",
-      description:
-        "A resume optimization platform that uses a large language model (LLM) to evaluate resumes for specific job roles and experience levels. Users can upload their resumes and select a target domain, after which the system analyzes the content and provides structured feedback. This includes ATS (Applicant Tracking System) compatibility tips, section-wise improvement suggestions, and missing keyword alerts—helping users refine their resumes to match industry standards and increase job market competitiveness.",
-      stack: ["Python", "Flask", "LangChain", "OpenAI API", "React"],
-      github: "https://github.com/yourusername/resume-analyzer",
-      category: "Full Stack",
-      demo: "https://demo-link.com",
-      features: [
-        "ATS compatibility tips",
-        "Section-wise improvement suggestions",
-        "Missing keyword alerts"
-      ]
-    },
-    {
       id: "car-parking-detection",
       title: "Car Parking Detection System",
       image: "/car-parking.png",
       description:
-        "A computer vision project that detects the number of cars parked in a given image and identifies available parking spaces. The system generates a detailed report in CSV format and provides a graphical visualization of the parking lot. Built using a YOLO-based vision model, custom-trained and adjusted for parking lot scenarios.",
+        "An advanced car parking space detection system that uses computer vision and machine learning (YOLOv8) to analyze parking lots, detect vehicles, and report on parking space occupancy. Users provide an image or video of a parking lot, interactively select parking spaces via a graphical interface, and the system saves these coordinates for future sessions. The pipeline processes the input with grayscale conversion, blurring, adaptive thresholding, and dilation to clean up the image. YOLOv8 detects vehicles (car, truck, bus, motorcycle) and assigns confidence scores. For each parking space, the code checks occupancy by analyzing pixel values and comparing them to a threshold, handling occlusions, large vehicles, and lighting variations. The system displays the lot with color-coded spaces (green for empty, red for occupied) and can generate comprehensive reports: annotated images, text summaries, and CSV data. The project is modular, with scripts for detection, UI, and reporting, and is easily extensible for future enhancements like cloud deployment or multi-camera support.",
       stack: ["Python", "YOLO", "OpenCV", "Pandas", "Matplotlib"],
-      github: "https://github.com/yourusername/car-parking-detection",
+      github: "https://github.com/8harath/Car-Parking-Detection",
       category: "AI/ML",
       demo: "https://demo-link.com",
       features: [
@@ -116,9 +102,9 @@ export default function Projects() {
       title: "Custom Shortcut Generator",
       image: "/shortcut-generater.png",
       description:
-        'A productivity-enhancing Chrome extension that enables users to create and manage up to 50 personalized typing shortcuts. Common inputs like email addresses, physical locations, or social links can be mapped to quick commands (e.g., typing "/addr" to expand into a saved address). Featuring a clean and responsive interface, the extension is designed to reduce repetitive typing and streamline workflows—especially useful for form filling and frequent text inputs.',
+        "A Chrome browser extension that allows users to define custom text shortcuts for fast, automated text replacement in any editable field across websites. Users can create, edit, and manage shortcuts (e.g., typing '/mail' to insert their email address) via a popup UI. The extension injects a content script into every page to listen for input events, detect trigger words, and replace them with preset values in real time. It supports up to 50 shortcuts, live updates across tabs, import/export of shortcut sets, and site-specific enable/disable via whitelist/blacklist. The UI offers light/dark/system themes and settings for full control. Core files include content.js (input detection and replacement), background.js (storage and messaging), and popup.js (UI and settings). Built for efficiency and privacy, it streamlines repetitive typing and personalizes web input workflows.",
       stack: ["JavaScript", "HTML/CSS", "Chrome Extension API", "LocalStorage"],
-      github: "https://github.com/yourusername/custom-shortcut-generator",
+      github: "https://github.com/8harath/text-replace-ext",
       category: "Extensions",
       demo: "https://demo-link.com",
       features: [
