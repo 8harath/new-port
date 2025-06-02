@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, type FormEvent } from "react"
+import emailjs from 'emailjs-com'
 import { Send, Loader2, Twitter, Instagram, Linkedin, Github, ExternalLink } from "lucide-react"
 
 export default function Contact() {
@@ -35,17 +36,20 @@ export default function Contact() {
     setStatus("sending")
 
     try {
-      // Simulate sending email
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Replace these with your actual EmailJS service/template/user IDs
 
-      // In a real application, you would use EmailJS or a similar service here
-      // For example:
-      // await emailjs.send(
-      //   "service_id",
-      //   "template_id",
-      //   formData,
-      //   "user_id"
-      // )
+      const serviceId = "service_6yd60g2"
+      const templateId = "template_hdv2629"
+      const userId = "qx2jxijBdwq8Vvg0C"
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, userId)
 
       setStatus("success")
       setFormData({
@@ -56,15 +60,12 @@ export default function Contact() {
       })
       setCharCount(0)
 
-      // Reset status after 3 seconds
       setTimeout(() => {
         setStatus("idle")
       }, 3000)
     } catch (error) {
       console.error("Error sending email:", error)
       setStatus("error")
-
-      // Reset status after 3 seconds
       setTimeout(() => {
         setStatus("idle")
       }, 3000)
