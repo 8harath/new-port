@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, type FormEvent } from "react"
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
 import { Send, Loader2, Twitter, Instagram, Linkedin, Github, ExternalLink } from "lucide-react"
 
 export default function Contact() {
@@ -86,8 +86,8 @@ export default function Contact() {
     <section>
       <h2 className="section-header">CONTACT</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div className="card">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 px-2 md:px-0">
+        <div className="card w-full max-w-md mx-auto md:mx-0">
           <h3 className="font-bold text-xl mb-4">Get In Touch</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -185,9 +185,9 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="card">
+        <div className="card w-full max-w-md mx-auto md:mx-0 mt-8 md:mt-0">
           <h3 className="font-bold text-xl mb-4">Connect With Me</h3>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4">
             {socialLinks.map((social, index) => (
               <a
                 key={index}

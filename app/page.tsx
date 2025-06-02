@@ -44,7 +44,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen">
       <Sidebar
         activeSection={activeSection}
         setActiveSection={setActiveSection}

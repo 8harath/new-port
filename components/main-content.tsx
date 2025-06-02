@@ -35,8 +35,8 @@ export default function MainContent({ activeSection, setActiveSection, sidebarCo
   }
 
   return (
-    <main className={`flex-1 p-6 md:p-8 transition-all duration-300 ${sidebarCollapsed ? "ml-16" : "ml-0"}`}>
-      <div className="container mx-auto max-w-4xl">{renderSection()}</div>
+    <main className={`flex-1 p-2 sm:p-4 md:p-8 transition-all duration-300 w-full`}> 
+      <div className="container mx-auto max-w-4xl w-full">{renderSection()}</div>
     </main>
   )
 }

@@ -22,11 +22,11 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
 
   return (
     <aside
-      className={`bg-gray-100 border-r-2 border-gray-800 h-screen sticky top-0 transition-all duration-300 flex flex-col ${
+      className={`bg-gray-100 border-r-2 border-gray-800 h-screen sticky top-0 transition-all duration-300 flex flex-col z-40 ${
         collapsed ? "w-16" : "w-64"
-      }`}
+      } md:relative fixed left-0 top-0 md:h-screen h-16 md:w-auto w-full md:top-0 md:left-0`}
     >
-      <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center">
+      <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center md:justify-between justify-center md:h-auto h-full">
         {!collapsed && <h2 className="font-bold">BK</h2>}
         <button
           onClick={toggleSidebar}
@@ -37,7 +37,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
         </button>
       </div>
 
-      <nav className="flex-1 overflow-y-auto py-4">
+      <nav className="flex-1 overflow-y-auto py-4 md:block hidden">
         <ul className="space-y-2 px-2">
           {navItems.map((item) => (
             <li key={item.id}>
