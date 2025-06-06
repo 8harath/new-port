@@ -98,11 +98,6 @@ README.md        # Documentation
    python app.py
    ```
 
-## 📊 Performance Notes
-
-- Each evaluation is asynchronous and takes 10–15 seconds
-- Best for classes up to 100 students; for larger classes, batch evaluation and performance tuning are recommended
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
