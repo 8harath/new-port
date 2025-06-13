@@ -82,6 +82,32 @@ export default function EducationExperience() {
 
   const experience = [
     {
+      id: "vishvam-ai",
+      company: "Vishvam.Ai",
+      role: "AI Developer Intern",
+      period: "March 2024",
+      description: "Contributing to the development of the world's first Telugu LLM through crowdsourced data collection and model training.",
+      details: {
+        fullDescription:
+          "As an AI Developer Intern at Vishvam.Ai, I am part of a groundbreaking initiative to develop the world's first Telugu Language Model. This crowdsourced project aims to create a comprehensive LLM that captures all the nuances of the Telugu language, enabling training from scratch through collaborative effort.",
+        responsibilities: [
+          "Collecting and curating Telugu language data for model training",
+          "Implementing data preprocessing and cleaning pipelines",
+          "Contributing to the development of data collection methodologies",
+          "Participating in model training and evaluation processes",
+          "Collaborating with the team to ensure comprehensive language coverage",
+        ],
+        technologies: ["Python", "NLP", "Data Collection Tools", "Machine Learning", "Natural Language Processing"],
+        achievements: [
+          "Contributing to the development of a unique Telugu language dataset",
+          "Participating in the creation of the world's first Telugu LLM",
+          "Working on a pioneering crowdsourced AI project",
+        ],
+        impact:
+          "This project aims to make Telugu language AI more accessible and culturally relevant, potentially benefiting millions of Telugu speakers worldwide.",
+      },
+    },
+    {
       id: "genx-reality",
       company: "GenX Reality",
       role: "Generative AI Intern",
@@ -274,74 +300,73 @@ export default function EducationExperience() {
   )
 
   return (
-    <section>
-      <h2 className="section-header">EDUCATION & EXPERIENCE</h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        <div>
-          <h3 className="font-bold text-xl mb-4 border-b border-gray-400 pb-1">Education</h3>
-
-          <div className="space-y-4">
-            {education.map((edu) => (
-              <div key={edu.id} className="card flex flex-col h-full">
-                <h3 className="font-bold text-lg mb-1">{edu.institution}</h3>
-                <p className="mb-1">{edu.degree}{edu.specialization && `, ${edu.specialization}`}</p>
-                <p className="mb-2 text-sm text-gray-600">{edu.period}</p>
-                <div className="flex-grow" />
-                <div className="flex justify-center mt-4">
-                  <button
-                    onClick={() => openModal(edu.id)}
-                    className="retro-button flex items-center justify-center"
-                  >
-                    <Info className="w-4 h-4 mr-1" />
-                    More Details
-                  </button>
+    <div className="space-y-8">
+      <div>
+        <h2 className="section-header">Education</h2>
+        <div className="space-y-6">
+          {education.map((edu) => (
+            <div key={edu.id} className="card">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-bold text-xl">{edu.institution}</h3>
+                  <p className="text-gray-600">{edu.degree}</p>
+                  {edu.specialization && <p className="text-gray-600">{edu.specialization}</p>}
+                  <p className="text-sm text-gray-500">{edu.period}</p>
                 </div>
+                <button
+                  onClick={() => openModal(edu.id)}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <Info size={20} />
+                </button>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="font-bold text-xl mb-4 border-b border-gray-400 pb-1">Experience</h3>
-
-          <div className="space-y-4">
-            {experience.map((exp, index) => (
-              <div key={index} className="card">
-                <h4 className="font-bold text-lg">{exp.company}</h4>
-                <p className="font-bold">{exp.role}</p>
-                <p className="text-sm">{exp.period}</p>
-                <p className="mt-2">{exp.description}</p>
-                <div className="mt-3">
-                  <button onClick={() => openModal(exp.id)} className="retro-button flex items-center text-sm">
-                    <Info className="w-4 h-4 mr-1" />
-                    More Details
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Education Modals */}
-      {education.map((edu) => (
-        <Modal
-          key={edu.id}
-          isOpen={activeModal === edu.id}
-          onClose={closeModal}
-          title={`${edu.institution} - ${edu.degree}`}
-        >
-          {renderEducationModal(edu)}
-        </Modal>
-      ))}
+      <div>
+        <h2 className="section-header">Experience</h2>
+        <div className="space-y-6">
+          {experience.map((exp) => (
+            <div key={exp.id} className="card">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="font-bold text-xl">{exp.company}</h3>
+                  <p className="text-gray-600">{exp.role}</p>
+                  <p className="text-sm text-gray-500">{exp.period}</p>
+                  <p className="mt-2 text-gray-700">{exp.description}</p>
+                </div>
+                <button
+                  onClick={() => openModal(exp.id)}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <Info size={20} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      {/* Experience Modals */}
-      {experience.map((exp) => (
-        <Modal key={exp.id} isOpen={activeModal === exp.id} onClose={closeModal} title={`${exp.company} - ${exp.role}`}>
-          {renderExperienceModal(exp)}
+      {activeModal && (
+        <Modal 
+          isOpen={true}
+          onClose={closeModal}
+          title={
+            education.find((edu) => edu.id === activeModal)
+              ? `${education.find((edu) => edu.id === activeModal)!.institution} - ${education.find((edu) => edu.id === activeModal)!.degree}`
+              : `${experience.find((exp) => exp.id === activeModal)!.company} - ${experience.find((exp) => exp.id === activeModal)!.role}`
+          }
+        >
+          {education.find((edu) => edu.id === activeModal) && (
+            <>{renderEducationModal(education.find((edu) => edu.id === activeModal)!)}</>
+          )}
+          {experience.find((exp) => exp.id === activeModal) && (
+            <>{renderExperienceModal(experience.find((exp) => exp.id === activeModal)!)}</>
+          )}
         </Modal>
-      ))}
-    </section>
+      )}
+    </div>
   )
 }
