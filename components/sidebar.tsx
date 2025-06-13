@@ -1,6 +1,7 @@
 "use client"
 
-import { Home, Code, Briefcase, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight } from "lucide-react"
+import { Home, Code, Briefcase, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight, Menu } from "lucide-react"
+import { useState, useEffect } from "react"
 
 interface SidebarProps {
   activeSection: string
@@ -10,6 +11,22 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ activeSection, setActiveSection, collapsed, toggleSidebar }: SidebarProps) {
+  const [isMobile, setIsMobile] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+      if (window.innerWidth < 768) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const navItems = [
     { id: "home", label: "Home", icon: <Home className="w-5 h-5" /> },
     { id: "skills", label: "Skills", icon: <Code className="w-5 h-5" /> },
@@ -19,6 +36,66 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
     { id: "beyond", label: "Beyond Tech", icon: <Globe className="w-5 h-5" /> },
     { id: "contact", label: "Contact", icon: <Mail className="w-5 h-5" /> },
   ]
+
+  const handleSectionClick = (section: string) => {
+    setActiveSection(section)
+    if (isMobile) {
+      setIsMobileMenuOpen(false)
+    }
+  }
+
+  if (isMobile) {
+    return (
+      <>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="fixed top-4 left-4 z-50 p-2 bg-gray-100 rounded-lg shadow-lg retro-button"
+          aria-label="Toggle mobile menu"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsMobileMenuOpen(false)}>
+            <aside
+              className="fixed top-0 left-0 h-full w-64 bg-gray-100 border-r-2 border-gray-800 z-50 transform transition-transform duration-300"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center">
+                <h2 className="font-bold">BK</h2>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="retro-button p-1"
+                  aria-label="Close menu"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+              </div>
+
+              <nav className="flex-1 overflow-y-auto py-4">
+                <ul className="space-y-2 px-2">
+                  {navItems.map((item) => (
+                    <li key={item.id}>
+                      <button
+                        onClick={() => handleSectionClick(item.id)}
+                        className={`w-full text-left retro-button flex items-center ${
+                          activeSection === item.id ? "bg-amber-200" : ""
+                        }`}
+                        aria-label={item.label}
+                      >
+                        <span className="flex-shrink-0">{item.icon}</span>
+                        <span className="ml-2">{item.label}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </aside>
+          </div>
+        )}
+      </>
+    )
+  }
 
   return (
     <aside
@@ -42,7 +119,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
           {navItems.map((item) => (
             <li key={item.id}>
               <button
-                onClick={() => setActiveSection(item.id)}
+                onClick={() => handleSectionClick(item.id)}
                 className={`w-full text-left retro-button flex items-center ${
                   activeSection === item.id ? "bg-amber-200" : ""
                 } ${collapsed ? "justify-center" : "justify-start"}`}
