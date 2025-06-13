@@ -8,7 +8,7 @@ import LoadingScreen from "@/components/loading-screen"
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
   const [isLoading, setIsLoading] = useState(true)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true)
 
   useEffect(() => {
     // Check if this is the first visit in this session
@@ -28,8 +28,11 @@ export default function Home() {
 
     // Check sidebar state from localStorage
     const savedSidebarState = localStorage.getItem("sidebarCollapsed")
-    if (savedSidebarState) {
+    if (savedSidebarState !== null) {
       setSidebarCollapsed(savedSidebarState === "true")
+    } else {
+      // If no saved state, set to collapsed (true) and save it
+      localStorage.setItem("sidebarCollapsed", "true")
     }
   }, [])
 
