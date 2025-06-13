@@ -5,23 +5,32 @@ Allow: /
 # Sitemap location
 Sitemap: https://8harath.me/sitemap.xml
 
-# Disallow crawling of private or admin areas
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-
 # Crawl-delay for all bots
 Crawl-delay: 10
 
-# Allow specific bots to crawl everything
+# Disallow admin and private routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /static/
+
+# Allow specific bots with different rules
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 5
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 5
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 5
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 5
 
 # Block specific bots
 User-agent: BadBot

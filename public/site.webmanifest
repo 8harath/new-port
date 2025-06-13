@@ -1,1 +1,50 @@
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+{
+  "name": "8harath | Bharath K - AI Researcher & Software Developer",
+  "short_name": "8harath",
+  "description": "8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student specializing in AI, LLMs, and AGI development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "technology", "ai", "software development"],
+  "screenshots": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "platform": "wide",
+      "label": "8harath Portfolio Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "url": "/projects",
+      "description": "View my projects"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact",
+      "description": "Get in touch"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "lang": "en-US",
+  "dir": "ltr"
+}

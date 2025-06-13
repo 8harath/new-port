@@ -6,17 +6,38 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '8harath | Bharath K - CS Undergraduate & AI Enthusiast',
-  description: '8harath - Official portfolio of Bharath K, Computer Science undergraduate at Jain University, Bangalore. Specializing in AI, LLMs, AGI, and ethical AI development.',
-  keywords: ['8harath', 'Bharath K', 'Computer Science', 'AI', 'LLM', 'AGI', 'Jain University', 'Bangalore', 'Machine Learning', 'Artificial Intelligence', 'Portfolio', 'Software Development', 'Web Development', 'Full Stack Developer'],
-  authors: [{ name: '8harath' }],
+  title: '8harath | Bharath K - AI Researcher & Software Developer',
+  description: '8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, and ethical AI development. View projects, research, and achievements.',
+  keywords: [
+    '8harath',
+    'Bharath K',
+    'AI Researcher',
+    'Software Developer',
+    'Computer Science',
+    'AI',
+    'LLM',
+    'AGI',
+    'Jain University',
+    'Bangalore',
+    'Machine Learning',
+    'Artificial Intelligence',
+    'Portfolio',
+    'Software Development',
+    'Web Development',
+    'Full Stack Developer',
+    'AI Projects',
+    'Research',
+    'Technology',
+    'Innovation'
+  ],
+  authors: [{ name: '8harath', url: 'https://8harath.me' }],
   creator: '8harath',
   publisher: '8harath',
-  robots: 'index, follow',
+  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   viewport: 'width=device-width, initial-scale=1',
   openGraph: {
-    title: '8harath | Bharath K - CS Undergraduate & AI Enthusiast',
-    description: '8harath - Official portfolio of Bharath K, Computer Science undergraduate at Jain University, Bangalore. Specializing in AI, LLMs, and AGI development.',
+    title: '8harath | Bharath K - AI Researcher & Software Developer',
+    description: '8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, and ethical AI development. View projects, research, and achievements.',
     type: 'website',
     locale: 'en_US',
     siteName: '8harath Portfolio',
@@ -26,19 +47,22 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: '8harath Portfolio Preview'
+        alt: '8harath - AI Researcher & Software Developer Portfolio'
       }
     ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: '8harath | Bharath K - CS Undergraduate & AI Enthusiast',
-    description: '8harath - Official portfolio of Bharath K, Computer Science undergraduate at Jain University, Bangalore. Specializing in AI, LLMs, and AGI development.',
+    title: '8harath | Bharath K - AI Researcher & Software Developer',
+    description: '8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, and ethical AI development.',
     creator: '@8harath_k',
     images: ['/og-image.jpg']
   },
   alternates: {
     canonical: 'https://8harath.me'
+  },
+  verification: {
+    google: 'your-google-site-verification', // Add your Google Search Console verification code
   }
 }
 
@@ -65,7 +89,7 @@ export default function RootLayout({
             "https://www.linkedin.com/in/8harath/",
             "https://twitter.com/8harath_k"
           ],
-          "jobTitle": "Computer Science Undergraduate",
+          "jobTitle": "AI Researcher & Software Developer",
           "alumniOf": {
             "@type": "CollegeOrUniversity",
             "name": "Jain University",
@@ -78,16 +102,31 @@ export default function RootLayout({
               }
             }
           },
-          "knowsAbout": ["Artificial Intelligence", "Machine Learning", "LLMs", "AGI", "Web Development", "Software Development"],
-          "description": "8harath - Official portfolio of Bharath K, Computer Science undergraduate and AI enthusiast.",
-          "image": "https://8harath.me/og-image.jpg"
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "LLMs",
+            "AGI",
+            "Web Development",
+            "Software Development",
+            "AI Research",
+            "Ethical AI",
+            "Full Stack Development"
+          ],
+          "description": "8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student specializing in AI, LLMs, and AGI development.",
+          "image": "https://8harath.me/og-image.jpg",
+          "award": [
+            "Computer Science Undergraduate",
+            "AI Researcher",
+            "Software Developer"
+          ]
         }` }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
           "@context": "https://schema.org",
           "@type": "WebSite",
           "name": "8harath Portfolio",
           "url": "https://8harath.me/",
-          "description": "8harath - Personal portfolio website showcasing projects and skills in AI, Machine Learning, and Software Development",
+          "description": "8harath - Personal portfolio website showcasing expertise in AI, Machine Learning, and Software Development. View projects, research, and achievements.",
           "author": {
             "@type": "Person",
             "name": "8harath"
@@ -96,7 +135,10 @@ export default function RootLayout({
             "@type": "SearchAction",
             "target": "https://8harath.me/search?q={search_term_string}",
             "query-input": "required name=search_term_string"
-          }
+          },
+          "inLanguage": "en-US",
+          "isAccessibleForFree": true,
+          "keywords": "8harath, Bharath K, AI Researcher, Software Developer, Computer Science, AI, LLM, AGI"
         }` }} />
       </head>
       <body className={inter.className}>
