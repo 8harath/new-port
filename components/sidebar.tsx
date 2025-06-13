@@ -49,42 +49,39 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
       <>
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="fixed top-4 left-4 z-50 p-2 bg-gray-100 rounded-lg shadow-lg retro-button"
+          className="fixed bottom-6 right-6 z-50 p-3 bg-gray-100 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300 hover:scale-110"
           aria-label="Toggle mobile menu"
         >
           <Menu className="w-6 h-6" />
         </button>
 
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsMobileMenuOpen(false)}>
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 z-40 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             <aside
-              className="fixed top-0 left-0 h-full w-64 bg-gray-100 border-r-2 border-gray-800 z-50 transform transition-transform duration-300"
+              className="fixed bottom-6 right-6 w-16 bg-gray-100 rounded-2xl shadow-xl z-50 transform transition-all duration-300 overflow-hidden"
               onClick={e => e.stopPropagation()}
             >
-              <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center">
-                <h2 className="font-bold">BK</h2>
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="retro-button p-1"
-                  aria-label="Close menu"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
+              <div className="p-3 border-b border-gray-200 flex justify-center items-center">
+                <h2 className="font-bold text-lg">BK</h2>
               </div>
 
-              <nav className="flex-1 overflow-y-auto py-4">
-                <ul className="space-y-2 px-2">
+              <nav className="py-2">
+                <ul className="space-y-1">
                   {navItems.map((item) => (
                     <li key={item.id}>
                       <button
                         onClick={() => handleSectionClick(item.id)}
-                        className={`w-full text-left retro-button flex items-center ${
-                          activeSection === item.id ? "bg-amber-200" : ""
+                        className={`w-full flex justify-center items-center p-3 transition-all duration-200 ${
+                          activeSection === item.id 
+                            ? "bg-amber-200 text-gray-900 scale-110" 
+                            : "text-gray-700 hover:bg-gray-200 hover:scale-105"
                         }`}
                         aria-label={item.label}
                       >
-                        <span className="flex-shrink-0">{item.icon}</span>
-                        <span className="ml-2">{item.label}</span>
+                        {item.icon}
                       </button>
                     </li>
                   ))}
@@ -107,7 +104,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
         {!collapsed && <h2 className="font-bold">BK</h2>}
         <button
           onClick={toggleSidebar}
-          className="retro-button p-1"
+          className="retro-button p-1 hover:bg-gray-200 transition-colors"
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -122,7 +119,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
                 onClick={() => handleSectionClick(item.id)}
                 className={`w-full text-left retro-button flex items-center ${
                   activeSection === item.id ? "bg-amber-200" : ""
-                } ${collapsed ? "justify-center" : "justify-start"}`}
+                } ${collapsed ? "justify-center" : "justify-start"} hover:bg-gray-200 transition-colors`}
                 aria-label={item.label}
               >
                 <span className="flex-shrink-0">{item.icon}</span>
