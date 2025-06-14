@@ -507,28 +507,32 @@ export default function Certifications() {
   }
 
   return (
-    <section>
-      <h2 className="section-header">CERTIFICATIONS</h2>
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="section-header text-center mb-8">CERTIFICATIONS</h2>
 
       {/* Search and Filter */}
-      <div className="mb-6 space-y-4">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
+      <div className="mb-8 space-y-6">
+        <div className="relative max-w-xl mx-auto">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
           <input
             type="text"
             placeholder="Search certificates..."
             value={searchQuery}
             onChange={handleSearch}
-            className="w-full pl-10 pr-4 py-2 border-2 border-gray-800 bg-amber-50"
+            className="w-full pl-12 pr-4 py-3 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-200 focus:border-transparent"
           />
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`retro-button text-xs py-1 ${selectedCategory === category ? "bg-amber-200" : ""}`}
+              className={`retro-button text-sm px-4 py-2 transition-all duration-200 ${
+                selectedCategory === category 
+                  ? "bg-amber-200 shadow-lg scale-105" 
+                  : "hover:bg-amber-100"
+              }`}
             >
               {category}
             </button>
@@ -537,72 +541,85 @@ export default function Certifications() {
       </div>
 
       {/* Certificate count */}
-      <p className="mb-4 text-sm">
+      <p className="text-center mb-6 text-sm text-gray-600">
         Showing {currentCertificates.length} of {filteredCertificates.length} certificates
         {selectedCategory !== "All" && ` in ${selectedCategory}`}
       </p>
 
       {/* Certificates Grid */}
       {currentCertificates.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {currentCertificates.map((cert) => (
-            <div key={cert.id} className="card">
-              <h3 className="font-bold text-lg mb-2">{cert.title}</h3>
-              <div className="text-sm space-y-1 mb-3">
-                <p>
-                  <span className="font-bold">Platform:</span> {cert.platform}
-                </p>
-                <p>
-                  <span className="font-bold">Offered by:</span> {cert.offeredBy}
-                </p>
-                <p>
-                  <span className="font-bold">Score:</span> {cert.score}
-                </p>
-                <p className="text-xs">
-                  <span className="font-bold">Category:</span> {cert.category}
-                </p>
+            <div 
+              key={cert.id} 
+              className="card border-2 border-gray-800 bg-amber-50 hover:shadow-lg transition-shadow duration-200"
+            >
+              <div className="p-4">
+                <h3 className="font-bold text-lg mb-3 line-clamp-2">{cert.title}</h3>
+                <div className="text-sm space-y-2 mb-4">
+                  <p className="flex items-center">
+                    <span className="font-bold min-w-[80px]">Platform:</span>
+                    <span className="ml-2">{cert.platform}</span>
+                  </p>
+                  <p className="flex items-center">
+                    <span className="font-bold min-w-[80px]">Offered by:</span>
+                    <span className="ml-2">{cert.offeredBy}</span>
+                  </p>
+                  <p className="flex items-center">
+                    <span className="font-bold min-w-[80px]">Score:</span>
+                    <span className="ml-2">{cert.score}</span>
+                  </p>
+                  <p className="flex items-center text-xs">
+                    <span className="font-bold min-w-[80px]">Category:</span>
+                    <span className="ml-2">{cert.category}</span>
+                  </p>
+                </div>
+                <a
+                  href={cert.verifyLink}
+                  className="retro-button text-sm flex items-center justify-center w-full py-2 hover:bg-amber-200 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  Verify Certificate
+                </a>
               </div>
-              <a
-                href={cert.verifyLink}
-                className="retro-button text-sm flex items-center justify-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="w-3 h-3 mr-1" />
-                Verify Certificate
-              </a>
             </div>
           ))}
         </div>
       ) : (
-        <div className="card text-center py-8">
-          <p>No certificates found matching your criteria.</p>
+        <div className="card text-center py-12 border-2 border-gray-800 bg-amber-50">
+          <p className="text-gray-800">No certificates found matching your criteria.</p>
         </div>
       )}
 
       {/* Pagination */}
-      {filteredCertificates.length > certificatesPerPage && (
-        <div className="flex justify-center items-center gap-2">
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4 mb-8">
           <button
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            className="retro-button p-1"
+            className={`retro-button p-2 rounded-full ${
+              currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-amber-200'
+            }`}
             aria-label="Previous page"
           >
-            <ChevronLeft className="w-4 h-4" />
+            <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <span className="px-2">
+          <span className="px-4 py-2 bg-white rounded-lg shadow-sm">
             Page {currentPage} of {totalPages}
           </span>
 
           <button
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="retro-button p-1"
+            className={`retro-button p-2 rounded-full ${
+              currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-amber-200'
+            }`}
             aria-label="Next page"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       )}
