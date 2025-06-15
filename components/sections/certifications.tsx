@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useMemo } from "react"
-import { ExternalLink, ChevronLeft, ChevronRight, Search } from "lucide-react"
+import { ExternalLink, ChevronLeft, ChevronRight, Search, ChevronDown } from "lucide-react"
 
 type Certificate = {
   id: number
@@ -19,6 +19,7 @@ export default function Certifications() {
   const [currentPage, setCurrentPage] = useState(1)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const certificatesPerPage = 9
 
   // Certificate categories
@@ -511,7 +512,7 @@ export default function Certifications() {
       <h2 className="section-header">CERTIFICATIONS</h2>
 
       {/* Search and Filter */}
-      <div className="mb-6 space-y-4">
+      <div className="mb-8 space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
           <input
@@ -519,16 +520,49 @@ export default function Certifications() {
             placeholder="Search certificates..."
             value={searchQuery}
             onChange={handleSearch}
-            className="w-full pl-10 pr-4 py-2 border-2 border-gray-800 bg-amber-50"
+            className="w-full pl-10 pr-12 py-2.5 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
           />
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 hover:bg-amber-100 rounded-md transition-colors"
+          >
+            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+          
+          {/* Mobile Dropdown */}
+          <div className={`md:hidden absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
+            isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => {
+                  handleCategoryChange(category)
+                  setIsDropdownOpen(false)
+                }}
+                className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors ${
+                  selectedCategory === category
+                    ? 'bg-amber-500 text-white'
+                    : 'hover:bg-amber-50'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        {/* Desktop Category Buttons */}
+        <div className="hidden md:flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => handleCategoryChange(category)}
-              className={`retro-button text-xs py-1 ${selectedCategory === category ? "bg-amber-200" : ""}`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                selectedCategory === category
+                  ? "bg-amber-500 text-white shadow-md transform scale-105"
+                  : "bg-amber-50 border-2 border-gray-800 hover:bg-amber-100 hover:border-amber-500"
+              }`}
             >
               {category}
             </button>
@@ -537,14 +571,14 @@ export default function Certifications() {
       </div>
 
       {/* Certificate count */}
-      <p className="mb-4 text-sm">
+      <p className="mb-6 text-sm text-gray-600">
         Showing {currentCertificates.length} of {filteredCertificates.length} certificates
         {selectedCategory !== "All" && ` in ${selectedCategory}`}
       </p>
 
       {/* Certificates Grid */}
       {currentCertificates.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {currentCertificates.map((cert) => (
             <div key={cert.id} className="card">
               <h3 className="font-bold text-lg mb-2">{cert.title}</h3>

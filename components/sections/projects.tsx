@@ -1,13 +1,14 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { Github, Info, Search } from "lucide-react"
+import { Github, Info, Search, ChevronDown } from "lucide-react"
 import Modal from "@/components/ui/modal"
 
 export default function Projects() {
   const [activeModal, setActiveModal] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const categories = ["All", "AI/ML", "Web Development", "Extensions", "Full Stack"]
 
@@ -34,7 +35,7 @@ export default function Projects() {
       title: "Automated Student Evaluation Portal",
       image: "/Automated-student-portal.png",
       description:
-        "The Academic Essay Evaluation Platform is a web application designed to automate and enhance the essay grading process, primarily for academic institutions like Jain University. It replaces manual essay grading with an AI-powered system that evaluates student essays for relevance, coverage, and structure. Faculty can create essay questions with reference answers, set word/mark limits, review submissions, and generate detailed PDF reports. Students can browse available questions, submit essays with real-time word count feedback, and view AI-generated feedback and scores. The platform uses Google’s Gemini 1.5 Pro AI model for evaluation, supports role-based authentication, and features interactive dashboards, dynamic charts, and responsive design. It works with SQLite for development and PostgreSQL for production, and generates comprehensive PDF reports. The backend is built with Python (Flask), SQLAlchemy ORM, and integrates the Gemini API; the frontend uses HTML, CSS, JavaScript, Bootstrap 5, and Chart.js for data visualization.",
+        "The Academic Essay Evaluation Platform is a web application designed to automate and enhance the essay grading process, primarily for academic institutions like Jain University. It replaces manual essay grading with an AI-powered system that evaluates student essays for relevance, coverage, and structure. Faculty can create essay questions with reference answers, set word/mark limits, review submissions, and generate detailed PDF reports. Students can browse available questions, submit essays with real-time word count feedback, and view AI-generated feedback and scores. The platform uses Google's Gemini 1.5 Pro AI model for evaluation, supports role-based authentication, and features interactive dashboards, dynamic charts, and responsive design. It works with SQLite for development and PostgreSQL for production, and generates comprehensive PDF reports. The backend is built with Python (Flask), SQLAlchemy ORM, and integrates the Gemini API; the frontend uses HTML, CSS, JavaScript, Bootstrap 5, and Chart.js for data visualization.",
       stack: [
         "Python",
         "Flask",
@@ -68,7 +69,7 @@ export default function Projects() {
       title: "Webpage Summarizer Extension",
       image: "/web-page-sum.png",
       description:
-        "A Chrome browser extension that brings AI-powered summarization and question-answering to any web page using Google’s Gemini API. The extension injects a content script to intelligently extract the main content of the current page, removing navigation, ads, and irrelevant elements. Through its popup UI, users can generate concise summaries (in 50, 100, or 200 words), ask natural language questions about the page, and highlight answers directly on the page. The extension communicates with Gemini to generate summaries, answer questions, and suggest follow-up queries. Answers can be located and highlighted on the original page for context. The UI supports light/dark themes, and users securely set their Gemini API key in the extension. Main files include popup.js (UI logic and API calls), content.js (content extraction and highlighting), and popup.html (UI markup). The extension is designed for privacy (all processing is local except for Gemini API calls) and a seamless, interactive user experience.",
+        "A Chrome browser extension that brings AI-powered summarization and question-answering to any web page using Google's Gemini API. The extension injects a content script to intelligently extract the main content of the current page, removing navigation, ads, and irrelevant elements. Through its popup UI, users can generate concise summaries (in 50, 100, or 200 words), ask natural language questions about the page, and highlight answers directly on the page. The extension communicates with Gemini to generate summaries, answer questions, and suggest follow-up queries. Answers can be located and highlighted on the original page for context. The UI supports light/dark themes, and users securely set their Gemini API key in the extension. Main files include popup.js (UI logic and API calls), content.js (content extraction and highlighting), and popup.html (UI markup). The extension is designed for privacy (all processing is local except for Gemini API calls) and a seamless, interactive user experience.",
       stack: ["JavaScript", "HTML/CSS", "Chrome Extension API", "Gemini API"],
       github: "https://github.com/8harath/sum-extention",
       category: "Extensions",
@@ -140,7 +141,7 @@ export default function Projects() {
       <h2 className="section-header">PROJECTS</h2>
 
       {/* Search and Filter Section */}
-      <div className="mb-6 space-y-4">
+      <div className="mb-8 space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
@@ -148,19 +149,48 @@ export default function Projects() {
             placeholder="Search projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-800 rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full pl-10 pr-12 py-2.5 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
           />
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 hover:bg-amber-100 rounded-md transition-colors"
+          >
+            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+          </button>
+          
+          {/* Mobile Dropdown */}
+          <div className={`md:hidden absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
+            isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          }`}>
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => {
+                  setSelectedCategory(category)
+                  setIsDropdownOpen(false)
+                }}
+                className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors ${
+                  selectedCategory === category
+                    ? 'bg-amber-500 text-white'
+                    : 'hover:bg-amber-50'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        {/* Desktop Category Buttons */}
+        <div className="hidden md:flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-md text-sm transition-colors ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 selectedCategory === category
-                  ? "bg-amber-500 text-white"
-                  : "bg-transparent border border-gray-800 hover:bg-amber-100"
+                  ? "bg-amber-500 text-white shadow-md transform scale-105"
+                  : "bg-amber-50 border-2 border-gray-800 hover:bg-amber-100 hover:border-amber-500"
               }`}
             >
               {category}
@@ -169,7 +199,8 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Projects Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
           <div key={project.id} className="card flex flex-col h-full">
             <div className="mb-3 overflow-hidden border border-gray-800 aspect-square">
@@ -194,58 +225,69 @@ export default function Projects() {
       </div>
 
       {/* Project Modals */}
-      {projects.map((project) => (
-        <Modal key={project.id} isOpen={activeModal === project.id} onClose={closeModal} title={project.title}>
-          <div className="space-y-4">
-            <div className="card">
-              <h3 className="font-bold text-xl mb-2">Description</h3>
-              <p>{project.description}</p>
-            </div>
+      {activeModal && (
+        <Modal isOpen={!!activeModal} onClose={closeModal}>
+          {(() => {
+            const project = projects.find((p) => p.id === activeModal)
+            if (!project) return null
 
-            <div className="card">
-              <h3 className="font-bold text-xl mb-2">Key Features</h3>
-              <ul className="list-disc pl-5 space-y-1">
-                {project.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
+            return (
+              <div className="space-y-6">
+                <div className="flex items-start justify-between">
+                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="retro-button flex items-center text-sm"
+                  >
+                    <Github className="w-4 h-4 mr-1" />
+                    View Code
+                  </a>
+                </div>
 
-            <div className="card">
-              <h3 className="font-bold text-xl mb-2">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.stack.map((tech, techIndex) => (
-                  <span key={techIndex} className="bg-amber-100 border border-amber-600 px-2 py-1 text-xs">
-                    {tech}
-                  </span>
-                ))}
+                <div className="aspect-video overflow-hidden rounded-lg border-2 border-gray-800">
+                  <img
+                    src={project.image || "/placeholder.svg"}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-bold mb-2">Description</h4>
+                    <p className="text-gray-700">{project.description}</p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold mb-2">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.stack.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="bg-amber-100 border border-amber-600 px-2 py-1 text-xs rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold mb-2">Key Features</h4>
+                    <ul className="list-disc pl-5 space-y-1">
+                      {project.features.map((feature, index) => (
+                        <li key={index}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className="flex justify-center gap-4">
-              <a
-                href={project.github}
-                className="retro-button flex items-center"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github className="w-4 h-4 mr-2" />
-                View on GitHub
-              </a>
-              {project.demo && (
-                <a
-                  href={project.demo}
-                  className="retro-button flex items-center"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Live Demo
-                </a>
-              )}
-            </div>
-          </div>
+            )
+          })()}
         </Modal>
-      ))}
+      )}
     </section>
   )
 }
