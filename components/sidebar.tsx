@@ -20,7 +20,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
 
   return (
     <aside
-      className={`bg-gray-100 border-r-2 border-gray-800 h-screen sticky top-0 transition-all duration-300 flex flex-col ${
+      className={`hidden md:flex bg-gray-100 border-r-2 border-gray-800 h-screen sticky top-0 transition-all duration-300 flex-col ${
         collapsed ? "w-16" : "w-64"
       }`}
     >

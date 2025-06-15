@@ -77,6 +77,7 @@ export default function RootLayout({
         <link rel="icon" href="/android-chrome-512x512.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
         {/* SEO Structured Data for Person and Website */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
           "@context": "https://schema.org",
@@ -141,7 +142,7 @@ export default function RootLayout({
           "keywords": "8harath, Bharath K, AI Researcher, Software Developer, Computer Science, AI, LLM, AGI"
         }` }} />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} pb-16 md:pb-0`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
