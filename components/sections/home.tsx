@@ -27,14 +27,19 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
       </div>
 
       <div className="mb-12">
-        <a
-          href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
-          className="retro-button text-lg px-6 py-3"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          DOWNLOAD RÉSUMÉ
-        </a>
+        <div className="flex gap-4">
+          <a
+            href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
+            className="retro-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DOWNLOAD RÉSUMÉ
+          </a>
+          <a href="#projects" className="retro-button" style={{ fontSize: 'inherit' }}>
+            VIEW PROJECTS
+          </a>
+        </div>
       </div>
 
       <div className="mt-8 animate-bounce">

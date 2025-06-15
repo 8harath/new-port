@@ -161,27 +161,40 @@ export default function EducationExperience() {
     {
       id: "1m1b",
       company: "1M1B",
-      role: "Data Analyst Intern",
-      period: "February 2025",
-      description: "Analyzed large datasets to extract insights and create visualizations for decision-making.",
+      role: "Data Analytics Intern (Sustainability Focus)",
+      period: "3 Months (Part-Time, Remote + On-Campus)",
+      description: "Worked at the intersection of data analytics and environmental sustainability, analyzing university resource usage and creating actionable insights through Tableau dashboards.",
       details: {
         fullDescription:
-          "As a Data Analyst Intern at 1M1B (One Million for One Billion), I worked on analyzing impact data from various social initiatives. The role involved processing diverse datasets, extracting meaningful insights, and creating visualizations to support strategic decision-making.",
+          "During my internship with 1M1B (One Million for One Billion), I worked at the intersection of data analytics and environmental sustainability. My primary role involved gathering real-world data from my university on water consumption, electricity usage, and waste disposal, then analyzing it to identify key sustainability challenges. I translated this raw data into actionable insights using Tableau dashboards, backed by Python-driven data preprocessing. This hands-on project combined technical skills with community impact and aligned with national sustainability goals.",
         responsibilities: [
-          "Collected and cleaned data from multiple sources",
-          "Performed statistical analysis to identify patterns and trends",
-          "Created interactive dashboards and visualizations",
-          "Prepared reports and presentations for stakeholders",
-          "Assisted in developing data collection methodologies",
+          "Collected sustainability-related datasets from university sources: energy usage, water consumption, waste management",
+          "Preprocessed and cleaned the data using Python, ensuring it was analysis-ready",
+          "Designed and developed interactive Tableau dashboards to visualize sustainability metrics and trends",
+          "Researched national benchmarks and proposed practical data-backed solutions for improving campus sustainability",
+          "Created detailed documentation and recommendations for the university administration to support long-term eco-initiatives",
+          "Conducted peer-to-peer awareness activities to promote sustainable practices through data storytelling"
         ],
-        technologies: ["Python", "R", "Tableau", "Excel", "SQL", "Power BI"],
+        technologies: ["Python", "Tableau", "Excel", "Data Visualization", "Sustainability Analytics"],
         achievements: [
-          "Developed an automated reporting system that saved 10+ hours of manual work weekly",
-          "Identified key factors contributing to program success across different demographics",
-          "Created a visualization framework adopted by the entire organization",
+          "Successfully built a custom Tableau dashboard that visualized real-time university sustainability metrics",
+          "Presented solution-oriented reports aligned with government-mandated sustainability thresholds",
+          "Bridged the gap between data science and environmental advocacy by turning local data into policy recommendations"
         ],
         impact:
-          "My analysis helped the organization optimize resource allocation across programs, resulting in a 30% increase in overall impact metrics.",
+          "Enabled the university to track, assess, and optimize resource usage through centralized visual tools. Supported 1M1B's broader mission to drive social impact using youth-led, data-driven innovation. Contributed to institutional planning and awareness campaigns that could scale to other academic environments.",
+        keywords: [
+          "Data analytics internship",
+          "Sustainability data project",
+          "Python data preprocessing",
+          "Tableau dashboard for sustainability",
+          "Student sustainability initiative",
+          "Environmental data visualization",
+          "Real-world data analytics",
+          "1M1B internship experience",
+          "Energy usage analytics",
+          "University green campus solutions"
+        ]
       },
     },
   ]

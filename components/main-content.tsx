@@ -17,16 +17,12 @@ export default function MainContent({ activeSection, setActiveSection, sidebarCo
     switch (activeSection) {
       case "home":
         return <Home />
-      case "skills":
-        return <Skills />
       case "projects":
         return <Projects />
       case "certifications":
         return <Certifications />
       case "education":
         return <EducationExperience />
-      case "beyond":
-        return <BeyondTech />
       case "contact":
         return <Contact />
       default:
