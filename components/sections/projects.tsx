@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useRef, useEffect } from "react"
 import { Github, Info, Search, ChevronDown } from "lucide-react"
 import Modal from "@/components/ui/modal"
 
@@ -9,8 +9,20 @@ export default function Projects() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const categories = ["All", "AI/ML", "Web Development", "Extensions", "Full Stack"]
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   const projects = [
     {
@@ -141,8 +153,8 @@ export default function Projects() {
       <h2 className="section-header">PROJECTS</h2>
 
       {/* Search and Filter Section */}
-      <div className="mb-8 space-y-4">
-        <div className="relative">
+      <div className="mb-8">
+        <div className="relative" ref={dropdownRef}>
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
@@ -153,49 +165,37 @@ export default function Projects() {
           />
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1 hover:bg-amber-100 rounded-md transition-colors"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 hover:bg-amber-100 rounded-md transition-colors"
           >
-            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
           
-          {/* Mobile Dropdown */}
-          <div className={`md:hidden absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
-            isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+          {/* Dropdown Menu */}
+          <div className={`absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
+            isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
           }`}>
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => {
-                  setSelectedCategory(category)
-                  setIsDropdownOpen(false)
-                }}
-                className={`w-full px-4 py-2 text-left text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-amber-500 text-white'
-                    : 'hover:bg-amber-50'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+            <div className="p-2 border-b-2 border-gray-200">
+              <span className="text-sm font-medium text-gray-600">Filter by Category</span>
+            </div>
+            <div className="max-h-60 overflow-y-auto">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => {
+                    setSelectedCategory(category)
+                    setIsDropdownOpen(false)
+                  }}
+                  className={`w-full px-4 py-2.5 text-left text-sm font-medium transition-colors ${
+                    selectedCategory === category
+                      ? 'bg-amber-500 text-white'
+                      : 'hover:bg-amber-50'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Desktop Category Buttons */}
-        <div className="hidden md:flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                selectedCategory === category
-                  ? "bg-amber-500 text-white shadow-md transform scale-105"
-                  : "bg-amber-50 border-2 border-gray-800 hover:bg-amber-100 hover:border-amber-500"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
         </div>
       </div>
 
