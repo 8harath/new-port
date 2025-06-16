@@ -4,6 +4,25 @@ import { useState } from "react"
 import Modal from "@/components/ui/modal"
 import { Info } from "lucide-react"
 
+type ExperienceDetails = {
+  fullDescription: string;
+  responsibilities: string[];
+  technologies: string[];
+  achievements: string[];
+  impact?: string;
+  projects?: string[];
+  keywords?: string[];
+}
+
+type Experience = {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  details: ExperienceDetails;
+}
+
 export default function EducationExperience() {
   const [activeModal, setActiveModal] = useState<string | null>(null)
 
@@ -132,31 +151,49 @@ export default function EducationExperience() {
     },
     {
       id: "monospace",
-      company: "Monospace",
-      role: "AI & ML Intern",
-      period: "March 2025",
-      description: "Implemented machine learning algorithms for data analysis and prediction in fintech applications.",
+      company: "MonoSpace",
+      role: "AI/ML Intern – Event Personalization Startup",
+      period: "Ongoing (Part-Time)",
+      description: "Contributing to the development of a consumer-facing product using diffusion models and 3D reconstruction for event visualization.",
       details: {
-        fullDescription:
-          "At Monospace, I worked with the AI team to develop and implement machine learning solutions for financial technology applications. The role involved analyzing large financial datasets and creating predictive models to enhance decision-making processes.",
+        fullDescription: "At this AI-driven event personalization startup, I worked as an AI/ML Intern contributing to the development of a consumer-facing product that used diffusion models and 3D reconstruction to visually simulate customized events. The platform enabled users to select highly specific event preferences—like floral themes, table layouts, lighting, and guest count—and receive realistic image previews of their event setup. My role combined model fine-tuning, backend automation, and LiDAR-based 3D space conversion, allowing for a fully immersive event planning experience.",
         responsibilities: [
-          "Developed machine learning models for financial risk assessment",
-          "Created data pipelines for processing and analyzing financial transactions",
-          "Implemented anomaly detection systems for fraud prevention",
-          "Collaborated with the product team to integrate ML features into the main application",
+          "Collaborated on integrating diffusion models to generate images from user-defined event specifications (e.g., décor style, seating, themes)",
+          "Explored and tested open-source model fine-tuning techniques to adapt pretrained image-generation models for event-specific outputs",
+          "Automated backend workflows to streamline image generation, model inference, and result delivery",
+          "Assisted with image dataset curation for model training and fine-tuning to improve style consistency and prompt accuracy",
+          "Worked on 3D conversion using LiDAR, transforming real-world event spaces into immersive digital environments to preview layouts pre-booking",
+          "Contributed to end-to-end system integration, connecting frontend user inputs with backend AI outputs"
         ],
-        technologies: ["Python", "TensorFlow", "Pandas", "SQL", "Docker", "AWS SageMaker"],
+        technologies: [
+          "Diffusion Models",
+          "LiDAR",
+          "Python",
+          "Flask",
+          "OpenCV",
+          "Hugging Face",
+          "PyTorch",
+          "3D Point Cloud Processing"
+        ],
         achievements: [
-          "Improved fraud detection accuracy by 22% compared to previous systems",
-          "Developed a recommendation engine that increased user engagement by 15%",
-          "Created comprehensive documentation for the ML pipeline",
+          "Successfully implemented prompt-based image generation pipeline that translated textual event descriptions into visual previews",
+          "Enabled backend automation that reduced response time for user-generated mockups, improving user experience significantly",
+          "Prototyped a pipeline for converting LiDAR scans into navigable 3D environments, helping clients virtually walk through event spaces"
         ],
-        projects: [
-          "Transaction Anomaly Detection System",
-          "Customer Churn Prediction Model",
-          "Automated Financial Report Generator",
-        ],
-      },
+        impact: "Helped deliver a real-time visual planning tool for customers to preview events before booking, bridging imagination and execution. Enhanced system scalability by optimizing backend automation for image generation and response delivery. Contributed to making event planning more accessible, data-driven, and visually reliable for end-users using cutting-edge AI.",
+        keywords: [
+          "AIML internship",
+          "diffusion model fine-tuning",
+          "event planning AI",
+          "generative AI internship project",
+          "LiDAR 3D conversion",
+          "AI-powered image generation",
+          "event mockup generation",
+          "backend automation in AI",
+          "PyTorch generative models",
+          "real-time 3D visualization for events"
+        ]
+      }
     },
     {
       id: "1m1b",
@@ -256,7 +293,7 @@ export default function EducationExperience() {
     </div>
   )
 
-  const renderExperienceModal = (exp: (typeof experience)[0]) => (
+  const renderExperienceModal = (exp: Experience) => (
     <div className="space-y-4">
       <div className="card">
         <h3 className="font-bold text-xl mb-2">Overview</h3>
@@ -296,7 +333,7 @@ export default function EducationExperience() {
         <div className="card">
           <h3 className="font-bold text-xl mb-2">Projects</h3>
           <ul className="list-disc pl-5 space-y-1">
-            {exp.details.projects.map((project, index) => (
+            {exp.details.projects.map((project: string, index: number) => (
               <li key={index}>{project}</li>
             ))}
           </ul>
@@ -376,7 +413,7 @@ export default function EducationExperience() {
             <>{renderEducationModal(education.find((edu) => edu.id === activeModal)!)}</>
           )}
           {experience.find((exp) => exp.id === activeModal) && (
-            <>{renderExperienceModal(experience.find((exp) => exp.id === activeModal)!)}</>
+            <>{renderExperienceModal(experience.find((exp) => exp.id === activeModal) as Experience)}</>
           )}
         </Modal>
       )}

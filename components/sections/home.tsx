@@ -36,9 +36,13 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
           >
             DOWNLOAD RÉSUMÉ
           </a>
-          <a href="#projects" className="retro-button" style={{ fontSize: 'inherit' }}>
+          <button 
+            onClick={() => setActiveSection?.('projects')}
+            className="retro-button"
+            style={{ fontSize: 'inherit' }}
+          >
             VIEW PROJECTS
-          </a>
+          </button>
         </div>
       </div>
 
