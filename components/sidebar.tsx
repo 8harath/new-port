@@ -1,6 +1,7 @@
 "use client"
 
 import { Home, Code, Briefcase, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight } from "lucide-react"
+import Image from "next/image"
 
 interface SidebarProps {
   activeSection: string
@@ -25,7 +26,12 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
       }`}
     >
       <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center">
-        {!collapsed && <h2 className="font-bold">BK</h2>}
+        <Image
+          src="/android-chrome-192x192.png"
+          alt="Logo"
+          width={32}
+          height={32}
+        />
         <button
           onClick={toggleSidebar}
           className="retro-button p-1"
