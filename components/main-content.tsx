@@ -17,7 +17,7 @@ export default function MainContent({ activeSection, setActiveSection, sidebarCo
   const renderSection = () => {
     switch (activeSection) {
       case "home":
-        return <Home />
+        return <Home setActiveSection={setActiveSection} />
       case "projects":
         return <Projects />
       case "certifications":
