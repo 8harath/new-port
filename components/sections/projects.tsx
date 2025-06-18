@@ -149,8 +149,15 @@ export default function Projects() {
   }
 
   return (
-    <section>
-      <h2 className="section-header">PROJECTS</h2>
+    <section id="projects" className="projects-section">
+      <h2 className="section-header">MY PROJECTS</h2>
+
+      {/* SEO-friendly project introduction */}
+      <div className="mb-6">
+        <p className="text-lg leading-relaxed">
+          Explore my portfolio of innovative projects showcasing expertise in <strong>AI/ML</strong>, <strong>Web Development</strong>, and <strong>Software Development</strong>. From AI-powered applications to full-stack web solutions, each project demonstrates technical skills and creative problem-solving.
+        </p>
+      </div>
 
       {/* Search and Filter Section */}
       <div className="mb-8">
@@ -158,14 +165,16 @@ export default function Projects() {
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
           <input
             type="text"
-            placeholder="Search projects..."
+            placeholder="Search my projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-10 pr-12 py-2.5 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+            aria-label="Search projects by title, description, or technology stack"
           />
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 hover:bg-amber-100 rounded-md transition-colors"
+            aria-label="Filter projects by category"
           >
             <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
           </button>
@@ -202,27 +211,41 @@ export default function Projects() {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project) => (
-          <div key={project.id} className="card flex flex-col h-full">
+          <article key={project.id} className="card flex flex-col h-full group cursor-pointer hover:shadow-lg transition-all duration-300" onClick={() => openModal(project.id)}>
             <div className="mb-3 overflow-hidden border border-gray-800 aspect-square">
               <img
                 src={project.image || "/placeholder.svg"}
-                alt={project.title}
+                alt={`${project.title} - ${project.category} project`}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                loading="lazy"
               />
             </div>
-            <h3 className="font-bold text-xl mb-2">{project.title}</h3>
+            <h3 className="font-bold text-xl mb-2 group-hover:text-amber-600 transition-colors">{project.title}</h3>
             <div className="mt-auto pt-3">
               <button
                 onClick={() => openModal(project.id)}
                 className="retro-button flex items-center text-sm w-full justify-center"
+                aria-label={`View details of ${project.title} project`}
               >
                 <Info className="w-4 h-4 mr-1" />
                 More Information
               </button>
             </div>
-          </div>
+          </article>
         ))}
       </div>
+
+      {/* No results message */}
+      {filteredProjects.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-gray-600 text-lg">
+            No projects found matching your search criteria.
+          </p>
+          <p className="text-gray-500 text-sm mt-2">
+            Try adjusting your search terms or category filter.
+          </p>
+        </div>
+      )}
 
       {/* Project Modals */}
       {activeModal && (
@@ -240,6 +263,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="retro-button flex items-center text-sm"
+                    aria-label={`View ${project.title} source code on GitHub`}
                   >
                     <Github className="w-4 h-4 mr-1" />
                     View Code
@@ -249,7 +273,7 @@ export default function Projects() {
                 <div className="aspect-video overflow-hidden rounded-lg border-2 border-gray-800">
                   <img
                     src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} project`}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -288,6 +312,14 @@ export default function Projects() {
           })()}
         </Modal>
       )}
+
+      {/* SEO-friendly hidden content for search engines */}
+      <div className="sr-only">
+        <h2>Bharath K's Projects - Portfolio</h2>
+        <p>Bharath K has developed various projects including AI/ML applications, web development solutions, browser extensions, and full-stack applications. Projects showcase expertise in Python, JavaScript, React, AI, machine learning, and software development.</p>
+        <p>Key projects include: Online Voting System, Automated Student Evaluation Portal, Webpage Summarizer Extension, Car Parking Detection System, and Custom Shortcut Generator. All projects demonstrate Bharath K's skills in AI research, software development, and innovative problem-solving.</p>
+        <p>Keywords: Bharath K projects, portfolio, AI projects, software development, machine learning, web development, browser extensions, Python, JavaScript, React, AI research</p>
+      </div>
     </section>
   )
 }

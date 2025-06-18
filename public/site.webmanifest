@@ -1,12 +1,15 @@
 {
-  "name": "8harath | Bharath K - AI Researcher & Software Developer",
-  "short_name": "8harath",
-  "description": "8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student specializing in AI, LLMs, and AGI development.",
+  "name": "Bharath K - AI Researcher & Software Developer",
+  "short_name": "Bharath K",
+  "description": "Bharath K - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, Machine Learning, and ethical AI development. View projects, research, and achievements.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -19,32 +22,72 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
     }
   ],
-  "categories": ["portfolio", "technology", "ai", "software development"],
+  "categories": [
+    "portfolio", 
+    "technology", 
+    "ai", 
+    "software development", 
+    "machine learning",
+    "artificial intelligence",
+    "computer science",
+    "education"
+  ],
   "screenshots": [
     {
       "src": "/og-image.jpg",
       "sizes": "1200x630",
       "type": "image/jpeg",
       "platform": "wide",
-      "label": "8harath Portfolio Homepage"
+      "label": "Bharath K Portfolio Homepage"
     }
   ],
   "shortcuts": [
     {
+      "name": "About Me",
+      "url": "/about",
+      "description": "Learn more about Bharath K"
+    },
+    {
       "name": "Projects",
       "url": "/projects",
-      "description": "View my projects"
+      "description": "View AI and software projects"
+    },
+    {
+      "name": "Skills",
+      "url": "/skills",
+      "description": "Technical expertise"
     },
     {
       "name": "Contact",
       "url": "/contact",
       "description": "Get in touch"
+    },
+    {
+      "name": "Resume",
+      "url": "/resume",
+      "description": "Download Bharath K's resume"
     }
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "lang": "en-US",
-  "dir": "ltr"
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+bharath",
+      "url": "/%s"
+    }
+  ]
 }

@@ -1,12 +1,13 @@
-# Allow all crawlers
+# 8harath.me - Bharath K Portfolio Website
+# Robots.txt for SEO optimization
+
+# Allow all crawlers with optimized settings
 User-agent: *
 Allow: /
+Crawl-delay: 3
 
 # Sitemap location
 Sitemap: https://8harath.me/sitemap.xml
-
-# Crawl-delay for all bots
-Crawl-delay: 10
 
 # Disallow admin and private routes
 Disallow: /api/
@@ -14,24 +15,57 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /_next/
 Disallow: /static/
+Disallow: /temp/
+Disallow: /draft/
 
-# Allow specific bots with different rules
+# Optimized settings for major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 2
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 5
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 3
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 1
 
 # Block specific bots
 User-agent: BadBot
+Disallow: /
+
+User-agent: ScraperBot
+Disallow: /
+
+User-agent: SpamBot
 Disallow: / 
