@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Sidebar from "@/components/sidebar"
 import MainContent from "@/components/main-content"
 import LoadingScreen from "@/components/loading-screen"
+import SEOOptimizer from "@/components/seo-optimizer"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
@@ -47,18 +48,96 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen">
-      <Sidebar
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-        collapsed={sidebarCollapsed}
-        toggleSidebar={toggleSidebar}
+    <>
+      <SEOOptimizer 
+        title="Bharath K - AI Researcher & Software Developer"
+        description="Bharath K - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, Machine Learning, and ethical AI development. View projects, research, and achievements."
+        keywords={[
+          "8harath",
+          "Bharath K", 
+          "AI Researcher",
+          "Software Developer",
+          "Computer Science",
+          "AI",
+          "LLM",
+          "AGI",
+          "Machine Learning",
+          "Jain University",
+          "Bangalore",
+          "Artificial Intelligence",
+          "Portfolio",
+          "Software Development",
+          "Web Development",
+          "Full Stack Developer",
+          "AI Projects",
+          "Research",
+          "Technology",
+          "Innovation",
+          "Deep Learning",
+          "Neural Networks",
+          "Python",
+          "JavaScript",
+          "React",
+          "Next.js",
+          "Data Science",
+          "Ethical AI",
+          "Telugu LLM",
+          "Diffusion Models"
+        ]}
+        canonical="https://8harath.me"
+        ogImage="/og-image.jpg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Bharath K Portfolio",
+          "description": "Bharath K - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, and ethical AI development.",
+          "url": "https://8harath.me",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "8harath",
+            "alternateName": "Bharath K",
+            "jobTitle": "AI Researcher & Software Developer",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Jain University"
+            },
+            "knowsAbout": [
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Large Language Models",
+              "LLMs",
+              "AGI",
+              "Software Development",
+              "AI Research"
+            ]
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://8harath.me"
+              }
+            ]
+          }
+        }}
       />
-      <MainContent
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-        sidebarCollapsed={sidebarCollapsed}
-      />
-    </div>
+      
+      <div className="flex min-h-screen">
+        <Sidebar
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+          collapsed={sidebarCollapsed}
+          toggleSidebar={toggleSidebar}
+        />
+        <MainContent
+          activeSection={activeSection}
+          setActiveSection={setActiveSection}
+          sidebarCollapsed={sidebarCollapsed}
+        />
+      </div>
+    </>
   )
 }

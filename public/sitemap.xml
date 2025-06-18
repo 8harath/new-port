@@ -6,71 +6,104 @@
                             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
                             http://www.google.com/schemas/sitemap-image/1.1
                             http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
-  <!-- Home Page -->
+  <!-- Home Page - Main landing page for 8harath and Bharath K -->
   <url>
     <loc>https://8harath.me/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://8harath.me/og-image.jpg</image:loc>
-      <image:title>8harath - AI Researcher & Software Developer</image:title>
+      <image:title>8harath - Bharath K | AI Researcher & Software Developer</image:title>
+      <image:caption>8harath (Bharath K) - AI Researcher, Software Developer, and Computer Science student at Jain University</image:caption>
     </image:image>
   </url>
 
-  <!-- Skills Page -->
+  <!-- About Page - Personal information about 8harath/Bharath K -->
+  <url>
+    <loc>https://8harath.me/about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Skills Page - Technical expertise of 8harath -->
   <url>
     <loc>https://8harath.me/skills</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Projects Page -->
+  <!-- Projects Page - Showcase of 8harath's work -->
   <url>
     <loc>https://8harath.me/projects</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Certifications Page -->
+  <!-- Certifications Page - 8harath's achievements -->
   <url>
     <loc>https://8harath.me/certifications</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Education & Experience Page -->
+  <!-- Education & Experience Page - Bharath K's background -->
   <url>
     <loc>https://8harath.me/education</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Beyond Tech Page -->
+  <!-- Beyond Tech Page - Personal interests of 8harath -->
   <url>
     <loc>https://8harath.me/beyond</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Contact Page -->
+  <!-- Contact Page - Get in touch with 8harath -->
   <url>
     <loc>https://8harath.me/contact</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Additional SEO-optimized URLs -->
+  <!-- AI Research Page - 8harath's AI expertise -->
   <url>
-    <loc>https://8harath.me/8harath</loc>
-    <lastmod>2024-03-20</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://8harath.me/ai-research</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Software Development Page - Bharath K's development work -->
+  <url>
+    <loc>https://8harath.me/software-development</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portfolio Page - 8harath's complete portfolio -->
+  <url>
+    <loc>https://8harath.me/portfolio</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Resume Page - Bharath K's professional resume -->
+  <url>
+    <loc>https://8harath.me/resume</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset> 

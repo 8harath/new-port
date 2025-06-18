@@ -1,0 +1,25 @@
+/* TEAM */
+    Developer: Bharath K
+    Contact: bharath@example.com
+    From: Bangalore, India
+
+/* SITE */
+    Last update: 2024/12/19
+    Language: English
+    Doctype: HTML5
+    IDE: Visual Studio Code
+    Standards: HTML5, CSS3, JavaScript ES6+
+    Components: React, Next.js, TypeScript
+    Software: Node.js, npm, Git
+
+/* THANKS */
+    Name: Jain University
+    Name: R&D Club
+    Name: Open Source Community
+    Name: AI/ML Community
+
+/* SOCIAL */
+    GitHub: https://github.com/8harath
+    LinkedIn: https://www.linkedin.com/in/8harath/
+    Twitter: https://twitter.com/8harath_k
+    Portfolio: https://8harath.me 
