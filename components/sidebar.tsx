@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Code, Briefcase, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight } from "lucide-react"
+import { Home, Code, FolderOpen, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight, FileText, Layers } from "lucide-react"
 import Image from "next/image"
 
 interface SidebarProps {
@@ -10,10 +10,9 @@ interface SidebarProps {
   toggleSidebar: () => void
 }
 
-export default function Sidebar({ activeSection, setActiveSection, collapsed, toggleSidebar }: SidebarProps) {
-  const navItems = [
+export default function Sidebar({ activeSection, setActiveSection, collapsed, toggleSidebar }: SidebarProps) {  const navItems = [
     { id: "home", label: "Home", icon: <Home className="w-5 h-5" /> },
-    { id: "projects", label: "Projects", icon: <Briefcase className="w-5 h-5" /> },
+    { id: "projects", label: "Projects", icon: <Layers className="w-5 h-5" /> },
     { id: "certifications", label: "Certifications", icon: <Award className="w-5 h-5" /> },
     { id: "education", label: "Edu & Exp", icon: <GraduationCap className="w-5 h-5" /> },
     { id: "contact", label: "Contact", icon: <Mail className="w-5 h-5" /> },

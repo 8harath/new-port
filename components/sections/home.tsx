@@ -1,5 +1,5 @@
 "use client"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Download, Rocket, FileText, Sparkles } from "lucide-react"
 
 export default function Home({ setActiveSection }: { setActiveSection?: (section: string) => void }) {
   return (
@@ -29,42 +29,30 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
         </p>
       </div>      <div className="mb-12">
         <div className="flex gap-6 flex-wrap justify-center">
+          {/* Resume Button */}
           <a
             href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
-            className="consciousness-button group"
+            className="retro-button px-6 py-3 text-lg flex items-center gap-2 group"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download Bharath K's Resume"
-            title="Download Bharath K's Resume - A Journey of AI Research and Innovation"
+            title="Download Bharath K's Resume"
           >
-            <span className="button-text flex items-center gap-2 relative z-10">
-              📄 Get My Résumé
-              <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12">
-                ✨
-              </span>
-            </span>
+            <FileText className="w-5 h-5 transition-transform group-hover:scale-110" />
+            Get My Résumé
+            <Download className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
           </a>
 
+          {/* Projects Button */}
           <button 
             onClick={() => setActiveSection?.('projects')}
-            className="quantum-button group relative"
+            className="retro-button px-6 py-3 text-lg flex items-center gap-2 group"
             aria-label="View Bharath K's Projects"
-            title="Explore AI Projects - Where Theory Meets Innovation"
+            title="Explore Bharath K's AI and Software Development Projects"
           >
-            {/* Quantum field visualization nodes */}
-            <div className="quantum-nodes">
-              <div className="quantum-node"></div>
-              <div className="quantum-node"></div>
-              <div className="quantum-node"></div>
-              <div className="quantum-node"></div>
-            </div>
-            
-            <span className="button-text flex items-center gap-2 relative z-10">
-              🚀 Explore Projects
-              <span className="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:scale-125">
-                🌌
-              </span>
-            </span>
+            <Rocket className="w-5 h-5 transition-transform group-hover:scale-110 group-hover:-rotate-12" />
+            Explore Projects
+            <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-200" />
           </button>
         </div>
       </div>
