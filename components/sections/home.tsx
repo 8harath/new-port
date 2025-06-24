@@ -1,5 +1,6 @@
 "use client"
 import { ArrowDown } from "lucide-react"
+import AnimatedButton from "@/components/ui/animated-button"
 
 export default function Home({ setActiveSection }: { setActiveSection?: (section: string) => void }) {
   return (
@@ -27,28 +28,37 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
         <p className="text-lg leading-relaxed">
           Outside of code, I dive deep into philosophy, systems theory, and emerging tech like blockchain and neuro-AI—seeking to connect the abstract with the practical. My approach combines technical expertise with ethical considerations in artificial intelligence.
         </p>
-      </div>
-
-      <div className="mb-12">
+      </div>      <div className="mb-12">
         <div className="flex gap-6 flex-wrap justify-center">
-          <a
+          <AnimatedButton
             href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
-            className="retro-button px-6 py-3 text-lg"
+            variant="holographic"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Download Bharath K's Resume"
+            ariaLabel="Download Bharath K's Resume"
             title="Download Bharath K's Resume"
           >
-            Get My Résumé
-          </a>
-          <button 
+            <span className="flex items-center gap-2">
+              📄 Get My Résumé
+              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                ↗
+              </span>
+            </span>
+          </AnimatedButton>
+
+          <AnimatedButton
             onClick={() => setActiveSection?.('projects')}
-            className="retro-button px-6 py-3 text-lg"
-            aria-label="View Bharath K's Projects"
+            variant="neural"
+            ariaLabel="View Bharath K's Projects"
             title="Explore Bharath K's AI and Software Development Projects"
           >
-            Explore Projects
-          </button>
+            <span className="flex items-center gap-2">
+              🚀 Explore Projects
+              <span className="inline-block transition-transform group-hover:rotate-12 group-hover:scale-110">
+                ⚡
+              </span>
+            </span>
+          </AnimatedButton>
         </div>
       </div>
 
