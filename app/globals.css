@@ -61,8 +61,295 @@ body {
 @layer components {
   .retro-button {
     @apply font-mono border-2 border-gray-800 bg-gray-200 hover:bg-amber-200 px-4 py-2 
-           transition-colors active:bg-amber-300 active:translate-y-1 inline-block text-center;
+           transition-all duration-300 ease-in-out active:bg-amber-300 active:translate-y-1 
+           inline-block text-center relative overflow-hidden cursor-pointer;
+    /* Enhanced button with animations */
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
+  .retro-button:hover {
+    @apply bg-amber-300;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px) translateX(-2px);
+  }
+
+  .retro-button:active {
+    @apply bg-amber-400;
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.4);
+    transform: translateY(1px) translateX(1px);
+  }
+  /* AI-themed animated buttons for homepage */
+  .ai-button {
+    @apply relative font-mono border-2 border-primary bg-background px-6 py-3 text-lg
+           transition-all duration-500 ease-out overflow-hidden cursor-pointer;
+    box-shadow: 4px 4px 0px hsla(var(--primary), 0.3);
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--surface)) 100%);
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsla(var(--primary), 0.1), transparent);
+    transition: left 0.6s ease-in-out;
+    z-index: -1;
+  }
+
+  .ai-button:hover::before {
+    left: 100%;
+  }
+
+  .ai-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, hsla(var(--accent), 0.1) 0%, hsla(var(--secondary), 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1;
+  }
+
+  .ai-button:hover {
+    transform: translateY(-3px) translateX(-2px);
+    box-shadow: 6px 6px 0px hsla(var(--primary), 0.4), 0 8px 20px hsla(var(--primary), 0.2);
+    border-color: hsl(var(--accent));
+  }
+
+  .ai-button:hover::after {
+    opacity: 1;
+  }
+
+  .ai-button:active {
+    transform: translateY(1px) translateX(1px);
+    box-shadow: 2px 2px 0px hsla(var(--primary), 0.4);
+  }
+
+  /* Neural network loading effect */
+  .ai-button-neural {
+    @apply ai-button;
+    position: relative;
+    overflow: visible;
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsla(var(--primary), 0.05) 50%, 
+      hsl(var(--surface)) 100%);
+  }
+
+  .ai-button-neural::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .ai-button-neural:hover::before {
+    opacity: 1;
+    box-shadow: 
+      0 0 0 10px hsla(var(--primary), 0.1),
+      0 0 0 20px hsla(var(--primary), 0.05),
+      0 0 0 30px hsla(var(--primary), 0.02);
+    animation: neuralPulse 1.5s ease-in-out infinite;
+  }
+
+  /* Data flow button effect */
+  .ai-button-flow {
+    @apply ai-button;
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsla(var(--accent), 0.1) 25%,
+      hsl(var(--surface)) 50%, 
+      hsla(var(--secondary), 0.1) 75%,
+      hsl(var(--background)) 100%);
+    background-size: 200% 200%;
+    animation: dataFlowBackground 4s ease-in-out infinite;
+  }
+
+  .ai-button-flow:hover {
+    animation-duration: 1s;
+  }
+
+  /* Holographic effect button */
+  .ai-button-holo {
+    @apply ai-button;
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--surface)) 100%);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 25%, 
+      hsl(var(--secondary)) 50%, 
+      hsl(var(--accent)) 75%, 
+      hsl(var(--primary)) 100%) 1;
+    position: relative;
+    color: hsl(var(--foreground));
+  }
+
+  .ai-button-holo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 25%, 
+      hsl(var(--secondary)) 50%, 
+      hsl(var(--accent)) 75%, 
+      hsl(var(--primary)) 100%);
+    background-size: 300% 300%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: holographicShift 3s ease-in-out infinite;
+    opacity: 0.2;
+  }
+
+  .ai-button-holo:hover::before {
+    opacity: 0.4;
+    animation-duration: 1s;
+  }
+  .ai-button-holo:hover {
+    color: hsl(var(--primary));
+    text-shadow: 0 0 10px hsla(var(--primary), 0.5);
+  }
+
+  /* Philosophical AI buttons for homepage */
+  .consciousness-button {
+    @apply relative font-mono border-2 border-primary bg-background px-6 py-3 text-lg
+           transition-all duration-700 ease-out overflow-hidden cursor-pointer;
+    background: linear-gradient(45deg, 
+      hsla(var(--background), 0.9) 0%, 
+      hsla(var(--primary), 0.05) 25%,
+      hsla(var(--accent), 0.1) 50%, 
+      hsla(var(--secondary), 0.05) 75%,
+      hsla(var(--background), 0.9) 100%);
+    background-size: 200% 200%;
+    animation: consciousnessFlow 8s ease-in-out infinite;
+    box-shadow: 0 4px 15px hsla(var(--primary), 0.2);
+    position: relative;
+  }
+
+  .consciousness-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, 
+      hsla(var(--primary), 0.1) 0%, 
+      transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+  }
+
+  .consciousness-button:hover::before {
+    opacity: 1;
+    animation: thoughtProcess 2s ease-in-out infinite;
+  }
+
+  .consciousness-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px hsla(var(--primary), 0.4), 0 0 20px hsla(var(--accent), 0.2);
+    animation-duration: 3s;
+  }
+
+  .consciousness-button .button-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .consciousness-button:hover .button-text {
+    animation: wisdomGlow 2s ease-in-out infinite;
+  }
+  /* Quantum field button for projects */  .quantum-button {
+    @apply relative font-mono border-2 border-primary bg-background px-6 py-3 text-lg
+           transition-all duration-500 ease-out overflow-hidden cursor-pointer;
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsla(var(--primary), 0.08) 30%,
+      hsla(var(--accent), 0.12) 60%, 
+      hsl(var(--surface)) 100%);
+    background-size: 300% 300%;
+    animation: quantumField 6s ease-in-out infinite;
+    box-shadow: 0 4px 12px hsla(var(--primary), 0.25);
+    position: relative;
+  }
+
+  .quantum-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, 
+      hsla(var(--accent), 0.3) 0%, 
+      hsla(var(--primary), 0.1) 50%,
+      transparent 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+  }
+
+  .quantum-button:hover::after {
+    width: 120%;
+    height: 120%;
+  }
+
+  .quantum-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 30px hsla(var(--primary), 0.3), 0 0 25px hsla(var(--accent), 0.2);
+    animation-duration: 2s;
+  }
+
+  .quantum-button .quantum-nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  .quantum-button:hover .quantum-nodes {
+    opacity: 1;
+  }
+
+  .quantum-button .quantum-node {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: hsl(var(--accent));
+    border-radius: 50%;
+    animation: neuralActivation 1.5s ease-in-out infinite;
+  }
+
+  .quantum-button .quantum-node:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+  .quantum-button .quantum-node:nth-child(2) { top: 30%; right: 20%; animation-delay: 0.3s; }
+  .quantum-button .quantum-node:nth-child(3) { bottom: 25%; left: 25%; animation-delay: 0.6s; }
+  .quantum-button .quantum-node:nth-child(4) { bottom: 35%; right: 15%; animation-delay: 0.9s; }
 
   .section-header {
     @apply font-bold text-2xl uppercase border-b-2 border-gray-400 pb-2 mb-6;
@@ -148,6 +435,129 @@ body {
   25% { transform: translateY(-2px); }
   50% { transform: translateY(0px); }
   75% { transform: translateY(2px); }
+}
+
+/* Button Animation Keyframes */
+@keyframes dataFlowBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes holographicShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 200% 50%; }
+  75% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes buttonGlow {
+  0%, 100% { 
+    box-shadow: 0 0 5px hsla(var(--primary), 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsla(var(--primary), 0.6), 0 0 30px hsla(var(--accent), 0.3);
+  }
+}
+
+@keyframes borderPulse {
+  0%, 100% { 
+    border-color: hsl(var(--primary));
+    transform: scale(1);
+  }
+  50% { 
+    border-color: hsl(var(--accent));
+    transform: scale(1.02);
+  }
+}
+
+/* Philosophical AI-themed animations for homepage buttons */
+@keyframes consciousnessFlow {
+  0% { 
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px hsla(var(--primary), 0.2);
+  }
+  25% {
+    background-position: 50% 0%;
+    box-shadow: 0 0 15px hsla(var(--accent), 0.3);
+  }
+  50% { 
+    background-position: 100% 50%;
+    box-shadow: 0 0 20px hsla(var(--secondary), 0.4);
+  }
+  75% {
+    background-position: 50% 100%;
+    box-shadow: 0 0 15px hsla(var(--accent), 0.3);
+  }
+  100% { 
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px hsla(var(--primary), 0.2);
+  }
+}
+
+@keyframes thoughtProcess {
+  0%, 100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% { 
+    transform: scale(1.05) rotate(1deg);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.1) rotate(0deg);
+    opacity: 1;
+  }
+  75% { 
+    transform: scale(1.05) rotate(-1deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes neuralActivation {
+  0% { 
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2) rotate(0deg);
+  }
+  100% { 
+    opacity: 0.8;
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+@keyframes wisdomGlow {
+  0%, 100% { 
+    text-shadow: 0 0 5px hsla(var(--primary), 0.3);
+    filter: brightness(1);
+  }
+  50% { 
+    text-shadow: 0 0 15px hsla(var(--accent), 0.6), 0 0 25px hsla(var(--secondary), 0.3);
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes quantumField {
+  0% { 
+    background-position: 0% 0%;
+    border-color: hsl(var(--primary));
+  }
+  33% { 
+    background-position: 100% 100%;
+    border-color: hsl(var(--accent));
+  }
+  66% { 
+    background-position: 0% 100%;
+    border-color: hsl(var(--secondary));
+  }
+  100% { 
+    background-position: 0% 0%;
+    border-color: hsl(var(--primary));
+  }
 }
 
 /* Enhanced loading animations */

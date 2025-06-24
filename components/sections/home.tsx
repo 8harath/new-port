@@ -1,5 +1,5 @@
 "use client"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Download, Rocket, FileText, Sparkles } from "lucide-react"
 
 export default function Home({ setActiveSection }: { setActiveSection?: (section: string) => void }) {
   return (
@@ -27,27 +27,32 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
         <p className="text-lg leading-relaxed">
           Outside of code, I dive deep into philosophy, systems theory, and emerging tech like blockchain and neuro-AI—seeking to connect the abstract with the practical. My approach combines technical expertise with ethical considerations in artificial intelligence.
         </p>
-      </div>
-
-      <div className="mb-12">
+      </div>      <div className="mb-12">
         <div className="flex gap-6 flex-wrap justify-center">
+          {/* Resume Button */}
           <a
             href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
-            className="retro-button px-6 py-3 text-lg"
+            className="retro-button px-6 py-3 text-lg flex items-center gap-2 group"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Download Bharath K's Resume"
             title="Download Bharath K's Resume"
           >
+            <FileText className="w-5 h-5 transition-transform group-hover:scale-110" />
             Get My Résumé
+            <Download className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
           </a>
+
+          {/* Projects Button */}
           <button 
             onClick={() => setActiveSection?.('projects')}
-            className="retro-button px-6 py-3 text-lg"
+            className="retro-button px-6 py-3 text-lg flex items-center gap-2 group"
             aria-label="View Bharath K's Projects"
             title="Explore Bharath K's AI and Software Development Projects"
           >
+            <Rocket className="w-5 h-5 transition-transform group-hover:scale-110 group-hover:-rotate-12" />
             Explore Projects
+            <Sparkles className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:rotate-180 transition-all duration-200" />
           </button>
         </div>
       </div>
