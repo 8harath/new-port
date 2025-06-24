@@ -1,6 +1,5 @@
 "use client"
 import { ArrowDown } from "lucide-react"
-import AnimatedButton from "@/components/ui/animated-button"
 
 export default function Home({ setActiveSection }: { setActiveSection?: (section: string) => void }) {
   return (
@@ -30,35 +29,43 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
         </p>
       </div>      <div className="mb-12">
         <div className="flex gap-6 flex-wrap justify-center">
-          <AnimatedButton
+          <a
             href="https://drive.google.com/file/d/1JH87mrksZFSBAQj49RrW3t9yp8t7lYBl/view"
-            variant="holographic"
+            className="consciousness-button group"
             target="_blank"
             rel="noopener noreferrer"
-            ariaLabel="Download Bharath K's Resume"
-            title="Download Bharath K's Resume"
+            aria-label="Download Bharath K's Resume"
+            title="Download Bharath K's Resume - A Journey of AI Research and Innovation"
           >
-            <span className="flex items-center gap-2">
+            <span className="button-text flex items-center gap-2 relative z-10">
               📄 Get My Résumé
-              <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                ↗
+              <span className="inline-block transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12">
+                ✨
               </span>
             </span>
-          </AnimatedButton>
+          </a>
 
-          <AnimatedButton
+          <button 
             onClick={() => setActiveSection?.('projects')}
-            variant="neural"
-            ariaLabel="View Bharath K's Projects"
-            title="Explore Bharath K's AI and Software Development Projects"
+            className="quantum-button group relative"
+            aria-label="View Bharath K's Projects"
+            title="Explore AI Projects - Where Theory Meets Innovation"
           >
-            <span className="flex items-center gap-2">
+            {/* Quantum field visualization nodes */}
+            <div className="quantum-nodes">
+              <div className="quantum-node"></div>
+              <div className="quantum-node"></div>
+              <div className="quantum-node"></div>
+              <div className="quantum-node"></div>
+            </div>
+            
+            <span className="button-text flex items-center gap-2 relative z-10">
               🚀 Explore Projects
-              <span className="inline-block transition-transform group-hover:rotate-12 group-hover:scale-110">
-                ⚡
+              <span className="inline-block transition-all duration-300 group-hover:rotate-180 group-hover:scale-125">
+                🌌
               </span>
             </span>
-          </AnimatedButton>
+          </button>
         </div>
       </div>
 
