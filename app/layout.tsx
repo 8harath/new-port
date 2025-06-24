@@ -46,8 +46,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: '8harath', url: 'https://8harath.me' }],
   creator: '8harath',
-  publisher: '8harath',
-  robots: {
+  publisher: '8harath',  robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -56,7 +55,12 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
       'max-image-preview': 'large',
       'max-snippet': -1,
+      noimageindex: false,
+      notranslate: false,
     },
+    'max-snippet': -1,
+    'max-image-preview': 'large',
+    'max-video-preview': -1,
   },
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   openGraph: {
@@ -89,15 +93,17 @@ export const metadata: Metadata = {
     languages: {
       'en-US': 'https://8harath.me',
     },
-  },
-  verification: {
+  },  verification: {
     google: 'your-google-site-verification', // Add your Google Search Console verification code
     yandex: 'your-yandex-verification',
     yahoo: 'your-yahoo-verification',
+    other: {
+      'msvalidate.01': 'your-bing-verification', // Bing Webmaster Tools
+      'p:domain_verify': 'your-pinterest-verification',
+    },
   },
   category: 'technology',
-  classification: 'Portfolio',
-  other: {
+  classification: 'Portfolio',  other: {
     'theme-color': '#000000',
     'msapplication-TileColor': '#000000',
     'apple-mobile-web-app-capable': 'yes',
@@ -105,6 +111,28 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-title': '8harath',
     'application-name': '8harath Portfolio',
     'mobile-web-app-capable': 'yes',
+    'rating': 'general',
+    'distribution': 'global',
+    'revisit-after': '7 days',
+    'expires': 'never',
+    'pragma': 'no-cache',
+    'geo.region': 'IN-KA',
+    'geo.placename': 'Bangalore',
+    'geo.position': '12.9716;77.5946',
+    'ICBM': '12.9716, 77.5946',
+    'DC.title': '8harath | AI Researcher & Software Developer',
+    'DC.creator': '8harath',
+    'DC.subject': 'AI Research, Software Development, Machine Learning',
+    'DC.description': '8harath - AI Researcher and Software Developer portfolio showcasing expertise in AI, ML, and software development',
+    'DC.publisher': '8harath',
+    'DC.contributor': '8harath',
+    'DC.date': new Date().toISOString().split('T')[0],
+    'DC.type': 'Text',
+    'DC.format': 'text/html',
+    'DC.identifier': 'https://8harath.me',
+    'DC.language': 'en',
+    'DC.coverage': 'Worldwide',
+    'DC.rights': '© 2024 8harath. All rights reserved.',
   }
 }
 
@@ -239,8 +267,7 @@ export default function RootLayout({
             "alternateName": "Bharath K"
           }
         }` }} />
-        
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "8harath Portfolio",
@@ -258,6 +285,142 @@ export default function RootLayout({
             "url": "https://8harath.me/contact"
           }
         }` }} />
+        
+        {/* Enhanced Knowledge Graph Data */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "mainEntity": {
+            "@type": "Person",
+            "@id": "https://8harath.me/#person",
+            "name": "8harath",
+            "alternateName": ["Bharath K", "Bharath"],
+            "identifier": "8harath",
+            "url": "https://8harath.me/",
+            "jobTitle": "AI Researcher & Software Developer",
+            "description": "Leading AI researcher and software developer specializing in large language models, artificial general intelligence, and ethical AI development",
+            "hasOccupation": [
+              {
+                "@type": "Occupation",
+                "name": "AI Researcher",
+                "occupationLocation": "Bangalore, India",
+                "skills": "Artificial Intelligence, Machine Learning, Large Language Models, AGI Research"
+              },
+              {
+                "@type": "Occupation", 
+                "name": "Software Developer",
+                "occupationLocation": "Bangalore, India",
+                "skills": "Full Stack Development, Python, JavaScript, React, Next.js"
+              }
+            ],
+            "knowsAbout": [
+              {
+                "@type": "Thing",
+                "name": "Artificial Intelligence",
+                "description": "Expert-level knowledge in AI systems and applications"
+              },
+              {
+                "@type": "Thing",
+                "name": "Large Language Models",
+                "description": "Specialized expertise in LLM development and implementation"
+              },
+              {
+                "@type": "Thing",
+                "name": "Machine Learning",
+                "description": "Advanced machine learning algorithms and applications"
+              },
+              {
+                "@type": "Thing",
+                "name": "Software Development",
+                "description": "Full-stack software development and architecture"
+              }
+            ],
+            "memberOf": {
+              "@type": "Organization",
+              "name": "Jain University",
+              "description": "Computer Science Student and R&D Club Member"
+            },
+            "award": [
+              "AI Research Excellence",
+              "Software Development Innovation",
+              "Academic Achievement in Computer Science"
+            ],
+            "seeks": {
+              "@type": "Demand",
+              "description": "Opportunities in AI research, software development, and technology innovation"
+            }
+          }
+        }` }} />
+        
+        {/* Professional Breadcrumb Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": {
+                "@type": "WebPage",
+                "@id": "https://8harath.me/",
+                "name": "8harath Portfolio Home"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Portfolio",
+              "item": {
+                "@type": "WebPage",
+                "@id": "https://8harath.me/#portfolio",
+                "name": "AI Research & Software Development Portfolio"
+              }
+            }
+          ]
+        }` }} />
+        
+        {/* Search Engine Specific Meta Tags */}
+        <meta name="google-site-verification" content="your-google-verification-code" />
+        <meta name="msvalidate.01" content="your-bing-verification-code" />
+        <meta name="yandex-verification" content="your-yandex-verification-code" />
+        
+        {/* Advanced SEO Meta Tags */}
+        <meta name="subject" content="AI Research, Software Development, Machine Learning Portfolio" />
+        <meta name="abstract" content="Professional portfolio showcasing expertise in artificial intelligence research, software development, and machine learning technologies by 8harath" />
+        <meta name="topic" content="Artificial Intelligence, Software Development" />
+        <meta name="summary" content="8harath - AI Researcher & Software Developer specializing in LLMs, AGI, and ethical AI development" />
+        <meta name="Classification" content="Professional Portfolio" />
+        <meta name="designer" content="8harath" />
+        <meta name="copyright" content="8harath" />
+        <meta name="reply-to" content="contact@8harath.me" />
+        <meta name="owner" content="8harath" />
+        <meta name="url" content="https://8harath.me" />
+        <meta name="identifier-URL" content="https://8harath.me" />
+        <meta name="directory" content="submission" />
+        <meta name="pagename" content="8harath Portfolio" />
+        <meta name="category" content="Technology, AI, Software Development" />
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="subtitle" content="AI Researcher & Software Developer" />
+        <meta name="target" content="all" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="audience" content="all" />
+        <meta name="robots" content="index,follow,noodp,noydir" />
+        
+        {/* Geo Location Tags */}
+        <meta name="geo.region" content="IN-KA" />
+        <meta name="geo.placename" content="Bangalore" />
+        <meta name="geo.position" content="12.9716;77.5946" />
+        <meta name="ICBM" content="12.9716, 77.5946" />
+        
+        {/* Hidden SEO Enhancement Links */}
+        <link rel="preload" href="/api/seo" as="fetch" crossOrigin="anonymous" />
+        <link rel="prefetch" href="/api/metadata" />
+        <link rel="prefetch" href="/api/sitemap" />
       </head>
       <body className={`${inter.className} pb-16 md:pb-0`}>
         <ThemeProvider

@@ -62,8 +62,7 @@ const nextConfig = {
         ],
       },
     ]
-  },
-  async redirects() {
+  },  async redirects() {
     return [
       {
         source: '/8harath',
@@ -80,13 +79,46 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // SEO-friendly redirects for common variations
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/index',
+        destination: '/',
+        permanent: true,
+      },
+      // Dynamic sitemap redirect
+      {
+        source: '/sitemap.xml',
+        destination: '/api/sitemap',
+        permanent: false,
+      },
+      // Dynamic robots redirect
+      {
+        source: '/robots.txt',
+        destination: '/api/robots',
+        permanent: false,
+      },
     ]
   },
-  compress: true,
+  async rewrites() {
+    return [
+      {
+        source: '/seo-data',
+        destination: '/api/seo',
+      },
+      {
+        source: '/site-metadata',
+        destination: '/api/metadata',
+      },
+    ]
+  },  compress: true,
   poweredByHeader: false,
   generateEtags: true,
   reactStrictMode: true,
-  swcMinify: true,
 }
 
 export default nextConfig

@@ -5,6 +5,8 @@ import Sidebar from "@/components/sidebar"
 import MainContent from "@/components/main-content"
 import LoadingScreen from "@/components/loading-screen"
 import SEOOptimizer from "@/components/seo-optimizer"
+import AdvancedSEO from "@/components/advanced-seo"
+import GoogleSEOBooster from "@/components/google-seo-booster"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
@@ -45,11 +47,11 @@ export default function Home() {
 
   if (isLoading) {
     return <LoadingScreen />
-  }
-
-  return (
+  }  return (
     <>
-      <SEOOptimizer 
+      <AdvancedSEO page="home" />
+      <GoogleSEOBooster activeSection={activeSection} />
+      <SEOOptimizer
         title="Bharath K - AI Researcher & Software Developer"
         description="Bharath K - AI Researcher, Software Developer, and Computer Science student at Jain University. Expert in AI, LLMs, AGI, Machine Learning, and ethical AI development. View projects, research, and achievements."
         keywords={[
