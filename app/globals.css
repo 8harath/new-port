@@ -98,10 +98,67 @@ body {
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #FA520F;
   }
-
   /* For Firefox */
   .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #FF8205 #FFFAEB;
   }
+}
+
+/* AI Loading Animation Keyframes */
+@keyframes fadeInOut {
+  0%, 100% { 
+    opacity: 0.2; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.8; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes neuralPulse {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes dataFlow {
+  0% { 
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+  }
+  50% { 
+    stroke-dasharray: 50 50;
+    stroke-dashoffset: -25;
+  }
+  100% { 
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes brainWave {
+  0%, 100% { transform: translateY(0px); }
+  25% { transform: translateY(-2px); }
+  50% { transform: translateY(0px); }
+  75% { transform: translateY(2px); }
+}
+
+/* Enhanced loading animations */
+.ai-loading-node {
+  animation: neuralPulse 1.5s ease-in-out infinite;
+}
+
+.ai-loading-connection {
+  animation: dataFlow 2s ease-in-out infinite;
+}
+
+.ai-loading-text {
+  animation: brainWave 3s ease-in-out infinite;
 }
