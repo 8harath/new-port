@@ -40,7 +40,8 @@ export default function Projects() {
         "EmailJS",
         "ESLint/Prettier"
       ],
-      github: "https://github.com/yourusername/jnu-resource-hub",
+      github: "https://github.com/8harath/JGI-002",
+      live: "https://www.jainuniversity.live/",
       category: "Web Development",
       demo: "https://demo-link.com",
       features: [
@@ -287,16 +288,30 @@ export default function Projects() {
               <div className="space-y-6">
                 <div className="flex items-start justify-between">
                   <h3 className="text-2xl font-bold">{project.title}</h3>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="retro-button flex items-center text-sm"
-                    aria-label={`View ${project.title} source code on GitHub`}
-                  >
-                    <Github className="w-4 h-4 mr-1" />
-                    View Code
-                  </a>
+                  <div className="flex gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="retro-button flex items-center text-sm"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      View Code
+                    </a>
+                    {project.id === "academic-resource-application" && project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="retro-button flex items-center text-sm"
+                        aria-label={`View ${project.title} live project`}
+                      >
+                        <span className="w-4 h-4 mr-1">🌐</span>
+                        View Project
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <div className="aspect-video overflow-hidden rounded-lg border-2 border-gray-800">
