@@ -26,6 +26,36 @@ export default function Projects() {
 
   const projects = [
     {
+      id: "academic-resource-application",
+      title: "Academic Resource Application",
+      image: "/JGI-project.png",
+      description:
+        "A modern, open-source web application built for Jain University to organize and access educational materials by semester, subject, and specialization. Designed with a focus on performance, maintainability, and ease of use, the platform helps students seamlessly navigate study resources like TLEP PDFs, cheat sheets, and module-wise content. The frontend is developed using React and TypeScript with Vite for a fast dev environment. The application supports multiple specializations including AI, Cyber Security, Data Analytics, and more. It features a responsive layout, CI/CD via GitHub Actions, and a contact form powered by EmailJS. The modular, component-based architecture ensures reusability and scalability. Sass handles the styling, while ESLint and Prettier enforce consistent code quality. Ideal for students, educators, and contributors looking to extend the academic resource ecosystem.",
+      stack: [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Sass",
+        "GitHub Actions",
+        "EmailJS",
+        "ESLint/Prettier"
+      ],
+      github: "https://github.com/8harath/JGI-002",
+      live: "https://www.jainuniversity.live/",
+      category: "Web Development",
+      demo: "https://demo-link.com",
+      features: [
+        "Organized resource browsing by semester, subject, and stream",
+        "Specialization support (AI, DA, CS, IoT, etc.)",
+        "Responsive, mobile-friendly UI",
+        "Type-safe development with TypeScript",
+        "Component-based, scalable architecture",
+        "Contact form with EmailJS integration",
+        "CI/CD pipeline with GitHub Actions",
+        "Clean code practices using ESLint and Prettier"
+      ]
+    },
+    {
       id: "online-voting",
       title: "Online Voting System",
       image: "/ovs.png",
@@ -258,16 +288,30 @@ export default function Projects() {
               <div className="space-y-6">
                 <div className="flex items-start justify-between">
                   <h3 className="text-2xl font-bold">{project.title}</h3>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="retro-button flex items-center text-sm"
-                    aria-label={`View ${project.title} source code on GitHub`}
-                  >
-                    <Github className="w-4 h-4 mr-1" />
-                    View Code
-                  </a>
+                  <div className="flex gap-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="retro-button flex items-center text-sm"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                    >
+                      <Github className="w-4 h-4 mr-1" />
+                      View Code
+                    </a>
+                    {project.id === "academic-resource-application" && project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="retro-button flex items-center text-sm"
+                        aria-label={`View ${project.title} live project`}
+                      >
+                        <span className="w-4 h-4 mr-1">🌐</span>
+                        View Project
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 <div className="aspect-video overflow-hidden rounded-lg border-2 border-gray-800">
