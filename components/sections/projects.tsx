@@ -126,6 +126,35 @@ export default function Projects() {
         "Data privacy"
       ]
     },
+    {
+      id: "jnu-resource-hub",
+      title: "JNU Resource Hub",
+      image: "/placeholder-logo.png",
+      description:
+        "A modern, open-source web application built for Jain University to organize and access educational materials by semester, subject, and specialization. Designed with a focus on performance, maintainability, and ease of use, the platform helps students seamlessly navigate study resources like TLEP PDFs, cheat sheets, and module-wise content. The frontend is developed using React and TypeScript with Vite for a fast dev environment. The application supports multiple specializations including AI, Cyber Security, Data Analytics, and more. It features a responsive layout, CI/CD via GitHub Actions, and a contact form powered by EmailJS. The modular, component-based architecture ensures reusability and scalability. Sass handles the styling, while ESLint and Prettier enforce consistent code quality. Ideal for students, educators, and contributors looking to extend the academic resource ecosystem.",
+      stack: [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Sass",
+        "GitHub Actions",
+        "EmailJS",
+        "ESLint/Prettier"
+      ],
+      github: "https://github.com/yourusername/jnu-resource-hub",
+      category: "Web Development",
+      demo: "https://demo-link.com",
+      features: [
+        "Organized resource browsing by semester, subject, and stream",
+        "Specialization support (AI, DA, CS, IoT, etc.)",
+        "Responsive, mobile-friendly UI",
+        "Type-safe development with TypeScript",
+        "Component-based, scalable architecture",
+        "Contact form with EmailJS integration",
+        "CI/CD pipeline with GitHub Actions",
+        "Clean code practices using ESLint and Prettier"
+      ]
+    },
   ]
 
   const filteredProjects = useMemo(() => {
