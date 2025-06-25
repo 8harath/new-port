@@ -129,7 +129,7 @@ export default function Projects() {
     {
       id: "jnu-resource-hub",
       title: "JNU Resource Hub",
-      image: "/placeholder-logo.png",
+      image: "/JGI-project.png",
       description:
         "A modern, open-source web application built for Jain University to organize and access educational materials by semester, subject, and specialization. Designed with a focus on performance, maintainability, and ease of use, the platform helps students seamlessly navigate study resources like TLEP PDFs, cheat sheets, and module-wise content. The frontend is developed using React and TypeScript with Vite for a fast dev environment. The application supports multiple specializations including AI, Cyber Security, Data Analytics, and more. It features a responsive layout, CI/CD via GitHub Actions, and a contact form powered by EmailJS. The modular, component-based architecture ensures reusability and scalability. Sass handles the styling, while ESLint and Prettier enforce consistent code quality. Ideal for students, educators, and contributors looking to extend the academic resource ecosystem.",
       stack: [
