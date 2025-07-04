@@ -14,6 +14,15 @@ type ExperienceDetails = {
   keywords?: string[];
 }
 
+type EducationDetails = {
+  description: string;
+  courses: string[];
+  achievements: string[];
+  projects?: string[];
+  activities?: string[];
+  researchEngagement?: string[];
+}
+
 type Experience = {
   id: string;
   company: string;
@@ -21,6 +30,15 @@ type Experience = {
   period: string;
   description: string;
   details: ExperienceDetails;
+}
+
+type Education = {
+  id: string;
+  institution: string;
+  degree: string;
+  specialization: string;
+  period: string;
+  details: EducationDetails;
 }
 
 export default function EducationExperience() {
@@ -35,23 +53,33 @@ export default function EducationExperience() {
       period: "2023–2026",
       details: {
         description:
-          "Pursuing a comprehensive degree focused on computer applications with a specialization in Data Analytics.",
+          "Pursuing a Bachelor of Computer Applications (BCA) with a specialization in Data Analytics at Jain University, Bangalore. Passionate about applied AI, data-driven systems, and research at the intersection of large language models and cognitive architectures. Currently involved in research programs focusing on Positioning, Navigation, and Tracking (PNT) and context-aware language models.",
         courses: [
-          "Advanced Data Structures and Algorithms",
-          "Machine Learning Fundamentals",
+          "Computer Networks",
           "Database Management Systems",
-          "Statistical Methods for Data Science",
-          "Web Development Technologies",
-          "Cloud Computing Principles",
+          "Data Structures",
+          "Software Engineering",
+          "Data Analytics",
+          "Probability and Statistics",
+          "Programming in Python",
+          "Programming in C",
+          "Programming in Java",
         ],
         achievements: [
-          "Dean's List for academic excellence (2023-2024)",
-          "Selected for the university's competitive AI Research Program",
-          "Represented the university at the National Collegiate Programming Contest",
+          "Selected for the STAR-PNT Research Program, a collaborative initiative hosted by IIT Tirupati and facilitated by JAIN (Deemed-to-be University), with mentorship from leading faculty in the domain of Positioning, Navigation, and Tracking (PNT) systems",
+          "Research & Development Associate at Navreet, the university's student research forum; working on LLM context window optimization and memory-efficient architecture design",
         ],
         projects: [
-          "Developed a predictive analytics dashboard for student performance metrics",
-          "Created a machine learning model to analyze campus resource utilization",
+          "Advanced Smart Parking Detection System - Developed a vision-based detection system to identify vacant parking spaces in real-time using computer vision and spatial analysis. Technologies: Python, OpenCV, Pandas, Numpy",
+          "Online Voting System - Built a secure digital voting platform with integrated authentication and real-time vote counting. Technologies: MySQL, PHP, HTML/CSS, JavaScript",
+          "Academic Resource Portal - Created a centralized academic resource hub for sharing notes, TLEP PDFs, lab files, and study materials for current and junior batches. Technologies: React, TypeScript (96.8%), CSS (3.1%), JavaScript (0.1%), Vite, npm, Sass, ESLint, Prettier",
+        ],
+        researchEngagement: [
+          "STAR-PNT Research Program participant - collaborative initiative with IIT Tirupati",
+          "Research & Development Associate at Navreet - university's student research forum",
+          "Working on LLM context window optimization and memory-efficient architecture design",
+          "Research focus on Positioning, Navigation, and Tracking (PNT) systems",
+          "Context-aware language models development",
         ],
       },
     },
@@ -244,7 +272,7 @@ export default function EducationExperience() {
     setActiveModal(null)
   }
 
-  const renderEducationModal = (edu: (typeof education)[0]) => (
+  const renderEducationModal = (edu: Education) => (
     <div className="space-y-4">
       <div className="card">
         <h3 className="font-bold text-xl mb-2">Overview</h3>
@@ -275,6 +303,17 @@ export default function EducationExperience() {
           <ul className="list-disc pl-5 space-y-1">
             {edu.details.projects.map((project, index) => (
               <li key={index}>{project}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {edu.details.researchEngagement && (
+        <div className="card">
+          <h3 className="font-bold text-xl mb-2">Research Engagement</h3>
+          <ul className="list-disc pl-5 space-y-1">
+            {edu.details.researchEngagement.map((research, index) => (
+              <li key={index}>{research}</li>
             ))}
           </ul>
         </div>
