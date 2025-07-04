@@ -129,6 +129,46 @@ export default function EducationExperience() {
 
   const experience = [
     {
+      id: "star-pnt-iit",
+      company: "Indian Institute of Technology, Tirupati",
+      role: "STAR-PNT Summer Research Intern",
+      period: "Jul 2025 - Present",
+      description: "Engaged in research and development activities at the intersection of satellite navigation, embedded systems, and signal intelligence through the prestigious STAR-PNT Summer Internship Program.",
+      details: {
+        fullDescription:
+          "As a selected intern for the prestigious STAR-PNT Summer Internship Program, I am engaged in research and development activities at the intersection of satellite navigation, embedded systems, and signal intelligence. The program is hosted by IIT Tirupati and facilitated by JAIN (Deemed-to-be University), with guidance from leading faculty in the field of Positioning, Navigation, and Tracking (PNT) systems.",
+        responsibilities: [
+          "Conducting research on satellite navigation systems and signal processing techniques",
+          "Developing embedded systems solutions for PNT applications",
+          "Analyzing signal intelligence data and implementing processing algorithms",
+          "Collaborating with faculty and research teams on cutting-edge navigation technologies",
+          "Contributing to research publications and technical documentation",
+          "Participating in hands-on laboratory experiments and field testing"
+        ],
+        technologies: ["Satellite Navigation", "Embedded Systems", "Signal Processing", "MATLAB", "Python", "C/C++", "GNSS", "Signal Intelligence"],
+        achievements: [
+          "Selected for the highly competitive STAR-PNT Summer Internship Program",
+          "Working directly with leading faculty in PNT systems research",
+          "Contributing to advanced research in satellite navigation and signal intelligence",
+          "Gaining hands-on experience with state-of-the-art navigation technologies"
+        ],
+        impact:
+          "Contributing to the advancement of satellite navigation technologies and signal intelligence systems that have applications in defense, aerospace, and civilian navigation systems. The research contributes to India's strategic capabilities in positioning and navigation technologies.",
+        keywords: [
+          "STAR-PNT internship",
+          "IIT Tirupati research",
+          "satellite navigation research",
+          "embedded systems development",
+          "signal intelligence",
+          "PNT systems",
+          "GNSS research",
+          "navigation technology",
+          "signal processing research",
+          "aerospace engineering"
+        ]
+      },
+    },
+    {
       id: "vishvam-ai",
       company: "Vishvam.Ai",
       role: "AI Developer Intern",
