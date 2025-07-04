@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, type FormEvent } from "react"
 import { Send, Loader2, Twitter, Instagram, Linkedin, Github, ExternalLink } from "lucide-react"
-import emailjs from "emailjs-com"
+import emailjs from "@emailjs/browser"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
