@@ -172,7 +172,7 @@ export default function EducationExperience() {
       id: "vishvam-ai",
       company: "Vishvam.Ai",
       role: "AI Developer Intern",
-      period: "March 2024",
+      period: "May 2025 - Present",
       description: "Contributing to the development of the world's first Telugu LLM through crowdsourced data collection and model training.",
       details: {
         fullDescription:
@@ -198,7 +198,7 @@ export default function EducationExperience() {
       id: "genx-reality",
       company: "GenX Reality",
       role: "Generative AI Intern",
-      period: "May 2025",
+      period: "Dec 2024 - Jun 2025",
       description: "Worked on developing and fine-tuning generative models for virtual reality applications.",
       details: {
         fullDescription:
@@ -221,7 +221,7 @@ export default function EducationExperience() {
       id: "monospace",
       company: "MonoSpace",
       role: "AI/ML Intern – Event Personalization Startup",
-      period: "Ongoing (Part-Time)",
+      period: "Jan 2025 - Apr 2025",
       description: "Contributing to the development of a consumer-facing product using diffusion models and 3D reconstruction for event visualization.",
       details: {
         fullDescription: "At this AI-driven event personalization startup, I worked as an AI/ML Intern contributing to the development of a consumer-facing product that used diffusion models and 3D reconstruction to visually simulate customized events. The platform enabled users to select highly specific event preferences—like floral themes, table layouts, lighting, and guest count—and receive realistic image previews of their event setup. My role combined model fine-tuning, backend automation, and LiDAR-based 3D space conversion, allowing for a fully immersive event planning experience.",
@@ -267,7 +267,7 @@ export default function EducationExperience() {
       id: "1m1b",
       company: "1M1B",
       role: "Data Analytics Intern (Sustainability Focus)",
-      period: "3 Months (Part-Time, Remote + On-Campus)",
+      period: "Nov 2024 - Mar 2025",
       description: "Worked at the intersection of data analytics and environmental sustainability, analyzing university resource usage and creating actionable insights through Tableau dashboards.",
       details: {
         fullDescription:
