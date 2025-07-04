@@ -67,7 +67,7 @@ export default function EducationExperience() {
         ],
         achievements: [
           "Selected for the STAR-PNT Research Program, a collaborative initiative hosted by IIT Tirupati and facilitated by JAIN (Deemed-to-be University), with mentorship from leading faculty in the domain of Positioning, Navigation, and Tracking (PNT) systems",
-          "Research & Development Associate at Navreet, the university's student research forum; working on LLM context window optimization and memory-efficient architecture design",
+          "Research & Development Associate at Navarith, the university's student research forum; working on LLM context window optimization and memory-efficient architecture design",
         ],
         projects: [
           "Advanced Smart Parking Detection System - Developed a vision-based detection system to identify vacant parking spaces in real-time using computer vision and spatial analysis. Technologies: Python, OpenCV, Pandas, Numpy",
