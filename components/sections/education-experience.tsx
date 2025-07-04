@@ -72,7 +72,7 @@ export default function EducationExperience() {
         projects: [
           "Advanced Smart Parking Detection System\nDeveloped a vision-based detection system to identify vacant parking spaces in real-time using computer vision and spatial analysis. Technologies: Python, OpenCV, Pandas, Numpy",
           "Online Voting System\nBuilt a secure digital voting platform with integrated authentication and real-time vote counting. Technologies: MySQL, PHP, HTML/CSS, JavaScript",
-          "Academic Resource Portal\nCreated a centralized academic resource hub for sharing notes, TLEP PDFs, lab files, and study materials for current and junior batches. Technologies: React, TypeScript (96.8%), CSS (3.1%), JavaScript (0.1%), Vite, npm, Sass, ESLint, Prettier",
+          "Academic Resource Portal\nCreated a centralized academic resource hub for sharing notes, TLEP PDFs, lab files, and study materials for current and junior batches. Technologies: React, TypeScript, CSS, JavaScript, Vite, npm, Sass, ESLint, Prettier",
         ],
         researchEngagement: [
           "STAR-PNT Research Program\nParticipant in collaborative initiative with IIT Tirupati",
