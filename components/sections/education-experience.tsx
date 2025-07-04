@@ -70,16 +70,16 @@ export default function EducationExperience() {
           "Research & Development Associate at Navarith, the university's student research forum; working on LLM context window optimization and memory-efficient architecture design",
         ],
         projects: [
-          "Advanced Smart Parking Detection System - Developed a vision-based detection system to identify vacant parking spaces in real-time using computer vision and spatial analysis. Technologies: Python, OpenCV, Pandas, Numpy",
-          "Online Voting System - Built a secure digital voting platform with integrated authentication and real-time vote counting. Technologies: MySQL, PHP, HTML/CSS, JavaScript",
-          "Academic Resource Portal - Created a centralized academic resource hub for sharing notes, TLEP PDFs, lab files, and study materials for current and junior batches. Technologies: React, TypeScript (96.8%), CSS (3.1%), JavaScript (0.1%), Vite, npm, Sass, ESLint, Prettier",
+          "Advanced Smart Parking Detection System\nDeveloped a vision-based detection system to identify vacant parking spaces in real-time using computer vision and spatial analysis. Technologies: Python, OpenCV, Pandas, Numpy",
+          "Online Voting System\nBuilt a secure digital voting platform with integrated authentication and real-time vote counting. Technologies: MySQL, PHP, HTML/CSS, JavaScript",
+          "Academic Resource Portal\nCreated a centralized academic resource hub for sharing notes, TLEP PDFs, lab files, and study materials for current and junior batches. Technologies: React, TypeScript (96.8%), CSS (3.1%), JavaScript (0.1%), Vite, npm, Sass, ESLint, Prettier",
         ],
         researchEngagement: [
-          "STAR-PNT Research Program participant - collaborative initiative with IIT Tirupati",
-          "Research & Development Associate at Navreet - university's student research forum",
-          "Working on LLM context window optimization and memory-efficient architecture design",
-          "Research focus on Positioning, Navigation, and Tracking (PNT) systems",
-          "Context-aware language models development",
+          "STAR-PNT Research Program\nParticipant in collaborative initiative with IIT Tirupati",
+          "Research & Development Associate at Navarith\nUniversity's student research forum",
+          "LLM Context Window Optimization\nWorking on LLM context window optimization and memory-efficient architecture design",
+          "Positioning, Navigation, and Tracking (PNT) Systems\nResearch focus on PNT systems",
+          "Context-Aware Language Models\nDevelopment of context-aware language models",
         ],
       },
     },
@@ -300,10 +300,16 @@ export default function EducationExperience() {
       {edu.details.projects && (
         <div className="card">
           <h3 className="font-bold text-xl mb-2">Projects</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            {edu.details.projects.map((project, index) => (
-              <li key={index}>{project}</li>
-            ))}
+          <ul className="list-disc pl-5 space-y-3">
+            {edu.details.projects.map((project, index) => {
+              const [title, description] = project.split('\n');
+              return (
+                <li key={index}>
+                  <div className="font-semibold">{title}</div>
+                  <div className="text-gray-700 mt-1">{description}</div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
@@ -311,10 +317,16 @@ export default function EducationExperience() {
       {edu.details.researchEngagement && (
         <div className="card">
           <h3 className="font-bold text-xl mb-2">Research Engagement</h3>
-          <ul className="list-disc pl-5 space-y-1">
-            {edu.details.researchEngagement.map((research, index) => (
-              <li key={index}>{research}</li>
-            ))}
+          <ul className="list-disc pl-5 space-y-3">
+            {edu.details.researchEngagement.map((research, index) => {
+              const [title, description] = research.split('\n');
+              return (
+                <li key={index}>
+                  <div className="font-semibold">{title}</div>
+                  <div className="text-gray-700 mt-1">{description}</div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
