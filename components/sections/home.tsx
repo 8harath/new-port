@@ -57,10 +57,6 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
         </div>
       </div>
 
-      <div className="mt-8 animate-bounce" aria-hidden="true">
-        <ArrowDown className="w-6 h-6 mx-auto" />
-      </div>
-
       {/* SEO-friendly hidden content for search engines */}
       <div className="sr-only">
         <h2>Bharath K Portfolio</h2>
