@@ -314,14 +314,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="aspect-video overflow-hidden rounded-lg border-2 border-gray-800">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={`${project.title} - ${project.category} project`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-bold mb-2">Description</h4>
