@@ -36,10 +36,10 @@ export default function Contact() {
     setStatus("sending")
 
     try {
-      // TODO: Replace these with your actual EmailJS credentials
-      const SERVICE_ID = "YOUR_SERVICE_ID"
-      const TEMPLATE_ID = "YOUR_TEMPLATE_ID"
-      const USER_ID = "YOUR_USER_ID"
+      // EmailJS credentials configured
+      const SERVICE_ID = "service_6yd60g2"
+      const TEMPLATE_ID = "template_hdv2629"
+      const USER_ID = "qx2jxijBdwq8Vvg0C"
 
       await emailjs.send(
         SERVICE_ID,
