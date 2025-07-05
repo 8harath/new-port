@@ -105,27 +105,6 @@ export default function EducationExperience() {
         ],
       },
     },
-    {
-      id: "alvas-central-school",
-      institution: "Alvas Central School",
-      degree: "High School",
-      specialization: "Science",
-      period: "2011–2021",
-      details: {
-        description:
-          "Completed high school education with a focus on science, participating in various academic and extracurricular activities.",
-        courses: ["Mathematics", "Science", "English", "Social Studies", "Computer Science"],
-        achievements: [
-          "Graduated with distinction",
-          "Winner of the School Science Quiz",
-          "Active member of the School Science Club",
-        ],
-        activities: [
-          "Participated in inter-school science exhibitions",
-          "Volunteered for school events and community outreach programs",
-        ],
-      },
-    },
   ]
 
   const experience = [
