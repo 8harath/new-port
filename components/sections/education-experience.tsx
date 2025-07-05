@@ -92,15 +92,16 @@ export default function EducationExperience() {
       details: {
         description:
           "Completed pre-university education with a focus on science and mathematics, establishing a strong foundation for higher studies in computer science.",
-        courses: ["Physics", "Chemistry", "Mathematics", "Computer Science", "English"],
+        courses: ["Physics", "Chemistry", "Mathematics", "Computer Science", "English", "Languages"],
         achievements: [
-          "Graduated with distinction (90% aggregate)",
-          "Winner of the Inter-College Science Project Competition",
-          "Active member of the Coding Club",
+          "Graduated with distinction (91% aggregate)",
+          "Winner of the Inter-College Chess Competition",
+          "Awarded Best Library User of the Year",
+          "Active member of the Chess Club",
         ],
         activities: [
-          "Organized and led the annual technology symposium",
-          "Volunteered for digital literacy programs in local communities",
+          "Organized and led Inter-College Chess Competitions",
+          "Participated in Code Forum discussions and coding sessions",
         ],
       },
     },
