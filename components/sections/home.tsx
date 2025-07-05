@@ -13,7 +13,7 @@ export default function Home({ setActiveSection }: { setActiveSection?: (section
 
       <div className="max-w-3xl mb-12 space-y-6 px-6">
         <p className="text-lg leading-relaxed">
-          I'm a 2nd-year Computer Science undergraduate at Jain University, passionate about building AI/ML systems that are not only intelligent—but interpretable, ethical, and human-aligned.
+          I'm a 3rd-year Computer Science undergraduate at Jain University, passionate about building AI/ML systems that are not only intelligent—but interpretable, ethical, and human-aligned.
         </p>
 
         <p className="text-lg leading-relaxed">
