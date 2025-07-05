@@ -209,6 +209,13 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      
+      {/* Minimal Footer */}
+      <footer className="text-center py-4 mt-8 border-t-2 border-gray-800">
+        <p className="text-sm text-gray-600">
+          © 2024 Bharath K. Made with ❤️ in India.
+        </p>
+      </footer>
     </section>
   )
 }
