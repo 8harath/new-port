@@ -76,7 +76,7 @@ export default function Contact() {
 
   // Social media links
   const socialLinks = [
-    { name: "X (Twitter)", icon: <Twitter className="w-5 h-5" />, url: "https://twitter.com/8harath_k" },
+    { name: "X", icon: <Twitter className="w-5 h-5" />, url: "https://twitter.com/8harath_k" },
     { name: "Instagram", icon: <Instagram className="w-5 h-5" />, url: "https://www.instagram.com/8harath.k/" },
     { name: "LinkedIn", icon: <Linkedin className="w-5 h-5" />, url: "https://www.linkedin.com/in/8harath/" },
     { name: "GitHub", icon: <Github className="w-5 h-5" />, url: "https://github.com/8harath" },
@@ -210,11 +210,57 @@ export default function Contact() {
         </div>
       </div>
       
-      {/* Minimal Footer */}
-      <footer className="text-center py-4 mt-8 border-t-2 border-gray-800">
-        <p className="text-sm text-gray-600">
-          © 2024 Bharath K. Made with ❤️ in India.
-        </p>
+      {/* Professional Footer */}
+      <footer className="mt-12 py-8 border-t-2 border-gray-800 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+            {/* Contact Info */}
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-gray-800">Contact Information</h4>
+              <div className="space-y-2 text-sm text-gray-600">
+                <p>📧 8harath.k@gmail.com</p>
+                <p>📍 Bangalore, Karnataka, India</p>
+                <p>🎓 Jain (Deemed-to-be University)</p>
+              </div>
+            </div>
+            
+            {/* Quick Links */}
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-gray-800">Quick Links</h4>
+              <div className="space-y-2 text-sm">
+                <a href="#home" className="block text-gray-600 hover:text-gray-800 transition-colors">Home</a>
+                <a href="#about" className="block text-gray-600 hover:text-gray-800 transition-colors">About</a>
+                <a href="#projects" className="block text-gray-600 hover:text-gray-800 transition-colors">Projects</a>
+                <a href="#education-experience" className="block text-gray-600 hover:text-gray-800 transition-colors">Experience</a>
+              </div>
+            </div>
+            
+            {/* Professional Links */}
+            <div>
+              <h4 className="font-bold text-lg mb-3 text-gray-800">Professional</h4>
+              <div className="space-y-2 text-sm">
+                <a href="https://www.linkedin.com/in/8harath/" target="_blank" rel="noopener noreferrer" className="block text-gray-600 hover:text-gray-800 transition-colors">LinkedIn Profile</a>
+                <a href="https://github.com/8harath" target="_blank" rel="noopener noreferrer" className="block text-gray-600 hover:text-gray-800 transition-colors">GitHub Portfolio</a>
+                <a href="https://huggingface.co/8harath" target="_blank" rel="noopener noreferrer" className="block text-gray-600 hover:text-gray-800 transition-colors">Hugging Face</a>
+                <a href="https://bento.me/8harath" target="_blank" rel="noopener noreferrer" className="block text-gray-600 hover:text-gray-800 transition-colors">Bento Profile</a>
+              </div>
+            </div>
+          </div>
+          
+          {/* Bottom Bar */}
+          <div className="pt-6 border-t border-gray-300 text-center">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+              <p className="text-sm text-gray-600">
+                © 2025 Bharath K. All rights reserved.
+              </p>
+              <div className="flex items-center space-x-4 text-xs text-gray-500">
+                <span>AI Researcher & Software Developer</span>
+                <span>•</span>
+                <span>BCA Data Analytics Student</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
     </section>
   )
