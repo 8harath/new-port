@@ -88,9 +88,19 @@ export default function Contact() {
     <section>
       <h2 className="section-header">CONTACT</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div className="card">
-          <h3 className="font-bold text-xl mb-4">Get In Touch</h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="card h-full">
+          <h3 className="font-bold text-xl mb-6">Get In Touch</h3>
+          
+          {/* Contact Form Info */}
+          <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
+            <h4 className="font-bold text-lg mb-2 text-blue-800">📝 Send Me a Message</h4>
+            <p className="text-blue-700 text-sm leading-relaxed">
+              Have a project in mind? Want to collaborate? Or just want to say hi? 
+              Fill out the form below and I'll get back to you as soon as possible.
+            </p>
+          </div>
+          
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block font-bold mb-1">
@@ -187,28 +197,52 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="card">
-          <h3 className="font-bold text-xl mb-4">Connect With Me</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="retro-button flex items-center justify-center"
-              >
-                {social.icon}
-                <span className="ml-2">{social.name}</span>
-              </a>
-            ))}
+        <div className="card h-full">
+          <h3 className="font-bold text-xl mb-6">Connect With Me</h3>
+          
+          {/* Personal Message - Featured prominently */}
+          <div className="mb-8 p-6 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-400 rounded-lg shadow-sm">
+            <div className="text-center mb-4">
+              <h4 className="font-bold text-lg text-gray-800 mb-3">Let's Talk!</h4>
+            </div>
+            <div className="space-y-3 text-gray-700">
+              <p className="leading-relaxed font-medium">
+                🤖 <strong>Into AI, AGI, philosophy, crypto</strong>—or just weird, niche rabbit holes?
+              </p>
+              <p className="leading-relaxed">
+                💬 I'm always up for a <em>good conversation</em>. Drop me a message, and I'll make sure to get back to you within a day.
+              </p>
+            </div>
+            <div className="mt-4 pt-4 border-t border-amber-300">
+              <p className="text-sm text-amber-700 text-center font-medium">
+                ⚡ Quick response guaranteed
+              </p>
+            </div>
           </div>
           
-          {/* Personal Message */}
-          <div className="mt-6 p-4 bg-amber-50 border-2 border-amber-300 rounded">
-            <p className="text-gray-700 leading-relaxed">
-              Into AI, AGI, philosophy, crypto—or just weird, niche rabbit holes?
-              I'm always up for a good conversation. Drop me a message, and I'll make sure to get back to you within a day.
+          {/* Social Links */}
+          <div>
+            <h4 className="font-bold text-lg mb-4 text-gray-800">Find Me On</h4>
+            <div className="grid grid-cols-2 gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="retro-button flex items-center justify-center text-sm py-3"
+                >
+                  {social.icon}
+                  <span className="ml-2">{social.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          {/* Response Time Info */}
+          <div className="mt-6 p-3 bg-gray-100 border border-gray-400 rounded text-center">
+            <p className="text-sm text-gray-600">
+              <strong>Response Time:</strong> Usually within 24 hours
             </p>
           </div>
         </div>
