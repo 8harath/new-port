@@ -200,7 +200,7 @@ export default function Contact() {
                 I welcome conversations about <strong>artificial intelligence, AGI research, philosophy, cryptocurrency</strong>, and emerging technologies.
               </p>
               <p className="leading-relaxed">
-                I'm always open to <em>meaningful discussions</em> and professional collaboration. Please feel free to reach out, and I will respond within 24 hours.
+                I'm always open to <em>meaningful discussions</em> and professional collaboration.
               </p>
             </div>
           </div>
