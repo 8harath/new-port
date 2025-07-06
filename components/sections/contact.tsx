@@ -92,15 +92,6 @@ export default function Contact() {
         <div className="card h-full">
           <h3 className="font-bold text-xl mb-6">Get In Touch</h3>
           
-          {/* Contact Form Info */}
-          <div className="mb-6 p-4 bg-blue-50 border-2 border-blue-300 rounded-lg">
-            <h4 className="font-bold text-lg mb-2 text-blue-800">📝 Send Me a Message</h4>
-            <p className="text-blue-700 text-sm leading-relaxed">
-              Have a project in mind? Want to collaborate? Or just want to say hi? 
-              Fill out the form below and I'll get back to you as soon as possible.
-            </p>
-          </div>
-          
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block font-bold mb-1">
@@ -211,11 +202,6 @@ export default function Contact() {
               </p>
               <p className="leading-relaxed">
                 💬 I'm always up for a <em>good conversation</em>. Drop me a message, and I'll make sure to get back to you within a day.
-              </p>
-            </div>
-            <div className="mt-4 pt-4 border-t border-amber-300">
-              <p className="text-sm text-amber-700 text-center font-medium">
-                ⚡ Quick response guaranteed
               </p>
             </div>
           </div>
