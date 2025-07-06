@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from 'react'
-import { Send, Bot, User, MessageCircle } from 'lucide-react'
+import { Send, Bot, User, Brain } from 'lucide-react'
 
 interface Message {
   id: string
@@ -147,7 +147,7 @@ export default function ChatSection() {
         <div className="text-center mb-8">
           <div className="highlighted-section inline-block px-6 py-4 mb-4">
             <h1 className="text-3xl font-bold flex items-center justify-center gap-3">
-              <MessageCircle className="w-7 h-7 text-red-600" />
+              <Brain className="w-7 h-7 text-red-600" />
               Arete - Bharath's AI Assistant
             </h1>
           </div>
