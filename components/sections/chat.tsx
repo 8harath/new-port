@@ -11,24 +11,24 @@ interface Message {
 }
 
 const quickQuestions = [
-  "Tell me about your AI/ML projects",
-  "What technologies do you work with?", 
-  "What are your research interests?",
-  "Tell me about your experience"
+  "Tell me about Bharath's AI/ML projects",
+  "What technologies does Bharath work with?", 
+  "What are Bharath's research interests?",
+  "How can I contact Bharath?"
 ]
 
-const sampleResponses: Record<string, string> = {
-  "Tell me about your AI/ML projects": "I've worked on several AI/ML projects including a Telugu LLM initiative, diffusion models, image processing pipelines, and 3D environment reconstruction using LIDAR data. My work focuses on making AI systems interpretable, ethical, and human-aligned.",
-  "What technologies do you work with?": "I'm proficient in Python for AI/ML, JavaScript/TypeScript for web development, and work with frameworks like React, Next.js, TensorFlow, PyTorch. I'm particularly strong in AI/ML libraries and modern web technologies.",
-  "What are your research interests?": "My research focuses on Generative AI, Large Language Models (LLMs), Diffusion Models, ethical AI development, and distributed computing for ML training. I'm particularly interested in creating culturally grounded AI systems.",
-  "Tell me about your experience": "I'm a 3rd-year Computer Science undergraduate at Jain University and an active member of the university's R&D Club. I contribute to India's first Telugu LLM initiative and combine academic learning with practical research."
+const areteResponses: Record<string, string> = {
+  "Tell me about Bharath's AI/ML projects": "Bharath has worked on several impressive AI/ML projects! He's currently contributing to India's first Telugu LLM initiative, focusing on culturally grounded datasets and efficient training techniques. He's also worked on diffusion models, image processing pipelines, and 3D environment reconstruction using LIDAR data. His work emphasizes making AI systems interpretable, ethical, and human-aligned.",
+  "What technologies does Bharath work with?": "Bharath is proficient in Python for AI/ML development, JavaScript/TypeScript for web development, and works extensively with frameworks like React, Next.js, TensorFlow, and PyTorch. He's particularly strong in AI/ML libraries, distributed computing, and modern web technologies. He also has experience with LIDAR data processing and blockchain technologies.",
+  "What are Bharath's research interests?": "Bharath's research focuses on several cutting-edge areas: Generative AI, Large Language Models (LLMs), Diffusion Models, and ethical AI development. He's particularly interested in distributed computing for ML training, creating culturally grounded AI systems, and exploring AGI development. As a member of his university's R&D Club, he engages in experimental projects that blend scientific depth with real-world impact.",
+  "How can I contact Bharath?": "You can reach Bharath through several channels! Check out the Contact section for his interactive email decoder, or connect with him on LinkedIn and GitHub. He's always open to discussing AI research, collaboration opportunities, and innovative projects. He's particularly interested in conversations about ethical AI, Telugu language models, and cutting-edge research collaborations."
 }
 
 export default function ChatSection() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hello! I'm here to help you learn more about my projects, skills, and experience. What would you like to know?",
+      text: "Hello! I'm Arete, Bharath's AI assistant. I can help you learn more about his projects, skills, research interests, and experience. What would you like to know about Bharath?",
       sender: 'assistant',
       timestamp: new Date()
     }
@@ -78,35 +78,51 @@ export default function ChatSection() {
     const input = userInput.toLowerCase()
     
     // Check for exact matches first
-    for (const [question, response] of Object.entries(sampleResponses)) {
-      if (input.includes(question.toLowerCase().slice(0, 10))) {
+    for (const [question, response] of Object.entries(areteResponses)) {
+      if (input.includes(question.toLowerCase().slice(0, 15))) {
         return response
       }
     }
 
     // Keyword-based responses
     if (input.includes('project') || input.includes('work')) {
-      return sampleResponses["Tell me about your AI/ML projects"]
+      return areteResponses["Tell me about Bharath's AI/ML projects"]
     }
     if (input.includes('language') || input.includes('programming') || input.includes('code') || input.includes('tech')) {
-      return sampleResponses["What technologies do you work with?"]
+      return areteResponses["What technologies does Bharath work with?"]
     }
     if (input.includes('research') || input.includes('interest') || input.includes('ai') || input.includes('ml')) {
-      return sampleResponses["What are your research interests?"]
+      return areteResponses["What are Bharath's research interests?"]
     }
-    if (input.includes('education') || input.includes('experience') || input.includes('university')) {
-      return sampleResponses["Tell me about your experience"]
+    if (input.includes('education') || input.includes('experience') || input.includes('university') || input.includes('background')) {
+      return "Bharath is a 3rd-year Computer Science undergraduate at Jain University in Bangalore. He's an active member of the university's R&D Club and has been contributing to cutting-edge research projects. He combines academic learning with practical research and development, focusing on AI/ML applications and real-world problem solving."
     }
     if (input.includes('contact') || input.includes('email') || input.includes('reach')) {
-      return "You can reach me through the contact methods listed in the Contact section of this portfolio. I'm always open to discussing AI research, collaboration opportunities, and innovative projects."
+      return areteResponses["How can I contact Bharath?"]
+    }
+    if (input.includes('certification') || input.includes('certificate')) {
+      return "Bharath has earned various certifications in AI/ML, software development, and emerging technologies. You can find the complete list with details in the Certifications section of this portfolio. His certifications span across machine learning, web development, cloud technologies, and specialized AI frameworks."
+    }
+    if (input.includes('arete') || input.includes('who are you') || input.includes('assistant')) {
+      return "I'm Arete, Bharath's AI assistant! I'm named after the ancient Greek concept of excellence and virtue. I'm here to help you learn about Bharath's work, projects, and expertise. Think of me as your guide through his portfolio and achievements!"
+    }
+    if (input.includes('telugu') || input.includes('llm') || input.includes('language model')) {
+      return "Bharath is contributing to India's first Telugu LLM initiative! This is particularly exciting as it focuses on creating culturally grounded AI systems. He's working on dataset design and exploring efficient training techniques with distributed compute. This project showcases his expertise in both AI development and cultural sensitivity in machine learning."
+    }
+    if (input.includes('philosophy') || input.includes('beyond tech') || input.includes('interests')) {
+      return "Beyond his technical work, Bharath has a deep interest in philosophy, systems theory, and the intersection of technology with human values. He explores connections between abstract philosophical concepts and practical applications, particularly in areas like blockchain, neuro-AI, and ethical AI development."
+    }
+    if (input.includes('collaboration') || input.includes('work together') || input.includes('hire')) {
+      return "Bharath is always open to collaboration opportunities! He's particularly interested in AI research projects, innovative software development, and work that combines technical excellence with ethical considerations. You can reach out through the contact methods in the Contact section to discuss potential collaborations."
     }
 
-    // Default responses
+    // Default responses from Arete's perspective
     const defaultResponses = [
-      "That's an interesting question! I'd be happy to tell you more about my work in AI and software development. Could you be more specific?",
-      "I'd be glad to help! You can ask me about my projects, skills, research interests, or experience.",
-      "I have diverse experience in AI/ML and software development. What particular area would you like to explore?",
-      "Feel free to ask about my research, programming projects, or professional background!"
+      "That's an interesting question about Bharath! I'd be happy to tell you more about his work in AI and software development. Could you be more specific about what aspect interests you?",
+      "I'd be glad to help you learn more about Bharath! You can ask me about his projects, technical skills, research interests, or how to get in touch with him.",
+      "Bharath has diverse experience in AI/ML and software development. What particular area of his work would you like to explore?",
+      "Feel free to ask me about Bharath's research, programming projects, certifications, or professional background. I'm here to help!",
+      "As Bharath's assistant, I can share details about his AI research, Telugu LLM project, technical expertise, or academic journey. What interests you most?"
     ]
 
     return defaultResponses[Math.floor(Math.random() * defaultResponses.length)]
@@ -132,11 +148,11 @@ export default function ChatSection() {
           <div className="highlighted-section inline-block px-6 py-4 mb-4">
             <h1 className="text-3xl font-bold flex items-center justify-center gap-3">
               <MessageCircle className="w-7 h-7 text-red-600" />
-              Chat Assistant
+              Arete - Bharath's AI Assistant
             </h1>
           </div>
           <p className="text-gray-700 max-w-xl mx-auto">
-            Ask me about my projects, skills, research, or experience.
+            Ask me about Bharath's projects, skills, research, or experience.
           </p>
         </div>
 
@@ -221,7 +237,7 @@ export default function ChatSection() {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Type your question..."
+                placeholder="Ask me about Bharath..."
                 className="flex-1 px-3 py-2 border-2 border-gray-800 bg-amber-50 text-gray-900 font-mono text-sm focus:bg-white focus:border-amber-600 transition-all duration-300 outline-none"
                 disabled={isTyping}
                 style={{
@@ -243,7 +259,7 @@ export default function ChatSection() {
         {/* Footer */}
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-600 font-mono bg-amber-100 border border-gray-400 px-3 py-1 inline-block">
-            ⚡ Demo Assistant • Explore other sections for detailed info
+            🤖 Arete AI Assistant • Powered by Bharath's knowledge base
           </p>
         </div>
       </div>
