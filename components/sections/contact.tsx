@@ -189,19 +189,18 @@ export default function Contact() {
         </div>
 
         <div className="card h-full">
-          <h3 className="font-bold text-xl mb-6">Connect With Me</h3>
           
           {/* Personal Message - Featured prominently */}
           <div className="mb-8 p-6 bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-400 rounded-lg shadow-sm">
             <div className="text-center mb-4">
-              <h4 className="font-bold text-lg text-gray-800 mb-3">Let's Talk!</h4>
+              <h4 className="font-bold text-lg text-gray-800 mb-3">Professional Discussion</h4>
             </div>
             <div className="space-y-3 text-gray-700">
               <p className="leading-relaxed font-medium">
-                🤖 <strong>Into AI, AGI, philosophy, crypto</strong>—or just weird, niche rabbit holes?
+                I welcome conversations about <strong>artificial intelligence, AGI research, philosophy, cryptocurrency</strong>, and emerging technologies.
               </p>
               <p className="leading-relaxed">
-                💬 I'm always up for a <em>good conversation</em>. Drop me a message, and I'll make sure to get back to you within a day.
+                I'm always open to <em>meaningful discussions</em> and professional collaboration. Please feel free to reach out, and I will respond within 24 hours.
               </p>
             </div>
           </div>
