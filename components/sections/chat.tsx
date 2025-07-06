@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from 'react'
-import { Send, Bot, User, MessageCircle, Sparkles, Brain, Code, Lightbulb } from 'lucide-react'
+import { Send, Bot, User, MessageCircle } from 'lucide-react'
 
 interface Message {
   id: string
@@ -10,29 +10,25 @@ interface Message {
   timestamp: Date
 }
 
-const predefinedQuestions = [
-  "Tell me about Bharath's AI/ML projects",
-  "What programming languages does he know?",
-  "What are his current research interests?",
-  "Tell me about his education and experience",
-  "What certifications does he have?",
-  "How can I contact Bharath?"
+const quickQuestions = [
+  "Tell me about your AI/ML projects",
+  "What technologies do you work with?", 
+  "What are your research interests?",
+  "Tell me about your experience"
 ]
 
 const sampleResponses: Record<string, string> = {
-  "Tell me about Bharath's AI/ML projects": "Bharath has worked on several impressive AI/ML projects including a Telugu LLM initiative, diffusion models, image processing pipelines, and 3D environment reconstruction using LIDAR data. His work focuses on making AI systems interpretable, ethical, and human-aligned.",
-  "What programming languages does he know?": "Bharath is proficient in Python (for AI/ML), JavaScript/TypeScript (for web development), and has experience with various frameworks like React, Next.js, TensorFlow, PyTorch, and more. He's particularly strong in AI/ML libraries and web technologies.",
-  "What are his current research interests?": "Bharath's research focuses on Generative AI, Large Language Models (LLMs), Diffusion Models, ethical AI development, and distributed computing for ML training. He's particularly interested in creating culturally grounded AI systems and exploring AGI development.",
-  "Tell me about his education and experience": "Bharath is a 3rd-year Computer Science undergraduate at Jain University. He's an active member of the university's R&D Club and contributes to India's first Telugu LLM initiative. He combines academic learning with practical research and development.",
-  "What certifications does he have?": "Bharath has various certifications in AI/ML, software development, and emerging technologies. You can find the complete list in the Certifications section of this portfolio.",
-  "How can I contact Bharath?": "You can reach Bharath through email (check the Contact section for the interactive email decoder), LinkedIn, or GitHub. He's also open to discussions about AI research, collaboration opportunities, and innovative projects."
+  "Tell me about your AI/ML projects": "I've worked on several AI/ML projects including a Telugu LLM initiative, diffusion models, image processing pipelines, and 3D environment reconstruction using LIDAR data. My work focuses on making AI systems interpretable, ethical, and human-aligned.",
+  "What technologies do you work with?": "I'm proficient in Python for AI/ML, JavaScript/TypeScript for web development, and work with frameworks like React, Next.js, TensorFlow, PyTorch. I'm particularly strong in AI/ML libraries and modern web technologies.",
+  "What are your research interests?": "My research focuses on Generative AI, Large Language Models (LLMs), Diffusion Models, ethical AI development, and distributed computing for ML training. I'm particularly interested in creating culturally grounded AI systems.",
+  "Tell me about your experience": "I'm a 3rd-year Computer Science undergraduate at Jain University and an active member of the university's R&D Club. I contribute to India's first Telugu LLM initiative and combine academic learning with practical research."
 }
 
 export default function ChatSection() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm Bharath's AI assistant. I can help you learn more about his projects, skills, experience, and research interests. Feel free to ask me anything!",
+      text: "Hello! I'm here to help you learn more about my projects, skills, and experience. What would you like to know?",
       sender: 'assistant',
       timestamp: new Date()
     }
@@ -90,36 +86,33 @@ export default function ChatSection() {
 
     // Keyword-based responses
     if (input.includes('project') || input.includes('work')) {
-      return sampleResponses["Tell me about Bharath's AI/ML projects"]
+      return sampleResponses["Tell me about your AI/ML projects"]
     }
-    if (input.includes('language') || input.includes('programming') || input.includes('code')) {
-      return sampleResponses["What programming languages does he know?"]
+    if (input.includes('language') || input.includes('programming') || input.includes('code') || input.includes('tech')) {
+      return sampleResponses["What technologies do you work with?"]
     }
     if (input.includes('research') || input.includes('interest') || input.includes('ai') || input.includes('ml')) {
-      return sampleResponses["What are his current research interests?"]
+      return sampleResponses["What are your research interests?"]
     }
     if (input.includes('education') || input.includes('experience') || input.includes('university')) {
-      return sampleResponses["Tell me about his education and experience"]
-    }
-    if (input.includes('certification') || input.includes('certificate')) {
-      return sampleResponses["What certifications does he have?"]
+      return sampleResponses["Tell me about your experience"]
     }
     if (input.includes('contact') || input.includes('email') || input.includes('reach')) {
-      return sampleResponses["How can I contact Bharath?"]
+      return "You can reach me through the contact methods listed in the Contact section of this portfolio. I'm always open to discussing AI research, collaboration opportunities, and innovative projects."
     }
 
     // Default responses
     const defaultResponses = [
-      "That's an interesting question! Bharath's portfolio covers various aspects of AI research and software development. Could you be more specific about what you'd like to know?",
-      "I'd be happy to help! You can ask me about his projects, skills, education, research interests, or how to contact him.",
-      "Bharath has diverse experience in AI/ML and software development. What particular area would you like to explore?",
-      "Feel free to ask about his AI research, programming projects, certifications, or professional background!"
+      "That's an interesting question! I'd be happy to tell you more about my work in AI and software development. Could you be more specific?",
+      "I'd be glad to help! You can ask me about my projects, skills, research interests, or experience.",
+      "I have diverse experience in AI/ML and software development. What particular area would you like to explore?",
+      "Feel free to ask about my research, programming projects, or professional background!"
     ]
 
     return defaultResponses[Math.floor(Math.random() * defaultResponses.length)]
   }
 
-  const handlePredefinedQuestion = (question: string) => {
+  const handleQuickQuestion = (question: string) => {
     setInputText(question)
     inputRef.current?.focus()
   }
@@ -133,34 +126,28 @@ export default function ChatSection() {
 
   return (
     <section className="min-h-screen py-8" id="chat">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="highlighted-section inline-block px-6 py-4 mb-4">
             <h1 className="text-3xl font-bold flex items-center justify-center gap-3">
-              <MessageCircle className="w-8 h-8 text-blue-600" />
-              Chat with Bharath's AI Assistant
-              <Sparkles className="w-6 h-6 text-amber-500" />
+              <MessageCircle className="w-7 h-7 text-blue-600" />
+              Chat Assistant
             </h1>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ask me anything about Bharath's projects, skills, research, or experience. 
-            I'm here to help you learn more about his work in AI and software development!
+          <p className="text-gray-600 max-w-xl mx-auto">
+            Ask me about my projects, skills, research, or experience.
           </p>
         </div>
 
-        {/* Predefined Questions */}
-        <div className="card mb-6">
-          <div className="flex items-center gap-2 mb-4">
-            <Lightbulb className="w-5 h-5 text-amber-500" />
-            <h3 className="font-bold">Quick Questions</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {predefinedQuestions.map((question, index) => (
+        {/* Quick Questions */}
+        <div className="mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {quickQuestions.map((question, index) => (
               <button
                 key={index}
-                onClick={() => handlePredefinedQuestion(question)}
-                className="text-left p-3 rounded-lg border-2 border-gray-300 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-sm"
+                onClick={() => handleQuickQuestion(question)}
+                className="text-left p-3 rounded-md border border-gray-300 hover:border-blue-500 hover:bg-blue-50 transition-all duration-200 text-sm bg-white"
               >
                 {question}
               </button>
@@ -169,9 +156,9 @@ export default function ChatSection() {
         </div>
 
         {/* Chat Container */}
-        <div className="card">
+        <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
           {/* Messages Area */}
-          <div className="h-96 overflow-y-auto mb-4 p-4 bg-gray-50 rounded-lg border-2 border-gray-200">
+          <div className="h-80 overflow-y-auto p-4 border-b border-gray-200">
             <div className="space-y-4">
               {messages.map((message) => (
                 <div
@@ -183,7 +170,7 @@ export default function ChatSection() {
                   <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
                     message.sender === 'user' 
                       ? 'bg-blue-600 text-white' 
-                      : 'bg-green-600 text-white'
+                      : 'bg-gray-600 text-white'
                   }`}>
                     {message.sender === 'user' ? (
                       <User className="w-4 h-4" />
@@ -191,20 +178,12 @@ export default function ChatSection() {
                       <Bot className="w-4 h-4" />
                     )}
                   </div>
-                  <div className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                  <div className={`max-w-xs lg:max-w-sm px-3 py-2 rounded-lg ${
                     message.sender === 'user'
-                      ? 'bg-blue-600 text-white rounded-tr-none'
-                      : 'bg-white border-2 border-gray-300 rounded-tl-none'
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-100 text-gray-900'
                   }`}>
                     <p className="text-sm">{message.text}</p>
-                    <p className={`text-xs mt-1 ${
-                      message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-                    }`}>
-                      {message.timestamp.toLocaleTimeString([], { 
-                        hour: '2-digit', 
-                        minute: '2-digit' 
-                      })}
-                    </p>
                   </div>
                 </div>
               ))}
@@ -212,10 +191,10 @@ export default function ChatSection() {
               {/* Typing Indicator */}
               {isTyping && (
                 <div className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center">
                     <Bot className="w-4 h-4" />
                   </div>
-                  <div className="bg-white border-2 border-gray-300 rounded-lg rounded-tl-none px-4 py-2">
+                  <div className="bg-gray-100 rounded-lg px-3 py-2">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -230,37 +209,35 @@ export default function ChatSection() {
           </div>
 
           {/* Input Area */}
-          <div className="flex gap-2">
-            <input
-              ref={inputRef}
-              type="text"
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="Ask me anything about Bharath..."
-              className="flex-1 px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none"
-              disabled={isTyping}
-            />
-            <button
-              onClick={handleSendMessage}
-              disabled={!inputText.trim() || isTyping}
-              className="retro-button px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
-            >
-              <Send className="w-4 h-4" />
-              Send
-            </button>
-          </div>
-          
-          {/* Footer Info */}
-          <div className="mt-4 p-3 bg-amber-50 border-2 border-amber-200 rounded-lg">
-            <div className="flex items-center gap-2 text-sm text-amber-800">
-              <Brain className="w-4 h-4" />
-              <span>
-                This is a demo AI assistant. For detailed information, please explore the other sections 
-                or use the contact methods in the Contact section.
-              </span>
+          <div className="p-4">
+            <div className="flex gap-2">
+              <input
+                ref={inputRef}
+                type="text"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Type your question..."
+                className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none text-sm"
+                disabled={isTyping}
+              />
+              <button
+                onClick={handleSendMessage}
+                disabled={!inputText.trim() || isTyping}
+                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 text-sm transition-colors"
+              >
+                <Send className="w-4 h-4" />
+                Send
+              </button>
             </div>
           </div>
+        </div>
+
+        {/* Footer */}
+        <div className="mt-4 text-center">
+          <p className="text-xs text-gray-500">
+            This is a demo assistant. For detailed information, please explore other sections.
+          </p>
         </div>
       </div>
     </section>
