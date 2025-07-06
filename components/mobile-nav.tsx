@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Briefcase, Award, GraduationCap, Mail } from "lucide-react"
+import { Home, Briefcase, Award, GraduationCap, Mail, MessageCircle } from "lucide-react"
 
 interface MobileNavProps {
   activeSection: string
@@ -13,6 +13,7 @@ export default function MobileNav({ activeSection, setActiveSection }: MobileNav
     { id: "projects", label: "Projects", icon: <Briefcase className="w-6 h-6" /> },
     { id: "certifications", label: "Certs", icon: <Award className="w-6 h-6" /> },
     { id: "education", label: "Edu", icon: <GraduationCap className="w-6 h-6" /> },
+    { id: "chat", label: "Chat", icon: <MessageCircle className="w-6 h-6" /> },
     { id: "contact", label: "Contact", icon: <Mail className="w-6 h-6" /> },
   ]
 
