@@ -5,7 +5,6 @@ import type React from "react"
 import { useState, type FormEvent } from "react"
 import { Send, Loader2, Twitter, Instagram, Linkedin, Github, ExternalLink } from "lucide-react"
 import emailjs from "@emailjs/browser"
-import { ObfuscatedEmail, CreativeEmailDisplay } from "../contact-method-selector"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -205,9 +204,12 @@ export default function Contact() {
             ))}
           </div>
           
-          {/* Interactive Email Component */}
-          <div className="mt-6">
-            <ObfuscatedEmail />
+          {/* Personal Message */}
+          <div className="mt-6 p-4 bg-amber-50 border-2 border-amber-300 rounded">
+            <p className="text-gray-700 leading-relaxed">
+              Into AI, AGI, philosophy, crypto—or just weird, niche rabbit holes?
+              I'm always up for a good conversation. Drop me a message, and I'll make sure to get back to you within a day.
+            </p>
           </div>
         </div>
       </div>
