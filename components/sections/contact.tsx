@@ -205,7 +205,12 @@ export default function Contact() {
           </div>
           <div className="mt-8">
             <h4 className="font-bold mb-2">Email</h4>
-            <p>8harath.k@gmail.com</p>
+            <div className="font-mono text-sm bg-gray-100 p-2 border border-gray-300 rounded">
+              <div className="text-gray-600 mb-1">// Decode to reach me:</div>
+              <div>x = 8harath</div>
+              <div>y = k</div>
+              <div className="text-blue-600 mt-1">x.y@gmail.com</div>
+            </div>
           </div>
         </div>
       </div>
@@ -218,7 +223,12 @@ export default function Contact() {
             <div>
               <h4 className="font-bold text-lg mb-3 text-gray-800">Contact Information</h4>
               <div className="space-y-2 text-sm text-gray-600">
-                <p>📧 8harath.k@gmail.com</p>
+                <div className="font-mono">
+                  <span className="text-gray-500">📧 </span>
+                  <span className="bg-yellow-100 px-1">x = 8harath; y = k;</span>
+                  <br />
+                  <span className="ml-4 text-blue-600">x.y@gmail.com</span>
+                </div>
                 <p>📍 Bangalore, Karnataka, India</p>
                 <p>🎓 Jain (Deemed-to-be University)</p>
               </div>
