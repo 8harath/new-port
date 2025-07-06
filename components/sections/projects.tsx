@@ -1,28 +1,15 @@
 "use client"
 
-import { useState, useMemo, useRef, useEffect } from "react"
-import { Github, Info, Search, ChevronDown } from "lucide-react"
+import { useState, useMemo } from "react"
+import { Github, Info, Search } from "lucide-react"
 import Modal from "@/components/ui/modal"
 
 export default function Projects() {
   const [activeModal, setActiveModal] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const categories = ["All", "AI/ML", "Web Development", "Extensions", "Full Stack"]
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
 
   const projects = [
     {
@@ -191,52 +178,49 @@ export default function Projects() {
 
       {/* Search and Filter Section */}
       <div className="mb-8">
-        <div className="relative" ref={dropdownRef}>
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        {/* Search Input */}
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 w-4 h-4" />
           <input
             type="text"
             placeholder="Search my projects..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-12 py-2.5 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full pl-10 pr-4 py-3 border-2 border-gray-800 bg-amber-50 text-gray-900 font-mono focus:bg-white focus:border-amber-600 transition-all duration-300 outline-none"
+            style={{
+              boxShadow: 'inset 2px 2px 4px rgba(0, 0, 0, 0.1)'
+            }}
             aria-label="Search projects by title, description, or technology stack"
           />
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 hover:bg-amber-100 rounded-md transition-colors"
-            aria-label="Filter projects by category"
-          >
-            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          {/* Dropdown Menu */}
-          <div className={`absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
-            isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-          }`}>
-            <div className="p-2 border-b-2 border-gray-200">
-              <span className="text-sm font-medium text-gray-600">Filter by Category</span>
-            </div>
-            <div className="max-h-60 overflow-y-auto">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    setSelectedCategory(category)
-                    setIsDropdownOpen(false)
-                  }}
-                  className={`w-full px-4 py-2.5 text-left text-sm font-medium transition-colors ${
-                    selectedCategory === category
-                      ? 'bg-amber-500 text-white'
-                      : 'hover:bg-amber-50'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+        </div>
+
+        {/* Category Filter Buttons */}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`retro-button px-4 py-2 text-sm transition-all duration-300 hover:scale-105 ${
+                selectedCategory === category
+                  ? 'bg-amber-400 border-amber-600 shadow-lg'
+                  : ''
+              }`}
+              aria-label={`Filter projects by ${category}`}
+            >
+              {category}
+              {selectedCategory === category && (
+                <span className="ml-2 text-xs">✓</span>
+              )}
+            </button>
+          ))}
         </div>
       </div>
+
+      {/* Project count */}
+      <p className="mb-6 text-sm text-gray-600 font-mono">
+        Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+        {selectedCategory !== "All" && ` in ${selectedCategory}`}
+      </p>
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -279,7 +263,11 @@ export default function Projects() {
 
       {/* Project Modals */}
       {activeModal && (
-        <Modal isOpen={!!activeModal} onClose={closeModal}>
+        <Modal 
+          isOpen={!!activeModal} 
+          onClose={closeModal}
+          title={projects.find((p) => p.id === activeModal)?.title || "Project Details"}
+        >
           {(() => {
             const project = projects.find((p) => p.id === activeModal)
             if (!project) return null
