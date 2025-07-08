@@ -6,6 +6,7 @@ import EducationExperience from "@/components/sections/education-experience"
 import BeyondTech from "@/components/sections/beyond-tech"
 import Contact from "@/components/sections/contact"
 import ChatSection from "@/components/sections/chat"
+import Blog from "@/components/sections/blog"
 import MobileNav from "./mobile-nav"
 
 interface MainContentProps {
@@ -27,6 +28,8 @@ export default function MainContent({ activeSection, setActiveSection, sidebarCo
         return <EducationExperience />
       case "chat":
         return <ChatSection />
+      case "blog":
+        return <Blog />
       case "contact":
         return <Contact />
       default:

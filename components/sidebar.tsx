@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, Code, FolderOpen, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight, FileText, Layers, Brain } from "lucide-react"
+import { Home, Code, FolderOpen, Award, GraduationCap, Globe, Mail, ChevronLeft, ChevronRight, FileText, Layers, Brain, BookOpen } from "lucide-react"
 import Image from "next/image"
 
 interface SidebarProps {
@@ -16,6 +16,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
     { id: "certifications", label: "Certifications", icon: <Award className="w-5 h-5" /> },
     { id: "education", label: "Edu & Exp", icon: <GraduationCap className="w-5 h-5" /> },
     { id: "chat", label: "Arete", icon: <Brain className="w-5 h-5" /> },
+    { id: "blog", label: "Blog", icon: <BookOpen className="w-5 h-5" /> },
     { id: "contact", label: "Contact", icon: <Mail className="w-5 h-5" /> },
   ]
 
