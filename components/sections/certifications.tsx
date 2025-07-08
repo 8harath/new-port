@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState, useMemo, useRef, useEffect } from "react"
-import { ExternalLink, ChevronLeft, ChevronRight, Search, ChevronDown } from "lucide-react"
+import { useState, useMemo } from "react"
+import { ExternalLink, ChevronLeft, ChevronRight, Search } from "lucide-react"
 
 type Certificate = {
   id: number
@@ -18,20 +18,7 @@ export default function Certifications() {
   const [currentPage, setCurrentPage] = useState(1)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
   const certificatesPerPage = 9
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
 
   // Certificate categories
   const categories = [
@@ -524,48 +511,39 @@ export default function Certifications() {
 
       {/* Search and Filter */}
       <div className="mb-8">
-        <div className="relative" ref={dropdownRef}>
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500" />
+        {/* Search Input */}
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-600" />
           <input
             type="text"
             placeholder="Search certificates..."
             value={searchQuery}
             onChange={handleSearch}
-            className="w-full pl-10 pr-12 py-2.5 border-2 border-gray-800 bg-amber-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+            className="w-full pl-10 pr-4 py-3 border-2 border-gray-800 bg-amber-50 text-gray-900 font-mono focus:bg-white focus:border-amber-600 transition-all duration-300 outline-none"
+            style={{
+              boxShadow: 'inset 2px 2px 4px rgba(0, 0, 0, 0.1)'
+            }}
           />
-          <button
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 hover:bg-amber-100 rounded-md transition-colors"
-          >
-            <ChevronDown className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          {/* Dropdown Menu */}
-          <div className={`absolute top-full left-0 right-0 mt-1 bg-white border-2 border-gray-800 rounded-lg shadow-lg z-10 transition-all duration-200 ${
-            isDropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-          }`}>
-            <div className="p-2 border-b-2 border-gray-200">
-              <span className="text-sm font-medium text-gray-600">Filter by Category</span>
-            </div>
-            <div className="max-h-60 overflow-y-auto">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => {
-                    handleCategoryChange(category)
-                    setIsDropdownOpen(false)
-                  }}
-                  className={`w-full px-4 py-2.5 text-left text-sm font-medium transition-colors ${
-                    selectedCategory === category
-                      ? 'bg-amber-500 text-white'
-                      : 'hover:bg-amber-50'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+        </div>
+
+        {/* Category Filter Buttons */}
+        <div className="flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => handleCategoryChange(category)}
+              className={`retro-button px-3 py-2 text-xs transition-all duration-300 hover:scale-105 ${
+                selectedCategory === category
+                  ? 'bg-amber-400 border-amber-600 shadow-lg'
+                  : ''
+              }`}
+            >
+              {category === "All" ? "All" : category.split(' ')[0]}
+              {selectedCategory === category && (
+                <span className="ml-1 text-xs">✓</span>
+              )}
+            </button>
+          ))}
         </div>
       </div>
 
@@ -609,26 +587,30 @@ export default function Certifications() {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-3 mt-8">
           <button
             onClick={() => paginate(currentPage - 1)}
             disabled={currentPage === 1}
-            className="retro-button p-1"
+            className="retro-button px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 text-sm"
             aria-label="Previous page"
           >
             <ChevronLeft className="w-4 h-4" />
+            Prev
           </button>
 
-          <span className="px-2">
-            Page {currentPage} of {totalPages}
-          </span>
+          <div className="highlighted-section px-4 py-2">
+            <span className="font-mono text-sm">
+              Page {currentPage} of {totalPages}
+            </span>
+          </div>
 
           <button
             onClick={() => paginate(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="retro-button p-1"
+            className="retro-button px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 text-sm"
             aria-label="Next page"
           >
+            Next
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
