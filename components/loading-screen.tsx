@@ -56,7 +56,7 @@ const LoadingScreen = () => {
            Bharath
           </h1>
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
-            <span className="font-mono">Loading...</span>
+            <span className="font-mono">Loading</span>
             <div className="flex gap-0.5">
               <div className="w-1 h-1 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
               <div className="w-1 h-1 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
