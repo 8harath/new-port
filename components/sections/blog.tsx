@@ -289,10 +289,6 @@ The future of education lies in thoughtful integration of AI technologies that s
               
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
                 <div className="flex items-center gap-1">
-                  <User className="w-4 h-4" />
-                  {selectedPost.author}
-                </div>
-                <div className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
                   {new Date(selectedPost.publishDate).toLocaleDateString()}
                 </div>
@@ -386,10 +382,6 @@ The future of education lies in thoughtful integration of AI technologies that s
             <p className="text-sm text-gray-700 mb-3">{post.excerpt}</p>
             
             <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
-              <div className="flex items-center gap-1">
-                <User className="w-3 h-3" />
-                {post.author}
-              </div>
               <div className="flex items-center gap-1">
                 <Calendar className="w-3 h-3" />
                 {new Date(post.publishDate).toLocaleDateString()}
