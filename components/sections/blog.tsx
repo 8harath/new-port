@@ -360,39 +360,33 @@ The future of education lies in thoughtful integration of AI technologies that s
         </div>
       </div>
 
-      {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Blog Posts List - Simple Titles */}
+      <div className="space-y-3">
         {filteredPosts.map((post) => (
-          <div key={post.id} className="card">
-            {post.featured && (
-              <div className="mb-3">
-                <span className="inline-block bg-amber-300 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600">
-                  ★ Featured
-                </span>
+          <div key={post.id} className="group cursor-pointer" onClick={() => handleReadPost(post)}>
+            <div className="flex items-center justify-between py-3 px-4 border-b border-gray-300 hover:bg-amber-50 transition-colors duration-200">
+              <div className="flex-1">
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-amber-800 transition-colors duration-200">
+                  {post.title}
+                </h3>
+                <div className="flex items-center gap-4 text-sm text-gray-600 mt-1">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    {new Date(post.publishDate).toLocaleDateString()}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {post.readTime}
+                  </div>
+                  {post.featured && (
+                    <span className="inline-block bg-amber-200 text-amber-800 px-2 py-1 text-xs font-bold rounded">
+                      ★ Featured
+                    </span>
+                  )}
+                </div>
               </div>
-            )}
-            
-            <h3 className="font-bold text-lg mb-2">{post.title}</h3>
-            <p className="text-sm text-gray-700 mb-3">{post.excerpt}</p>
-            
-            <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
-              <div className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {new Date(post.publishDate).toLocaleDateString()}
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                {post.readTime}
-              </div>
+              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-amber-600 transition-colors duration-200" />
             </div>
-            
-            <button
-              onClick={() => handleReadPost(post)}
-              className="retro-button text-sm flex items-center justify-center"
-            >
-              Read More
-              <ExternalLink className="w-3 h-3 ml-1" />
-            </button>
           </div>
         ))}
       </div>
