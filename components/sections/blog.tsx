@@ -18,22 +18,8 @@ type BlogPost = {
 }
 
 export default function Blog() {
-  const [currentPage, setCurrentPage] = useState(1)
   const [searchQuery, setSearchQuery] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
-  const postsPerPage = 6
-
-  // Blog categories
-  const categories = [
-    "All",
-    "Generative AI",
-    "Machine Learning",
-    "AI Ethics",
-    "Research",
-    "Technology Trends",
-    "Future of AI"
-  ]
 
   // Blog posts data
   const blogPosts: BlogPost[] = [
@@ -232,7 +218,7 @@ The future of education lies in thoughtful integration of AI technologies that s
     }
   ]
 
-  // Filter posts based on search query and category
+  // Filter posts based on search query only
   const filteredPosts = useMemo(() => {
     return blogPosts.filter((post) => {
       const matchesSearch =
@@ -240,34 +226,13 @@ The future of education lies in thoughtful integration of AI technologies that s
         post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
         post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
 
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory
-
-      return matchesSearch && matchesCategory
+      return matchesSearch
     })
-  }, [searchQuery, selectedCategory, blogPosts])
-
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
-  const indexOfLastPost = currentPage * postsPerPage
-  const indexOfFirstPost = indexOfLastPost - postsPerPage
-  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost)
-
-  const paginate = (pageNumber: number) => {
-    if (pageNumber > 0 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber)
-    }
-  }
-
-  // Handle category change
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category)
-    setCurrentPage(1)
-  }
+  }, [searchQuery, blogPosts])
 
   // Handle search
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
-    setCurrentPage(1)
   }
 
   // Handle reading a post
@@ -343,10 +308,9 @@ The future of education lies in thoughtful integration of AI technologies that s
     <section>
       <h2 className="section-header">AI RESEARCH BLOG</h2>
 
-      {/* Search and Filter */}
+      {/* Search Input */}
       <div className="mb-8">
-        {/* Search Input */}
-        <div className="relative mb-4">
+        <div className="relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-600" />
           <input
             type="text"
@@ -359,91 +323,11 @@ The future of education lies in thoughtful integration of AI technologies that s
             }}
           />
         </div>
-
-        {/* Category Filter Buttons */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => handleCategoryChange(category)}
-              className={`retro-button px-3 py-2 text-xs transition-all duration-300 hover:scale-105 ${
-                selectedCategory === category
-                  ? 'bg-amber-400 border-amber-600 shadow-lg'
-                  : ''
-              }`}
-            >
-              {category}
-              {selectedCategory === category && (
-                <span className="ml-1 text-xs">✓</span>
-              )}
-            </button>
-          ))}
-        </div>
       </div>
 
-      {/* Post count */}
-      <p className="mb-6 text-sm text-gray-600">
-        Showing {currentPosts.length} of {filteredPosts.length} posts
-        {selectedCategory !== "All" && ` in ${selectedCategory}`}
-      </p>
-
-      {/* Featured Posts Section */}
-      {currentPage === 1 && selectedCategory === "All" && searchQuery === "" && (
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-4 text-gray-800">Featured Posts</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            {blogPosts.filter(post => post.featured).slice(0, 2).map((post) => (
-              <div key={post.id} className="card border-amber-400 bg-gradient-to-br from-amber-50 to-amber-100">
-                <div className="mb-3">
-                  <span className="inline-block bg-amber-300 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600 mb-2">
-                    FEATURED
-                  </span>
-                  <span className="inline-block bg-amber-200 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600 ml-2">
-                    {post.category}
-                  </span>
-                </div>
-                
-                <h3 className="font-bold text-lg mb-2">{post.title}</h3>
-                <p className="text-sm text-gray-700 mb-3">{post.excerpt}</p>
-                
-                <div className="flex items-center gap-3 text-xs text-gray-600 mb-3">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {new Date(post.publishDate).toLocaleDateString()}
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    {post.readTime}
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {post.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-gray-200 text-gray-700 px-2 py-1 text-xs border border-gray-400"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <button
-                  onClick={() => handleReadPost(post)}
-                  className="retro-button text-sm flex items-center justify-center"
-                >
-                  Read Full Post
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {currentPosts.map((post) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredPosts.map((post) => (
           <div key={post.id} className="card">
             <div className="mb-3">
               <span className="inline-block bg-amber-200 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600">
@@ -495,37 +379,6 @@ The future of education lies in thoughtful integration of AI technologies that s
           </div>
         ))}
       </div>
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center gap-3 mt-8">
-          <button
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="retro-button px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 text-sm"
-            aria-label="Previous page"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            Prev
-          </button>
-
-          <div className="highlighted-section px-4 py-2">
-            <span className="font-mono text-sm">
-              Page {currentPage} of {totalPages}
-            </span>
-          </div>
-
-          <button
-            onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="retro-button px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1 text-sm"
-            aria-label="Next page"
-          >
-            Next
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      )}
     </section>
   )
 }
