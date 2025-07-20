@@ -128,9 +128,31 @@ export default function ChatSection() {
     return defaultResponses[Math.floor(Math.random() * defaultResponses.length)]
   }
 
-  const handleQuickQuestion = (question: string) => {
-    setInputText(question)
-    inputRef.current?.focus()
+  const handleQuickQuestion = async (question: string) => {
+    // Create user message immediately
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: question,
+      sender: 'user',
+      timestamp: new Date()
+    }
+
+    // Add user message and start typing indicator
+    setMessages(prev => [...prev, userMessage])
+    setIsTyping(true)
+
+    // Simulate AI response delay
+    setTimeout(() => {
+      const response = getAIResponse(question)
+      const assistantMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: response,
+        sender: 'assistant',
+        timestamp: new Date()
+      }
+      setMessages(prev => [...prev, assistantMessage])
+      setIsTyping(false)
+    }, 1000 + Math.random() * 1500)
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
