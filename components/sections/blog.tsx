@@ -315,11 +315,16 @@ The future of education lies in thoughtful integration of AI technologies that s
             </div>
             
             <div className="prose prose-gray max-w-none">
-              {selectedPost.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-4 text-gray-700 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
+              {selectedPost.content.split('\n\n').map((paragraph, index) => {
+                // Handle bold text formatting
+                const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                return (
+                  <div key={index} className="mb-4 text-gray-700 leading-relaxed">
+                    <div dangerouslySetInnerHTML={{ __html: formattedParagraph }} />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
