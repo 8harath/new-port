@@ -282,9 +282,6 @@ The future of education lies in thoughtful integration of AI technologies that s
           
           <div className="card">
             <div className="mb-4">
-              <span className="inline-block bg-amber-200 text-gray-800 px-3 py-1 text-xs font-bold border-2 border-gray-800 mb-2">
-                {selectedPost.category}
-              </span>
               <h1 className="text-2xl md:text-3xl font-bold mb-3">{selectedPost.title}</h1>
               
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
@@ -367,16 +364,13 @@ The future of education lies in thoughtful integration of AI technologies that s
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredPosts.map((post) => (
           <div key={post.id} className="card">
-            <div className="mb-3">
-              <span className="inline-block bg-amber-200 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600">
-                {post.category}
-              </span>
-              {post.featured && (
-                <span className="inline-block bg-amber-300 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600 ml-2">
-                  ★
+            {post.featured && (
+              <div className="mb-3">
+                <span className="inline-block bg-amber-300 text-gray-800 px-2 py-1 text-xs font-bold border border-gray-600">
+                  ★ Featured
                 </span>
-              )}
-            </div>
+              </div>
+            )}
             
             <h3 className="font-bold text-lg mb-2">{post.title}</h3>
             <p className="text-sm text-gray-700 mb-3">{post.excerpt}</p>
