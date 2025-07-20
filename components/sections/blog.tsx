@@ -317,7 +317,32 @@ The future of education lies in thoughtful integration of AI technologies that s
             <div className="prose prose-gray max-w-none">
               {selectedPost.content.split('\n\n').map((paragraph, index) => {
                 // Handle bold text formatting
-                const formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                let formattedParagraph = paragraph.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                
+                // Handle bullet points (lines starting with -)
+                if (formattedParagraph.includes('\n- ')) {
+                  const lines = formattedParagraph.split('\n');
+                  let listItems: string[] = [];
+                  let nonListContent: string[] = [];
+                  
+                  lines.forEach(line => {
+                    if (line.trim().startsWith('- ')) {
+                      listItems.push(`<li>${line.trim().substring(2)}</li>`);
+                    } else if (line.trim()) {
+                      if (listItems.length > 0) {
+                        nonListContent.push(`<ul class="list-disc ml-6 mb-4">${listItems.join('')}</ul>`);
+                        listItems = [];
+                      }
+                      nonListContent.push(line);
+                    }
+                  });
+                  
+                  if (listItems.length > 0) {
+                    nonListContent.push(`<ul class="list-disc ml-6 mb-4">${listItems.join('')}</ul>`);
+                  }
+                  
+                  formattedParagraph = nonListContent.join('<br>');
+                }
                 
                 return (
                   <div key={index} className="mb-4 text-gray-700 leading-relaxed">
