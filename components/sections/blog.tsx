@@ -301,17 +301,6 @@ The future of education lies in thoughtful integration of AI technologies that s
                   {selectedPost.readTime}
                 </div>
               </div>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {selectedPost.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-gray-200 text-gray-800 px-2 py-1 text-xs border border-gray-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
             
             <div className="prose prose-gray max-w-none">
@@ -409,17 +398,6 @@ The future of education lies in thoughtful integration of AI technologies that s
                 <Clock className="w-3 h-3" />
                 {post.readTime}
               </div>
-            </div>
-
-            <div className="flex flex-wrap gap-1 mb-3">
-              {post.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-gray-200 text-gray-700 px-2 py-1 text-xs border border-gray-400"
-                >
-                  {tag}
-                </span>
-              ))}
             </div>
             
             <button
