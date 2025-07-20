@@ -25,31 +25,54 @@ export default function Blog() {
   const blogPosts: BlogPost[] = [
     {
       id: 1,
-      title: "The Evolution of Large Language Models: From GPT to AGI",
-      excerpt: "Exploring the rapid development of LLMs and their journey towards Artificial General Intelligence, examining key breakthroughs and future implications.",
-      content: `Large Language Models have transformed the AI landscape in unprecedented ways. From the early days of GPT-1 to the sophisticated models we see today, the evolution has been remarkable.
+      title: "A Hallucination Filter Idea That Might Not Scale—Yet",
+      excerpt: "Exploring a potential approach to reduce LLM hallucinations through multi-sampling and evaluation, considering the compute costs and future possibilities.",
+      content: `When I first started using large language models (LLMs), I honestly saw them as glorified autocomplete machines—clever, predictive, and sure, sometimes useful. But the more I explored them, the more I started noticing possibilities beyond surface-level word prediction. Especially now, with the rise of agentic systems and protocols like MCP (Model Context Protocol), LLMs are starting to behave more like tools with agency—calling APIs, triggering workflows, even making decisions in context.
 
-The journey began with transformer architecture, which revolutionized how we process sequential data. The attention mechanism allowed models to understand context in ways that were previously impossible.
+This shift is exciting, but also fragile. With access to external tools, things like prompt injection attacks become more than theoretical—suddenly they're risks with real-world consequences. That might be one reason we haven't seen these capabilities adopted at massive scale just yet.
 
-Key milestones include:
-- GPT-1: Demonstrating unsupervised pre-training effectiveness
-- BERT: Bidirectional understanding and context
-- GPT-3: Scale and emergent capabilities
-- ChatGPT: Conversational AI breakthrough
-- GPT-4: Multimodal capabilities and reasoning
+Still, something caught my attention recently, and I wanted to get the thought down.
 
-The path to AGI involves several challenges:
-1. Understanding vs. Pattern Matching
-2. Reasoning and Logic
-3. Consciousness and Self-awareness
-4. Generalization across domains
+**Tuning the Parameters, Sampling the Truth**
 
-As we work on India's first Telugu LLM, these lessons guide our approach to creating culturally grounded AI systems.`,
+LLMs generate responses by sampling from a probability distribution over the next token. That sampling can be shaped using two key parameters:
+
+- Temperature: Controls randomness. Lower = more deterministic. Higher = more exploratory.
+- Top-p (nucleus sampling): Restricts sampling to a dynamic shortlist of tokens whose cumulative probability crosses a threshold (like 0.9).
+
+Most models—especially closed ones—lock these to default values optimized for perceived coherence. But "coherent" doesn't always mean accurate, and I don't think there's a one-size-fits-all value for either of these parameters.
+
+So I started wondering—what if we didn't treat those values as fixed?
+
+**The Thought: Generate, Score, Select**
+
+Instead of answering with a single response at a fixed top-p and temperature, imagine this:
+
+1. Generate multiple outputs for the same prompt (say, 10).
+2. Vary temperature and top-p slightly for each one. Not dramatically—just enough to nudge different edges of the model's response spectrum.
+3. Run each output through evaluation tools: something like a perplexity filter, a semantic fact-checker, or even an internal critic model.
+4. Return the best-scoring result—based not just on fluency, but factual grounding or internal consistency.
+
+Is this compute-intensive? Absolutely. But it might also help surface more reliable outputs in certain contexts—especially ones where hallucinations carry a higher cost.
+
+**Yes, It's Expensive (For Now)**
+
+This kind of multi-sample, score-and-select approach isn't feasible at scale right now. GPU time is costly, and energy constraints make things worse. But that bottleneck won't last forever. With growing attention on nuclear fusion, renewable resources, and more efficient compute architectures, it's possible we'll see a shift in what's affordable to run in real time.
+
+If the cost of compute drops—or the value of high-confidence outputs rises—this method might start to look less ridiculous and more like a viable direction.
+
+**A Quick Reality Check**
+
+Is this idea already out there? Maybe. It feels obvious enough that someone's likely thought about it or even implemented a variant of it in internal eval systems. But that doesn't really matter here. What matters is the reasoning path that led to this thought—and the realization that accuracy isn't just about improving models, but also how we sample from them.
+
+**Postscript**
+
+This isn't a proposal, or a whitepaper, or even a serious recommendation. It's just a piece of mental scratchwork. A reminder that sometimes even small changes—like treating parameters as levers instead of constants—can open up whole new ways of thinking.`,
       author: "Bharath K",
-      publishDate: "2024-12-15",
-      readTime: "8 min read",
-      category: "Generative AI",
-      tags: ["LLM", "AGI", "GPT", "AI Research"],
+      publishDate: "2024-12-20",
+      readTime: "6 min read",
+      category: "AI Research",
+      tags: ["LLM", "Hallucinations", "Sampling", "AI Safety", "Research"],
       featured: true
     },
     {
@@ -285,7 +308,7 @@ The future of education lies in thoughtful integration of AI technologies that s
                     key={tag}
                     className="bg-gray-200 text-gray-800 px-2 py-1 text-xs border border-gray-400"
                   >
-                    #{tag}
+                    {tag}
                   </span>
                 ))}
               </div>
@@ -364,7 +387,7 @@ The future of education lies in thoughtful integration of AI technologies that s
                   key={tag}
                   className="bg-gray-200 text-gray-700 px-2 py-1 text-xs border border-gray-400"
                 >
-                  #{tag}
+                  {tag}
                 </span>
               ))}
             </div>
