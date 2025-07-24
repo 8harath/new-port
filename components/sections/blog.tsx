@@ -294,7 +294,7 @@ This isn't a proposal, or a whitepaper, or even a serious recommendation. It's j
             placeholder="Search blog posts..."
             value={searchQuery}
             onChange={handleSearch}
-            className="w-full pl-10 pr-4 py-3 border-2 border-gray-800 bg-amber-50 text-gray-900 font-mono focus:bg-white focus:border-amber-600 transition-all duration-300 outline-none"
+            className="w-full pl-10 pr-4 py-3 border-2 border-gray-800 bg-gradient-to-r from-gray-100 via-white to-gray-50 text-gray-900 font-mono focus:bg-white focus:border-gray-600 transition-all duration-300 outline-none"
             style={{
               boxShadow: 'inset 2px 2px 4px rgba(0, 0, 0, 0.1)'
             }}
@@ -306,9 +306,9 @@ This isn't a proposal, or a whitepaper, or even a serious recommendation. It's j
       <div className="space-y-3">
         {filteredPosts.map((post) => (
           <div key={post.id} className="group cursor-pointer" onClick={() => handleReadPost(post)}>
-            <div className="flex items-center justify-between py-3 px-4 border-b border-gray-300 hover:bg-amber-50 transition-colors duration-200">
+            <div className="flex items-center justify-between py-3 px-4 border-b border-gray-300 hover:bg-gradient-to-r hover:from-gray-100 hover:via-gray-50 hover:to-white transition-all duration-200">
               <div className="flex-1">
-                <h3 className="font-bold text-lg text-gray-900 group-hover:text-amber-800 transition-colors duration-200">
+                <h3 className="font-bold text-lg text-gray-900 group-hover:text-gray-700 transition-colors duration-200">
                   {post.title}
                 </h3>
                 <div className="flex items-center gap-4 text-sm text-gray-600 mt-1">
@@ -322,7 +322,7 @@ This isn't a proposal, or a whitepaper, or even a serious recommendation. It's j
                   </div>
                 </div>
               </div>
-              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-amber-600 transition-colors duration-200" />
+              <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-gray-600 transition-colors duration-200" />
             </div>
           </div>
         ))}
