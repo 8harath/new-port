@@ -176,7 +176,7 @@ Is this idea already out there? Maybe. It feels obvious enough that someone's li
 This isn't a proposal, or a whitepaper, or even a serious recommendation. It's just a piece of mental scratchwork. A reminder that sometimes even small changes—like treating parameters as levers instead of constants—can open up whole new ways of thinking.`,
       author: "Bharath K",
       publishDate: "2025-07-19",
-      readTime: "6 min read",
+      readTime: "2 min read",
       category: "AI Research",
       tags: ["LLM", "Hallucinations", "Sampling", "AI Safety", "Research"],
       featured: true
