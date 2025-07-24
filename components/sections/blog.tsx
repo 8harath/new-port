@@ -124,7 +124,7 @@ It might sound crazy now, just like a lot of today's successful people would hav
 Anyway, that's what I've been thinking about. Still working through all this, but I figured it was worth sharing. What do you think comes next?`,
       author: "Bharath K",
       publishDate: "2025-07-25",
-      readTime: "8 min read",
+      readTime: "6 min read",
       category: "Social Commentary",
       tags: ["Meritocracy", "Society", "Economics", "History", "Future Trends"],
       featured: true
