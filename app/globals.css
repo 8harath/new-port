@@ -255,12 +255,12 @@ body {
            transition-all duration-700 ease-out overflow-hidden cursor-pointer;
     background: linear-gradient(45deg, 
       hsla(var(--background), 0.9) 0%, 
-      hsla(var(--primary), 0.05) 25%,
-      hsla(var(--accent), 0.1) 50%, 
-      hsla(var(--secondary), 0.05) 75%,
+      hsla(var(--muted), 0.5) 25%,
+      hsla(var(--surface), 0.8) 50%, 
+      hsla(var(--muted), 0.5) 75%,
       hsla(var(--background), 0.9) 100%);
     background-size: 200% 200%;
-    animation: consciousnessFlow 8s ease-in-out infinite;
+    animation: gradient-shift 8s ease-in-out infinite;
     box-shadow: 0 4px 15px hsla(var(--primary), 0.2);
     position: relative;
   }
@@ -401,29 +401,39 @@ body {
 
 /* Custom Scrollbar Styling */
 @layer utilities {
+  /* Image black and white filter */
+  img {
+    filter: grayscale(100%) contrast(1.1) brightness(1.05);
+    transition: filter 0.3s ease;
+  }
+  
+  img:hover {
+    filter: grayscale(100%) contrast(1.2) brightness(1.1);
+  }
+
   /* For Webkit browsers (Chrome, Safari) */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: #FFFAEB;
+    background: #f4f4f5;
     border-radius: 4px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #FF8205;
+    background: #52525b;
     border-radius: 4px;
-    border: 2px solid #FFFAEB;
+    border: 2px solid #f4f4f5;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #FA520F;
+    background: #3f3f46;
   }
   /* For Firefox */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #FF8205 #FFFAEB;
+    scrollbar-color: #52525b #f4f4f5;
   }
 }
 

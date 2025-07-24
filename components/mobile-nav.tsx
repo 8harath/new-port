@@ -26,7 +26,7 @@ export default function MobileNav({ activeSection, setActiveSection }: MobileNav
             <button
               onClick={() => setActiveSection(item.id)}
               className={`w-full h-full flex items-center justify-center transition-colors ${
-                activeSection === item.id ? "text-amber-600" : "text-gray-600 hover:text-gray-900"
+                activeSection === item.id ? "text-gray-800 font-bold" : "text-gray-600 hover:text-gray-900"
               }`}
               aria-label={item.label}
             >
