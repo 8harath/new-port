@@ -25,7 +25,7 @@ export default function Blog() {
   const blogPosts: BlogPost[] = [
     {
       id: 2,
-      title: "The Evolution of Meritocracy: From Strength to Attention - A Journey Through Social Rewards",
+      title: "The Evolution of Meritocracy: From Strength to Attention",
       excerpt: "Exploring how society's definition of 'merit' has evolved through five distinct stages - from physical strength to attention economy - and what might come next.",
       content: `So I've been thinking about this for a while now, and it's honestly been bugging me. You know how some people were probably killing it 800 years ago, like they were the most respected, smartest people in their community? But if they were doing the exact same thing today, nobody would care. And then it works the other way too - there are people today making millions doing stuff that would've been considered totally pointless back then.
 
