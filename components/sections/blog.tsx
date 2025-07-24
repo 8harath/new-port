@@ -320,11 +320,6 @@ This isn't a proposal, or a whitepaper, or even a serious recommendation. It's j
                     <Clock className="w-3 h-3" />
                     {post.readTime}
                   </div>
-                  {post.featured && (
-                    <span className="inline-block bg-amber-200 text-amber-800 px-2 py-1 text-xs font-bold rounded">
-                      ★ Featured
-                    </span>
-                  )}
                 </div>
               </div>
               <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-amber-600 transition-colors duration-200" />
