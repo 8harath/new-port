@@ -24,6 +24,112 @@ export default function Blog() {
   // Blog posts data
   const blogPosts: BlogPost[] = [
     {
+      id: 2,
+      title: "The Evolution of Meritocracy: From Strength to Attention - A Journey Through Social Rewards",
+      excerpt: "Exploring how society's definition of 'merit' has evolved through five distinct stages - from physical strength to attention economy - and what might come next.",
+      content: `So I've been thinking about this for a while now, and it's honestly been bugging me. You know how some people were probably killing it 800 years ago, like they were the most respected, smartest people in their community? But if they were doing the exact same thing today, nobody would care. And then it works the other way too - there are people today making millions doing stuff that would've been considered totally pointless back then.
+
+This whole thing got me wondering: how exactly does society decide who deserves what? Like, who gets the money, the respect, the whole package?
+
+**What I Mean by Meritocracy**
+
+Let me just clarify what I'm talking about here. When I say meritocracy, I'm basically talking about how society rewards people - you know, with money, respect, status, all that good stuff. But here's the crazy part: what society thinks is "worthy" of rewards has completely flipped over time.
+
+Think about it this way - if you could time travel and bring someone from 800 years ago to today, they'd be completely lost about why certain people are successful. And if we went back there, we'd probably be just as confused.
+
+**The Stages I've Been Thinking About**
+
+I've been trying to figure out the pattern here, and I think there are roughly 5 stages to this whole thing. I'm still working through this idea, so bear with me.
+
+**Stage 1: It Was All About Being Strong**
+
+Way back in the day, if you were the strongest person in your community, you basically had it made. I'm talking about when people lived in small tribes and communities. If you could fight the best, hunt the best, protect everyone - boom, you got the best food, the best shelter, and yeah, probably your pick of partners too.
+
+Makes sense, right? When survival was literally about not getting eaten by wild animals or killed by other tribes, being physically strong was actually useful. The community needed you, so they took care of you.
+
+**Stage 2: It Became About Who You Knew**
+
+As things got more complicated, just being strong wasn't enough anymore. You needed to be able to talk to people, make deals, build alliances. The person who could get different groups to work together, who could smooth over conflicts - they started getting the rewards.
+
+This is when politics really started becoming a thing. Being able to influence people and build networks became more valuable than just being able to punch hard.
+
+**Stage 3: Money Started Talking**
+
+Then we hit the point where it was all about wealth. Farmers who could grow tons of food, merchants who could trade stuff, craftspeople making valuable things - they became the new VIPs.
+
+And here's where it gets interesting: once you had money, you could get more money. Better tools, better education, better opportunities. It became this whole cycle where the rich got richer, and they stayed at the top.
+
+**Stage 4: Knowledge Became King**
+
+Fast forward to the industrial revolution and beyond - suddenly it was all about what you knew. Scientists, engineers, doctors, all the "smart" jobs became the golden tickets. If you had specialized knowledge or could innovate, society would reward you big time.
+
+This is when everyone started obsessing over education and degrees. Your knowledge basically became your currency.
+
+**Stage 5: Welcome to the Attention Economy**
+
+And now? Now we're living in the weirdest stage yet - it's all about attention.
+
+Here's what's crazy: there are researchers out there making groundbreaking discoveries that could literally change the world, and they're making way less money than people who... well, let's just say people who are really good at getting views and followers.
+
+I'm not saying this is good or bad, it's just what's happening. Society is currently rewarding the ability to grab and keep people's attention more than almost anything else.
+
+**The Whole Entertainment Thing**
+
+This attention economy thing really shows up when you look at entertainers. Back in the day, if you were a dancer, singer, or actor, you were basically there to entertain the rich people. You were like... the hired help for their parties. The wealthy farmers and merchants would pay you to perform, but you were totally dependent on them.
+
+Now? The entertainers ARE the wealthy ones. They don't need patrons anymore - they have millions of followers who pay attention to them, and that attention translates into serious money.
+
+It's wild when you think about it. The whole power structure just flipped.
+
+**Why Does This Keep Changing?**
+
+So what's driving all these shifts? A few things, I think:
+
+Technology keeps changing everything. The internet and social media basically let anyone reach millions of people instantly. That's never been possible before in human history.
+
+The economy keeps evolving too. We went from farming to factories to services, and now to this attention-based thing. Whatever generates economic value gets rewarded.
+
+And honestly, people's behavior changes. We consume different stuff now. We want entertainment, information, experiences. So naturally, the people providing that stuff get rewarded.
+
+**What's Coming Next?**
+
+Here's where it gets really interesting. If we can figure out what comes after this attention thing, we could potentially get ahead of the curve. I'm not saying attention is going away anytime soon - it's probably going to stick around for a while. But there's definitely going to be something after it.
+
+Maybe it'll be about building real trust and authentic connections, since so much online content feels fake now. Or maybe it'll be about actually solving big problems like climate change and inequality. Or it could be something totally different that we can't even imagine yet.
+
+The point is, whatever it is will probably seem weird at first. Just like how making videos or streaming games seemed pointless to older generations, but now people make millions doing it.
+
+**What This Means for Us**
+
+Understanding this pattern is actually pretty useful:
+
+Don't just follow what everyone else is doing right now. Try to think about what skills might be valuable in the next phase.
+
+Focus on being adaptable rather than just optimizing for today's system. The rules keep changing, so the ability to change with them is probably the most valuable skill.
+
+Keep an eye on where society might be heading next. There's probably money to be made in whatever the next big shift is.
+
+And remember that the current system isn't permanent. Just because something is rewarded today doesn't mean it always will be.
+
+**The Bottom Line**
+
+Look, I'm still figuring this all out, and I'm not pretending to have all the answers. But I think there's something here worth thinking about.
+
+The way society decides who gets rewarded has changed dramatically throughout history, and it's going to keep changing. Physical strength gave way to influence, then wealth, then knowledge, and now attention. Something else is coming next.
+
+The people who figure out what that "something else" is going to be - and get good at it early - those are probably going to be the ones society rewards in the future.
+
+It might sound crazy now, just like a lot of today's successful people would have seemed crazy to previous generations. But that's kind of the whole point. The definition of "merit" keeps evolving, and the early adopters of each new phase tend to do pretty well for themselves.
+
+Anyway, that's what I've been thinking about. Still working through all this, but I figured it was worth sharing. What do you think comes next?`,
+      author: "Bharath K",
+      publishDate: "2025-07-25",
+      readTime: "8 min read",
+      category: "Social Commentary",
+      tags: ["Meritocracy", "Society", "Economics", "History", "Future Trends"],
+      featured: true
+    },
+    {
       id: 1,
       title: "A Hallucination Filter Idea That Might Not Scale—Yet",
       excerpt: "Exploring a potential approach to reduce LLM hallucinations through multi-sampling and evaluation, considering the compute costs and future possibilities.",
@@ -69,7 +175,7 @@ Is this idea already out there? Maybe. It feels obvious enough that someone's li
 
 This isn't a proposal, or a whitepaper, or even a serious recommendation. It's just a piece of mental scratchwork. A reminder that sometimes even small changes—like treating parameters as levers instead of constants—can open up whole new ways of thinking.`,
       author: "Bharath K",
-      publishDate: "2024-12-20",
+      publishDate: "2025-07-19",
       readTime: "6 min read",
       category: "AI Research",
       tags: ["LLM", "Hallucinations", "Sampling", "AI Safety", "Research"],
