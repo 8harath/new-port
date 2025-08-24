@@ -34,25 +34,25 @@ export function ObfuscatedEmail({ className = "" }: ObfuscatedEmailProps) {
       <div className="flex items-center gap-2 mb-3">
         <Mail className="w-4 h-4" />
         <span className="font-bold">Email Address</span>
-        <Code2 className="w-4 h-4 text-gray-700" />
+        <Code2 className="w-4 h-4 text-amber-600" />
       </div>
       
       <div className="space-y-3">
         {/* Code Block Style */}
-        <div className="border-2 border-gray-800 bg-gray-900 text-gray-100 p-3 font-mono text-sm">
+        <div className="border-2 border-gray-800 bg-gray-900 text-green-400 p-3 font-mono text-sm">
           <div className="text-gray-500 mb-2">// Decode to contact me:</div>
           <div className="space-y-1">
             <div>
-              <span className="text-gray-300">const</span>{" "}
-              <span className="text-gray-100">x</span>{" "}
+              <span className="text-blue-300">const</span>{" "}
+              <span className="text-yellow-300">x</span>{" "}
               <span className="text-white">=</span>{" "}
-              <span className="text-gray-200">"{emailParts.x}"</span>
+              <span className="text-red-300">"{emailParts.x}"</span>
             </div>
             <div>
-              <span className="text-gray-300">const</span>{" "}
-              <span className="text-gray-100">y</span>{" "}
+              <span className="text-blue-300">const</span>{" "}
+              <span className="text-yellow-300">y</span>{" "}
               <span className="text-white">=</span>{" "}
-              <span className="text-gray-200">"{emailParts.y}"</span>
+              <span className="text-red-300">"{emailParts.y}"</span>
             </div>
             <div className="text-gray-400">
               // Email: x.y@{emailParts.domain}
@@ -75,7 +75,7 @@ export function ObfuscatedEmail({ className = "" }: ObfuscatedEmailProps) {
             className="retro-button px-3 flex items-center justify-center"
             title="Copy to clipboard"
           >
-            {copied ? <Check className="w-4 h-4 text-gray-800" /> : <Copy className="w-4 h-4" />}
+            {copied ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
           </button>
         </div>
         
@@ -92,7 +92,7 @@ export function ObfuscatedEmail({ className = "" }: ObfuscatedEmailProps) {
         )}
         
         {copied && (
-          <div className="bg-gradient-to-r from-gray-200 via-gray-100 to-white border-2 border-gray-600 p-2 text-center text-sm">
+          <div className="bg-green-100 border-2 border-green-600 p-2 text-center text-sm">
             ✅ Email copied to clipboard!
           </div>
         )}
@@ -114,7 +114,7 @@ export function CreativeEmailDisplay({ className = "" }: ObfuscatedEmailProps) {
           y = k
         </span>
       </div>
-      <div className="font-mono text-gray-800 font-bold">
+      <div className="font-mono text-blue-600 font-bold">
         x.y@gmail.com
       </div>
     </div>
@@ -135,15 +135,15 @@ export default function ContactMethodSelector() {
           <h4 className="font-bold mb-3">Alternative Contact Methods</h4>
           <div className="space-y-3 text-sm">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-gray-800 rounded-full"></span>
+              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
               <span>LinkedIn Direct Message</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-gray-600 rounded-full"></span>
+              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
               <span>GitHub Issues/Discussions</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-gray-400 rounded-full"></span>
+              <span className="w-2 h-2 bg-orange-500 rounded-full"></span>
               <span>Contact Form Above</span>
             </div>
           </div>

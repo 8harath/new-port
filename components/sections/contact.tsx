@@ -177,11 +177,11 @@ export default function Contact() {
             </button>
 
             {status === "success" && (
-              <div className="bg-gradient-to-r from-gray-200 via-gray-100 to-white border border-gray-600 p-2 text-center">Message sent successfully!</div>
+              <div className="bg-green-100 border border-green-600 p-2 text-center">Message sent successfully!</div>
             )}
 
             {status === "error" && (
-              <div className="bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100 border border-gray-700 p-2 text-center">
+              <div className="bg-red-100 border border-red-600 p-2 text-center">
                 Failed to send message. Please try again.
               </div>
             )}

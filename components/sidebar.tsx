@@ -51,7 +51,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
         </>
       )}      <div className="p-4 border-b-2 border-gray-400 flex justify-between items-center relative">
         {collapsed && (
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-200/50 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-amber-100/30 pointer-events-none" />
         )}
         <Image
           src="/android-chrome-192x192.png"
@@ -79,7 +79,7 @@ export default function Sidebar({ activeSection, setActiveSection, collapsed, to
               <button
                 onClick={() => setActiveSection(item.id)}
                 className={`w-full text-left retro-button flex items-center group relative ${
-                  activeSection === item.id ? "bg-gradient-to-r from-gray-300 via-gray-200 to-gray-100" : ""
+                  activeSection === item.id ? "bg-amber-200" : ""
                 } ${collapsed ? "justify-center" : "justify-start"}`}
                 aria-label={item.label}
                 title={collapsed ? item.label : undefined}

@@ -53,7 +53,7 @@ export default function Modal({ isOpen, onClose, title, children }: ModalProps) 
 
       {/* Modal content */}
       <div
-        className={`relative w-full max-w-4xl max-h-[80vh] overflow-auto custom-scrollbar bg-gradient-to-br from-gray-100 via-white to-gray-200 border-2 border-gray-800 p-6 transition-all duration-300 transform ${
+        className={`relative w-full max-w-4xl max-h-[80vh] overflow-auto custom-scrollbar bg-amber-50 border-2 border-gray-800 p-6 transition-all duration-300 transform ${
           isAnimating ? "scale-100 opacity-100" : "scale-95 opacity-0"
         }`}
       >
