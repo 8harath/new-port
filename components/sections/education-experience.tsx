@@ -113,40 +113,40 @@ export default function EducationExperience() {
       company: "Indian Institute of Technology, Tirupati",
       role: "STAR-PNT Summer Research Intern",
       period: "Jul 2025 - Present",
-      description: "Engaged in research and development activities at the intersection of satellite navigation, embedded systems, and signal intelligence through the prestigious STAR-PNT Summer Internship Program.",
-      details: {
-        fullDescription:
-          "As a selected intern for the prestigious STAR-PNT Summer Internship Program, I am engaged in research and development activities at the intersection of satellite navigation, embedded systems, and signal intelligence. The program is hosted by IIT Tirupati and facilitated by JAIN (Deemed-to-be University), with guidance from leading faculty in the field of Positioning, Navigation, and Tracking (PNT) systems.",
-        responsibilities: [
-          "Conducting research on satellite navigation systems and signal processing techniques",
-          "Developing embedded systems solutions for PNT applications",
-          "Analyzing signal intelligence data and implementing processing algorithms",
-          "Collaborating with faculty and research teams on cutting-edge navigation technologies",
-          "Contributing to research publications and technical documentation",
-          "Participating in hands-on laboratory experiments and field testing"
-        ],
-        technologies: ["Satellite Navigation", "Embedded Systems", "Signal Processing", "MATLAB", "Python", "C/C++", "GNSS", "Signal Intelligence"],
-        achievements: [
-          "Selected for the highly competitive STAR-PNT Summer Internship Program",
-          "Working directly with leading faculty in PNT systems research",
-          "Contributing to advanced research in satellite navigation and signal intelligence",
-          "Gaining hands-on experience with state-of-the-art navigation technologies"
-        ],
-        impact:
-          "Contributing to the advancement of satellite navigation technologies and signal intelligence systems that have applications in defense, aerospace, and civilian navigation systems. The research contributes to India's strategic capabilities in positioning and navigation technologies.",
-        keywords: [
-          "STAR-PNT internship",
-          "IIT Tirupati research",
-          "satellite navigation research",
-          "embedded systems development",
-          "signal intelligence",
-          "PNT systems",
-          "GNSS research",
-          "navigation technology",
-          "signal processing research",
-          "aerospace engineering"
-        ]
-      },
+        description: "Currently working on a scaled-down prototype of a car crash detection system as part of my internship with IIT Tirupati. The idea is to simulate crash detection using sensors like MPU6050 (accelerometer + gyroscope), vibration sensor, and ESP32 for IoT integration. When a crash is detected, the system communicates with a smartphone via Bluetooth, which then acts as an MQTT publisher to send alerts to subscribers (like hospitals or police) through a local broker. I’ve also built an Android app in Android Studio to handle publishing/subscribing of these alerts. For location tracking, I’m using NAVIC (India’s alternative to GPS) to get precise coordinates.",
+        details: {
+          fullDescription:
+            "Currently working on a scaled-down prototype of a car crash detection system as part of my internship with IIT Tirupati. The idea is to simulate crash detection using sensors like MPU6050 (accelerometer + gyroscope), vibration sensor, and ESP32 for IoT integration. When a crash is detected, the system communicates with a smartphone via Bluetooth, which then acts as an MQTT publisher to send alerts to subscribers (like hospitals or police) through a local broker. I’ve also built an Android app in Android Studio to handle publishing/subscribing of these alerts. For location tracking, I’m using NAVIC (India’s alternative to GPS) to get precise coordinates.",
+          responsibilities: [
+            "Prototyping a car crash detection system using MPU6050, vibration sensor, and ESP32",
+            "Integrating IoT sensors and Bluetooth communication for crash event detection",
+            "Developing an Android app in Android Studio for MQTT-based alert publishing/subscribing",
+            "Implementing local MQTT broker communication for real-time alerting to hospitals and police",
+            "Utilizing NAVIC for precise location tracking during crash events",
+            "Testing and simulating crash scenarios for system validation"
+          ],
+          technologies: ["MPU6050", "Vibration Sensor", "ESP32", "Bluetooth", "MQTT", "Android Studio", "NAVIC", "IoT"],
+          achievements: [
+            "Developed a working prototype for crash detection and alerting",
+            "Built an Android app for MQTT-based alert management",
+            "Integrated NAVIC for accurate location tracking",
+            "Simulated crash scenarios and validated system response"
+          ],
+          impact:
+            "The project aims to improve emergency response times by automating crash detection and alerting, potentially saving lives through rapid communication with hospitals and police. The use of NAVIC enhances location accuracy for emergency services.",
+          keywords: [
+            "car crash detection",
+            "IIT Tirupati internship",
+            "IoT sensors",
+            "MPU6050",
+            "ESP32",
+            "Bluetooth communication",
+            "MQTT alerts",
+            "Android app development",
+            "NAVIC location tracking",
+            "emergency response"
+          ]
+        },
     },
     {
       id: "vishvam-ai",
